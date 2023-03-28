@@ -1,9 +1,11 @@
 # melonJS ES6 Webpack Boilerplate
+
 ![melonJS Logo](https://github.com/melonjs/melonJS/raw/master/media/Banner/Banner%20-%20Billboard%20-%20Original%20Logo%20-%20horizontal.png)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/melonjs/es6-boilerplate/blob/master/LICENSE)
 
 A simple ES6 Webpack based boilerplate to create games with [melonJS](https://github.com/melonjs/melonJS), built with :
+
 - [melonJS 2](https://github.com/melonjs/melonJS)
 - [ECMAScript 6](http://es6-features.org) structure and semantic
 - [Webpack](https://webpack.js.org/guides)
@@ -65,18 +67,20 @@ public
 - `public`
   - where the production-ready build files will be copied/generated when using `npm run build`
 
-Debug plugin
--------------------------------------------------------------------------------
+## Debug plugin
+
 The boilerplate include the melonJS plugin, and will automatically import and instantiate it when running under a development environement.
 
 the Debug Panel is hidden by default and can be displayed using the "S" key, see [here](https://github.com/melonjs/debug-plugin/blob/main/README.md) for more details about the plugin.
 
+## Questions, need help ?
 
-Questions, need help ?
--------------------------------------------------------------------------------
 If you need technical support, you can contact us through the following channels :
-* Forums: with melonJS 2 we moved to a new discourse [forum](https://melonjs.discourse.group), but we can still also find the previous one [here](http://www.html5gamedevs.com/forum/32-melonjs/)
-* Chat: come and chat with us on [discord](https://discord.gg/aur7JMk), or [gitter](https://gitter.im/melonjs/public)
-* we tried to keep our [wikipage](https://github.com/melonjs/melonJS/wiki) up-to-date with useful links, tutorials, and anything related melonJS.
+
+- Forums: with melonJS 2 we moved to a new discourse [forum](https://melonjs.discourse.group), but we can still also find the previous one [here](http://www.html5gamedevs.com/forum/32-melonjs/)
+- Chat: come and chat with us on [discord](https://discord.gg/aur7JMk), or [gitter](https://gitter.im/melonjs/public)
+- we tried to keep our [wikipage](https://github.com/melonjs/melonJS/wiki) up-to-date with useful links, tutorials, and anything related melonJS.
+
 # gardenAdventures
+
 # gardenAdventures

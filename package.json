@@ -35,7 +35,8 @@
   "scripts": {
     "dev": "webpack-dev-server --mode=development --config webpack.config.ts",
     "build": "webpack --mode=production --config webpack.config.ts",
-    "lint": "npx eslint"
+    "lint": "npx eslint",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@melonjs/debug-plugin": "^14.4.7",
