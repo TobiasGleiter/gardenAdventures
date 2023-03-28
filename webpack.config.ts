@@ -1,8 +1,10 @@
+//@ts-nocheck
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const path = require('path');
 const fs = require("fs");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 require("@babel/register");
 
 module.exports = {
@@ -77,6 +79,7 @@ module.exports = {
 				},
 			},
 		}),
+		new ESLintPlugin(),
 	],
 	resolve: {
 		modules: [path.resolve("./src"), path.resolve("./node_modules")],

@@ -7,15 +7,24 @@
   "devDependencies": {
     "@babel/cli": "^7.21.0",
     "@babel/core": "^7.21.3",
+    "@babel/eslint-parser": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-typescript": "^7.21.0",
     "@babel/register": "^7.21.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
     "babel-loader": "^9.1.2",
     "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^8.36.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-webpack-plugin": "^2.7.0",
     "favicons": "^7.1.1",
     "favicons-webpack-plugin": "^6.0.0",
     "fs": "^0.0.1-security",
     "html-webpack-plugin": "^5.5.0",
+    "prettier": "^2.8.7",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.2",
     "webpack": "^5.76.2",
@@ -24,8 +33,9 @@
   },
   "browserslist": "defaults",
   "scripts": {
-    "dev": "webpack-dev-server --mode=development --config webpack.config.js",
-    "build": "webpack --mode=production --config webpack.config.js"
+    "dev": "webpack-dev-server --mode=development --config webpack.config.ts",
+    "build": "webpack --mode=production --config webpack.config.ts",
+    "lint": "npx eslint"
   },
   "dependencies": {
     "@melonjs/debug-plugin": "^14.4.7",

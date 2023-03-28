@@ -12,11 +12,11 @@ import {
 
 import 'index.css';
 
-import TitleScreen from 'js/stage/title.js';
-import PlayScreen from 'js/stage/play.js';
-import PlayerEntity from 'js/renderables/player.js';
+import TitleScreen from 'js/stage/title.ts';
+import PlayScreen from 'js/stage/play.ts';
+import PlayerEntity from 'js/renderables/player.ts';
 
-import DataManifest from 'manifest.js';
+import DataManifest from 'manifest.ts';
 
 
 device.onReady(() => {

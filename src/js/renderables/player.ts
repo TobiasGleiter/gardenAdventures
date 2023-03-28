@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { Entity } from 'melonjs';
 
 class PlayerEntity extends Entity {
@@ -28,6 +29,6 @@ class PlayerEntity extends Entity {
         // Make all other objects solid
         return true;
     }
-};
+}
 
 export default PlayerEntity;

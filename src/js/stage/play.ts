@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { Stage, game, ColorLayer, BitmapText  } from 'melonjs';
 
 class PlayScreen extends Stage {
@@ -17,6 +18,6 @@ class PlayScreen extends Stage {
             text : "Hello World !"
         }));
     }
-};
+}
 
 export default PlayScreen;
