@@ -6,7 +6,7 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 require("@babel/register");
 
 module.exports = {
-	entry: "./src/index.js",
+	entry: "./src/index.ts",
 	output: {
 		path: __dirname + "/public",
 		filename: "bundle.js",
@@ -14,13 +14,13 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.js$/,
+				test: /\.(js|jsx|tsx|ts)$/,
 				exclude: /node_modules/,
 				use: {
 					loader: "babel-loader",
 					options: {
 						generatorOpts: { compact: false },
-						presets: ["@babel/preset-env"],
+						presets: ["@babel/preset-env", "@babel/preset-typescript"],
 					},
 				},
 			},
@@ -80,6 +80,7 @@ module.exports = {
 	],
 	resolve: {
 		modules: [path.resolve("./src"), path.resolve("./node_modules")],
+		extensions: ["*", ".js", ".jsx", ".tsx", ".ts"]
 	},
 	performance: {
 		hints: false,
