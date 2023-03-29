@@ -1,5 +1,6 @@
 //@ts-nocheck
-import { Stage, game, ColorLayer, BitmapText } from 'melonjs';
+// ts no check because game.world.addChild throws an error.
+import { BitmapText, ColorLayer, game, Stage } from 'melonjs';
 
 class PlayScreen extends Stage {
   /**

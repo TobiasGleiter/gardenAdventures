@@ -1,20 +1,20 @@
 //@ts-nocheck
 import {
   audio,
-  loader,
-  state,
   device,
-  video,
-  utils,
+  loader,
   plugin,
   pool,
+  state,
+  utils,
+  video,
 } from 'melonjs';
 
 import 'index.css';
 
-import TitleScreen from 'js/stage/title.ts';
+import PlayerEntity from 'js/renderables/player.js';
 import PlayScreen from 'js/stage/play.ts';
-import PlayerEntity from 'js/renderables/player.ts';
+import TitleScreen from 'js/stage/title.ts';
 
 import DataManifest from 'manifest.ts';
 
