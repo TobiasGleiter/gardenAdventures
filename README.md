@@ -6,7 +6,7 @@ Description of the game here...
 
 ## Prerequisites
 
-Ensure you have [Node.js](http://nodejs.org/) >= 19.8.1 installed, then clone the repository and run:
+Ensure you have [Node.js](http://nodejs.org/) >= 19.8.1 installed, then clone the repository, `cd gardenAdventures` and run:
 
     $ [sudo] npm install
 
