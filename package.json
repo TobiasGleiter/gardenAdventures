@@ -31,6 +31,7 @@
     "favicons-webpack-plugin": "^6.0.0",
     "fs": "^0.0.1-security",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.3",
     "prettier": "^2.8.7",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.2",
@@ -43,7 +44,8 @@
     "dev": "webpack-dev-server --mode=development --config webpack.config.ts",
     "build": "webpack --mode=production --config webpack.config.ts",
     "lint": "npx eslint . --ext .ts --ext .js",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@melonjs/debug-plugin": "^14.4.7",
