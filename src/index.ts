@@ -12,7 +12,7 @@ import {
 
 import 'index.css';
 
-import PlayerEntity from 'js/renderables/player.js';
+import PlayerEntity from 'js/renderables/player.ts';
 import PlayScreen from 'js/stage/play.ts';
 import TitleScreen from 'js/stage/title.ts';
 
