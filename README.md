@@ -4,20 +4,6 @@
 
 Description of the game here...
 
-## melonJS ES6 Webpack Boilerplate from melonjs
-
-A simple ES6 Webpack based boilerplate to create games with [melonJS](https://github.com/melonjs/melonJS), built with :
-
-- [melonJS 2](https://github.com/melonjs/melonJS)
-- [ECMAScript 6](http://es6-features.org) structure and semantic
-- [Webpack](https://webpack.js.org/guides)
-- [Webpack Dev Server](https://github.com/webpack/webpack-dev-server) plugin for local development
-- [Hot Reloading](https://webpack.js.org/concepts/hot-module-replacement) dev server
-- Basic Asset Build [management](https://webpack.js.org/plugins/copy-webpack-plugin/)
-- Minification and Transpiling to ES5 using [Babel](https://babeljs.io/docs/setup/#installation)
-- Favicon support using the [favicons Webpack Plugin](https://www.npmjs.com/package/favicons-webpack-plugin)
-- melonJS [debug plugin](https://github.com/melonjs/debug-plugin) to display stats on number of objects, memory usage, draw time, frame rate, etc...
-
 ## Prerequisites
 
 Ensure you have [Node.js](http://nodejs.org/) installed, then clone the repository and run:
@@ -83,6 +69,20 @@ public
 The boilerplate include the melonJS plugin, and will automatically import and instantiate it when running under a development environement.
 
 the Debug Panel is hidden by default and can be displayed using the "S" key, see [here](https://github.com/melonjs/debug-plugin/blob/main/README.md) for more details about the plugin.
+
+## melonJS ES6 Webpack Boilerplate from melonjs
+
+A simple ES6 Webpack based boilerplate to create games with [melonJS](https://github.com/melonjs/melonJS), built with :
+
+- [melonJS 2](https://github.com/melonjs/melonJS)
+- [ECMAScript 6](http://es6-features.org) structure and semantic
+- [Webpack](https://webpack.js.org/guides)
+- [Webpack Dev Server](https://github.com/webpack/webpack-dev-server) plugin for local development
+- [Hot Reloading](https://webpack.js.org/concepts/hot-module-replacement) dev server
+- Basic Asset Build [management](https://webpack.js.org/plugins/copy-webpack-plugin/)
+- Minification and Transpiling to ES5 using [Babel](https://babeljs.io/docs/setup/#installation)
+- Favicon support using the [favicons Webpack Plugin](https://www.npmjs.com/package/favicons-webpack-plugin)
+- melonJS [debug plugin](https://github.com/melonjs/debug-plugin) to display stats on number of objects, memory usage, draw time, frame rate, etc...
 
 ## Melonjs questions, need help ?
 
