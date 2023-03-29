@@ -26,6 +26,7 @@ device.onReady(() => {
   }
 
   // initialize the debug plugin in development mode.
+  // eslint-disable-next-line no-undef
   if (process.env.NODE_ENV === 'development') {
     import('@melonjs/debug-plugin').then((debugPlugin) => {
       // automatically register the debug panel
