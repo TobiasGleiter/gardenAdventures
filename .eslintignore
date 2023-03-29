@@ -3,3 +3,4 @@
 /src/data
 /src/favicon
 webpack.config.ts
+commitlint.config.js
