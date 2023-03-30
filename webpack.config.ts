@@ -74,10 +74,10 @@ module.exports = {
       mode: 'auto', // optional can be 'webapp', 'light' or 'auto' - 'auto' by default
       devMode: 'webapp', // optional can be 'webapp' or 'light' - 'light' by default
       favicons: {
-        appName: 'melonJS ES6 Boilerplate',
-        appDescription: 'My melonJS ES6 Boilerplate Game',
-        developerName: 'melonJS',
-        developerURL: 'http://www.melonjs.org', // prevent retrieving from the nearest package.json
+        appName: 'Garden Adventures',
+        appDescription: 'Simple jump and run',
+        developerName: 'DHBW Stuttgart INF21B',
+        developerURL: '', // prevent retrieving from the nearest package.json
         icons: {
           coast: false,
           yandex: false,
@@ -85,7 +85,9 @@ module.exports = {
         },
       },
     }),
-    new ESLintPlugin(),
+    new ESLintPlugin({
+      files: ['src/**/*.ts', 'src/**/*.js'],
+    }),
   ],
   resolve: {
     modules: [path.resolve('./src'), path.resolve('./node_modules')],

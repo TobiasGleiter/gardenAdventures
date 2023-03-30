@@ -1,7 +1,7 @@
 {
-  "name": "melonJS ES6 Boilerplate",
-  "short_name": "melonJS ES6 Boilerplate",
-  "description": "My melonJS ES6 Boilerplate Game",
+  "name": "Garden Adventures",
+  "short_name": "Garden Adventures",
+  "description": "Simple jump and run",
   "dir": "auto",
   "lang": "en-US",
   "display": "standalone",

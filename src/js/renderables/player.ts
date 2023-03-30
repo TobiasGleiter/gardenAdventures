@@ -18,7 +18,6 @@ class PlayerEntity extends Entity {
     // call the parent method
     return super.update(dt);
   }
-
   /**
    * colision handler
    * (called when colliding with other objects)
