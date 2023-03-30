@@ -31,8 +31,8 @@ module.exports = {
       'always',
       [
         'build', // build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
-        'chore', // ci: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
-        'ci', // docs: Documentation only changes
+        'chore',
+        'ci', // ci: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
         'docs', // docs: Documentation only changes
         'feat', // feat: A new feature
         'fix', // fix: A bug fix
