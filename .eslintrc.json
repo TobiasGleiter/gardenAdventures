@@ -3,9 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": [
-    "eslint:recommended"
-  ],
+  "extends": ["eslint:recommended"],
   "overrides": [{ "files": ["src/*.ts", "src/*.tsx"] }],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -13,9 +11,7 @@
     "sourceType": "module",
     "allowImportExportEverywhere": true
   },
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }]
   }

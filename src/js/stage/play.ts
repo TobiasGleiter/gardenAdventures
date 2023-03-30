@@ -17,7 +17,7 @@ class PlayScreen extends Stage {
         size: 2.0,
         textBaseline: 'middle',
         textAlign: 'center',
-        text: 'Garden Adventures',
+        text: 'Garden Adventures 1',
       })
     );
   }
