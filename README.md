@@ -4,6 +4,16 @@
 
 Description of the game here...
 
+## Git Workflow
+
+- Als erstes: `git fetch [optional-branch-name]` (aktueller Stand abholen)
+- Git Branch wechsln: `git branch [branch-name]` (Alle branches anzeigen mit `git branch`)
+- Arbeiten in branch
+- Fertig:
+- `git add .` (ganzes Verzeichnis hinzufügen)
+- `git commit -m "[type]: [message]"` (meistens types: feat oder bug)(eslint checkt ob code gut und commitmessage i.O.)
+- `git push`
+
 ## Prerequisites
 
 Ensure you have [Node.js](http://nodejs.org/) >= 19.8.1 installed, then clone the repository, `cd gardenAdventures` and run:

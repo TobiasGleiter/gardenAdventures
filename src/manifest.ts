@@ -1,4 +1,3 @@
-//@ts-nocheck
 // a melonJS data manifest
 // note : this is note a webpack manifest
 const DataManifest = [

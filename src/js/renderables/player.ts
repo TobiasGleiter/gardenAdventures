@@ -22,7 +22,8 @@ class PlayerEntity extends Entity {
    * colision handler
    * (called when colliding with other objects)
    */
-  onCollision(response: any, other: any) {
+
+  onCollision(_response: any, _other: any) {
     // Make all other objects solid
     return true;
   }
