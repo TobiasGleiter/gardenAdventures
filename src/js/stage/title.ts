@@ -1,5 +1,5 @@
-// ts no check because game.world.addChild throws an error.
-import { ColorLayer, game, Stage } from 'melonjs';
+import {ColorLayer, game, Stage, UITextButton} from 'melonjs';
+import UIContainer from "../entities/menu/UIContainer";
 
 class TitleScreen extends Stage {
   /**
@@ -9,6 +9,14 @@ class TitleScreen extends Stage {
     // TODO
     // add a gray background to the default Stage
     game.world.addChild(new ColorLayer('background', '#202020'));
+
+    const panel = new UIContainer(20, 30, 450, 325);
+
+    panel.addChild(new UITextButton(0, 0, {
+      font: 'PressStart2P', text: "hallo"}));
+
+    game.world.addChild(panel, 1);
+
   }
 
   /**

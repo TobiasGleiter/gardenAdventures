@@ -8,7 +8,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 require('@babel/register');
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: './src/index.js',
   output: {
     path: __dirname + '/public',
     filename: 'bundle.js',
