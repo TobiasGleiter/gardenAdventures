@@ -52,7 +52,7 @@ src
 |    ├── renderables
 |    └── stage
 └── types
-├── index.ts
+├── index.js
 ├── index.css
 ├── index.html
 ├── manifest.ts
@@ -64,7 +64,7 @@ public
 
 - `src`
   - the root folder for your game source code
-  - The entry file is [index.js](src/index.ts).
+  - The entry file is [index.js](src/index.js).
   - [index.css](src/index.css) and [index.html](src/index.html) are default templates that can be customized
   - [manifest.js](src/manifest.ts) is a list of asset to be preloaded by melonJS (these won't be automatically imported and bundled by webpack)
 - `src/js`

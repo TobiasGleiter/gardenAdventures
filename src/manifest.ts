@@ -1,16 +1,24 @@
 // a melonJS data manifest
+// import model of data
+import { MData } from './types/dataModel';
+
 // note : this is note a webpack manifest
-const DataManifest = [
-  /* Bitmap Text */
+const DataManifest: MData[] = [
   {
-    name: 'PressStart2P',
+    name: 'area01_level_tiles',
     type: 'image',
-    src: './data/fnt/PressStart2P.png',
+    src: 'data/img/map/area01_level_tiles.png',
   },
   {
-    name: 'PressStart2P',
-    type: 'binary',
-    src: './data/fnt/PressStart2P.fnt',
+    name: 'area01_level_tiles',
+    type: 'tsx',
+    src: 'data/map/area01_level_tiles.tsx',
+  },
+  { name: 'area01', type: 'tmx', src: 'data/map/area01.json' },
+  {
+    name: 'gripe_run_right',
+    type: 'image',
+    src: 'data/img/sprite/gripe_run_right.png',
   },
 ];
 

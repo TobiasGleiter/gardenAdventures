@@ -1,14 +1,10 @@
-// ts no check because game.world.addChild throws an error.
-import { ColorLayer, game, Stage } from 'melonjs';
-
-class TitleScreen extends Stage {
+import * as me from 'melonjs';
+class TitleScreen extends me.Stage {
   /**
    *  action to perform on state change
    */
   onResetEvent() {
     // TODO
-    // add a gray background to the default Stage
-    game.world.addChild(new ColorLayer('background', '#202020'));
   }
 
   /**
