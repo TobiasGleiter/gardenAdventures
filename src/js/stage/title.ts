@@ -1,6 +1,5 @@
-import {ColorLayer, game, Stage, UITextButton} from 'melonjs';
-
-class TitleScreen extends Stage {
+import * as me from 'melonjs';
+class TitleScreen extends me.Stage {
   /**
    *  action to perform on state change
    */
