@@ -1,5 +1,5 @@
 // a melonJS data manifest
-// import model of data
+// import model of data (models can be found in folder types)
 import { MData } from './types/dataModel';
 
 // note : this is note a webpack manifest
