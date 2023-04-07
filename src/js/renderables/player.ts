@@ -24,13 +24,15 @@ class PlayerEntity extends me.Entity {
     this.alwaysUpdate = true;
 
     // define a basic walking animation (using all frames)
-    this.renderable.addAnimation('walk', [2, 3]);
+    this.renderable.addAnimation('run', [0, 1, 2, 3]);
 
     // define a standing animation (using the first frame)
-    this.renderable.addAnimation('stand', [0]);
+    this.renderable.addAnimation('idle', [5, 6]);
+
+    this.renderable.addAnimation('jump', [13, 12, 11, 10]);
 
     // set the standing animation as default
-    this.renderable.setCurrentAnimation('stand');
+    this.renderable.setCurrentAnimation('idle');
   }
 
   /**
@@ -47,8 +49,8 @@ class PlayerEntity extends me.Entity {
       this.renderable.flipX(true);
 
       // change to the walking animation
-      if (!this.renderable.isCurrentAnimation('walk')) {
-        this.renderable.setCurrentAnimation('walk');
+      if (!this.renderable.isCurrentAnimation('run')) {
+        this.renderable.setCurrentAnimation('run');
       }
     } else if (me.input.isKeyPressed('right')) {
       // unflip the sprite
@@ -56,12 +58,12 @@ class PlayerEntity extends me.Entity {
       // update the entity velocity
       this.body.force.x = this.body.maxVel.x;
       // change to the walking animation
-      if (!this.renderable.isCurrentAnimation('walk')) {
-        this.renderable.setCurrentAnimation('walk');
+      if (!this.renderable.isCurrentAnimation('run')) {
+        this.renderable.setCurrentAnimation('run');
       }
     } else {
       // change to the standing animation
-      this.renderable.setCurrentAnimation('stand');
+      this.renderable.setCurrentAnimation('idle');
     }
 
     if (me.input.isKeyPressed('jump')) {
@@ -72,6 +74,12 @@ class PlayerEntity extends me.Entity {
       }
     } else {
       this.body.force.y = 0;
+    }
+
+    if (this.body.jumping || this.body.falling) {
+      if (!this.renderable.isCurrentAnimation('jump')) {
+        this.renderable.setCurrentAnimation('jump');
+      }
     }
 
     return super.update(dt) || this.body.vel.x !== 0 || this.body.vel.y !== 0;
