@@ -14,7 +14,7 @@ class PlayerEntity extends me.Entity {
     this.body.collisionType = me.collision.types.PLAYER_OBJECT;
 
     // max walking & jumping speed
-    this.body.setMaxVelocity(5, 15);
+    this.body.setMaxVelocity(4, 15);
     this.body.setFriction(0.4, 0);
 
     // set the display to follow our position on both axis
@@ -24,12 +24,12 @@ class PlayerEntity extends me.Entity {
     this.alwaysUpdate = true;
 
     // define a basic walking animation (using all frames)
-    this.renderable.addAnimation('run', [0, 1, 2, 3]);
+    this.renderable.addAnimation('run', [5]); // 1-4 geht nicht mehr?!
 
     // define a standing animation (using the first frame)
-    this.renderable.addAnimation('idle', [5, 6]);
+    this.renderable.addAnimation('idle', [5, 5, 5, 5, 5, 5, 6, 6]);
 
-    this.renderable.addAnimation('jump', [13, 12, 11, 10]);
+    this.renderable.addAnimation('jump', [5]); // 10-13 geht nicht mehr?!
 
     // set the standing animation as default
     this.renderable.setCurrentAnimation('idle');
@@ -43,6 +43,7 @@ class PlayerEntity extends me.Entity {
    */
   update(dt: any) {
     if (me.input.isKeyPressed('left')) {
+      console.log('left');
       // update the default force
       this.body.force.x = -this.body.maxVel.x;
       // flip the sprite on horizontal axis
@@ -53,6 +54,7 @@ class PlayerEntity extends me.Entity {
         this.renderable.setCurrentAnimation('run');
       }
     } else if (me.input.isKeyPressed('right')) {
+      console.log('right');
       // unflip the sprite
       this.renderable.flipX(false);
       // update the entity velocity
