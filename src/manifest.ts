@@ -4,6 +4,10 @@ import { MData } from './types/dataModel';
 
 // note : this is note a webpack manifest
 const DataManifest: MData[] = [
+  // game font
+  { name: 'PressStart2P', type: 'image', src: 'data/fnt/PressStart2P.png' },
+  { name: 'PressStart2P', type: 'binary', src: 'data/fnt/PressStart2P.fnt' },
+  // level tiles
   {
     name: 'area01_level_tiles',
     type: 'image',
@@ -14,11 +18,19 @@ const DataManifest: MData[] = [
     type: 'tsx',
     src: 'data/map/area01_level_tiles.tsx',
   },
+  // level map
   { name: 'area01', type: 'tmx', src: 'data/map/area01.json' },
+  // main character png
   {
     name: 'gripe_run_right',
     type: 'image',
     src: 'data/img/sprite/gripe_run_right.png',
+  },
+  // title screen bg image
+  {
+    name: 'title_screen',
+    type: 'image',
+    src: 'data/img/sprite/title_screen.jpg',
   },
 ];
 

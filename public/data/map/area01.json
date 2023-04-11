@@ -18,6 +18,41 @@
          "y":0
         }, 
         {
+         "color":"#00ff00",
+         "draworder":"topdown",
+         "id":3,
+         "name":"mainPlayer",
+         "objects":[
+                {
+                 "height":32,
+                 "id":1,
+                 "name":"mainPlayer",
+                 "properties":[
+                        {
+                         "name":"framewidth",
+                         "type":"string",
+                         "value":"64"
+                        }, 
+                        {
+                         "name":"image",
+                         "type":"string",
+                         "value":"gripe_run_right"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":32.17,
+                 "y":293.246
+                }],
+         "opacity":1,
+         "tintcolor":"#00ff00",
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
          "compression":"",
          "data":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQAAAFIAAABWAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFwAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlAAAAAAAAAAAAAABrAAAAAAAAAAEAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAcAAAAAEAAAAqAAAAKgAAACoAAAAqAAAAKgAAAHkAAAABAAAAAQAAAAEAAAABAAAAAQAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAEAAAABAAAAAQAAAAEAAAABAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAAAQAAAAEAAAABAAAAAQAAAAEAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAABAAAAAQAAAAEAAAABAAAAAQAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAEAAAABAAAAAQAAAAEAAAABAAAA",
          "encoding":"base64",
@@ -59,41 +94,6 @@
                  "y":68.5
                 }],
          "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "color":"#00ff00",
-         "draworder":"topdown",
-         "id":3,
-         "name":"mainPlayer",
-         "objects":[
-                {
-                 "height":32,
-                 "id":1,
-                 "name":"mainPlayer",
-                 "properties":[
-                        {
-                         "name":"framewidth",
-                         "type":"string",
-                         "value":"64"
-                        }, 
-                        {
-                         "name":"image",
-                         "type":"string",
-                         "value":"gripe_run_right"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":64,
-                 "x":32.17,
-                 "y":293.246
-                }],
-         "opacity":1,
-         "tintcolor":"#00ff00",
          "type":"objectgroup",
          "visible":true,
          "x":0,

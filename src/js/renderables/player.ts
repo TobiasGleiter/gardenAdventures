@@ -10,12 +10,22 @@ class PlayerEntity extends me.Entity {
   constructor(x: number, y: number, settings: any) {
     super(x, y, settings);
 
-    // set a "player object" type
-    this.body.collisionType = me.collision.types.PLAYER_OBJECT;
+    // Create a new body component
+    const body = new me.Body(this);
 
-    // max walking & jumping speed
-    this.body.setMaxVelocity(4, 15);
-    this.body.setFriction(0.4, 0);
+    // Remove current shape
+    //body.removeShape(body.getShape(0));
+    // add a rectangle shape
+    body.addShape(new me.Rect(0, 0, 64, 32));
+
+    // set a "player object" type
+    body.collisionType = me.collision.types.PLAYER_OBJECT;
+
+    // init force, max velo and friction
+    body.force.set(1, 0);
+    body.setMaxVelocity(4, 15);
+    body.setFriction(0.4, 0);
+    body.mass = 1;
 
     // set the display to follow our position on both axis
     me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH, 0.4);
@@ -33,6 +43,9 @@ class PlayerEntity extends me.Entity {
 
     // set the standing animation as default
     this.renderable.setCurrentAnimation('idle');
+
+    // Add the body component to the entity
+    this.body = body;
   }
 
   /**
@@ -44,6 +57,10 @@ class PlayerEntity extends me.Entity {
   update(dt: any) {
     if (me.input.isKeyPressed('left')) {
       console.log('left');
+
+      let collisionBox = this.body.getShape(0);
+      collisionBox.pos.x = -64;
+
       // update the default force
       this.body.force.x = -this.body.maxVel.x;
       // flip the sprite on horizontal axis
@@ -55,6 +72,10 @@ class PlayerEntity extends me.Entity {
       }
     } else if (me.input.isKeyPressed('right')) {
       console.log('right');
+
+      let collisionBox = this.body.getShape(0);
+      collisionBox.pos.x = 0;
+
       // unflip the sprite
       this.renderable.flipX(false);
       // update the entity velocity
