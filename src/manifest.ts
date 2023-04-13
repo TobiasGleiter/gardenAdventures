@@ -32,6 +32,12 @@ const DataManifest: MData[] = [
     type: 'image',
     src: 'data/img/sprite/bullet.png',
   },
+  // Enemie
+  {
+    name: 'mainEnemy',
+    type: 'image',
+    src: 'data/img/sprite/enemy.png',
+  },
   // title screen bg image
   {
     name: 'title_screen',

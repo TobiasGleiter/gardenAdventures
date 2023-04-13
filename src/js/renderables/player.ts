@@ -43,14 +43,16 @@ class PlayerEntity extends me.Entity {
     this.alwaysUpdate = true;
 
     // define a basic walking animation (using all frames)
-    this.renderable.addAnimation('run', [0, 1], 200);
+    this.renderable.addAnimation('run', [0, 1], 200); // 0, 1
 
     // define a standing animation (using the first frame)
-    this.renderable.addAnimation('idle', [4, 5, 6], 300);
+    this.renderable.addAnimation('idle', [4, 5, 6, 7, 6, 5], 200);
 
     this.renderable.addAnimation('jump', [8]);
 
     this.renderable.addAnimation('damage', [12, 13]);
+
+    this.renderable.addAnimation('dead', [14]);
 
     // set the standing animation as default
     this.renderable.setCurrentAnimation('idle');

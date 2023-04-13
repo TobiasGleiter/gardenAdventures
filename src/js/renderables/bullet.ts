@@ -1,11 +1,12 @@
 import * as me from 'melonjs';
+import { MSettingsBullet } from '../../types/dataModel';
 
 class BulletEntity extends me.Entity {
   private facingLeft: boolean;
   private bulletVel: number;
   private bulletDistance: number;
 
-  constructor(x: number, y: number, settings: any) {
+  constructor(x: number, y: number, settings: MSettingsBullet) {
     super(x, y, {
       width: 16,
       height: 16,
