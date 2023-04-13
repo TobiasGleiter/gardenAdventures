@@ -86,8 +86,19 @@
          "color":"#aa0000",
          "draworder":"topdown",
          "id":10,
-         "name":"mainEnemy",
-         "objects":[],
+         "name":"EnemyEntity",
+         "objects":[
+                {
+                 "height":30.6666666666667,
+                 "id":17,
+                 "name":"EnemyEntity",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":55.3333333333333,
+                 "x":115.333333333333,
+                 "y":299.333333333333
+                }],
          "opacity":1,
          "tintcolor":"#aa0000",
          "type":"objectgroup",
@@ -143,7 +154,7 @@
          "y":0
         }],
  "nextlayerid":11,
- "nextobjectid":17,
+ "nextobjectid":18,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",

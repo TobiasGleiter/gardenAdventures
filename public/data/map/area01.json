@@ -72,11 +72,24 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":33.6245454545455,
-                 "y":278.518727272727
+                 "x":33.6245,
+                 "y":278.519
                 }],
          "opacity":1,
          "tintcolor":"#00ff00",
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "color":"#aa0000",
+         "draworder":"topdown",
+         "id":10,
+         "name":"mainEnemy",
+         "objects":[],
+         "opacity":1,
+         "tintcolor":"#aa0000",
          "type":"objectgroup",
          "visible":true,
          "x":0,
@@ -109,8 +122,8 @@
                  "type":"",
                  "visible":true,
                  "width":490.667,
-                 "x":-7.72727272727273,
-                 "y":311.977272727273
+                 "x":-1.97727,
+                 "y":318.977
                 }, 
                 {
                  "height":123.333,
@@ -129,8 +142,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":10,
- "nextobjectid":14,
+ "nextlayerid":11,
+ "nextobjectid":17,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",

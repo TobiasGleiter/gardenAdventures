@@ -10,6 +10,7 @@ import TitleScreen from 'js/stage/title.ts';
 
 import DataManifest from 'manifest.ts';
 import BulletEntity from './js/renderables/bullet';
+import EnemyEntity from './js/renderables/enemies';
 
 device.onReady(() => {
   // initialize the display canvas once the device/browser is ready
@@ -55,7 +56,7 @@ device.onReady(() => {
     // add our player entity in the entity pool
     me.pool.register('mainPlayer', PlayerEntity);
     me.pool.register('mainPlayerAttack', BulletEntity);
-    //me.pool.register('mainEnemy', EnemyEntity);
+    me.pool.register('EnemyEntity', EnemyEntity);
 
     // enable the keyboard
     me.input.bindKey(me.input.KEY.LEFT, 'left');

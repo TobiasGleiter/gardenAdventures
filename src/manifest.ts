@@ -32,9 +32,9 @@ const DataManifest: MData[] = [
     type: 'image',
     src: 'data/img/sprite/bullet.png',
   },
-  // Enemie
+  // Enemy
   {
-    name: 'mainEnemy',
+    name: 'enemy',
     type: 'image',
     src: 'data/img/sprite/enemy.png',
   },

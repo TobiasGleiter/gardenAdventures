@@ -15,8 +15,10 @@ class PlayerEntity extends me.Entity {
 
   constructor(x: number, y: number) {
     super(x, y, {
+      frameheight: 16,
+      framewidth: 16,
       width: 16,
-      height: 16,
+      height: 8,
       image: 'mainPlayerImage',
       anchorPoint: new me.Vector2d(0.5, 0.5),
     });
@@ -24,7 +26,7 @@ class PlayerEntity extends me.Entity {
     // Create a new body component
     const body = new me.Body(this);
     // add a rectangle shape
-    body.addShape(new me.Rect(0, 0, 16, 16));
+    body.addShape(new me.Rect(0, 0, 16, 8));
 
     // set a "player object" type
     body.collisionType = me.collision.types.PLAYER_OBJECT;
@@ -163,8 +165,19 @@ class PlayerEntity extends me.Entity {
    *
    * @returns {boolean}
    */
-  onCollision() {
-    return true;
+  onCollision(response: any) {
+    switch (response.b.body.collisionType) {
+      case me.collision.types.ENEMY_OBJECT:
+        if (response.overlapV.y > 0 && this.body.falling) {
+          // bounce (force jump)
+          this.body.vel.y = -this.body.maxVel.y;
+        } else {
+          // let's flicker in case we touched an enemy
+          this.renderable.flicker(750);
+          console.log('enmey');
+          this.renderable.setCurrentAnimation('damage');
+        }
+    }
   }
 }
 
