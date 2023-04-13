@@ -26,6 +26,12 @@ const DataManifest: MData[] = [
     type: 'image',
     src: 'data/img/sprite/mainPlayer16x16.png',
   },
+  // bullet png
+  {
+    name: 'mainPlayerAttack',
+    type: 'image',
+    src: 'data/img/sprite/bullet.png',
+  },
   // title screen bg image
   {
     name: 'title_screen',

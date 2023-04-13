@@ -7,23 +7,29 @@ class PlayerEntity extends me.Entity {
    * @param y
    * @param settings
    */
-  constructor(x: number, y: number, settings: any) {
-    super(x, y, settings);
+
+  private shootCooldown: number = 500; // Time in ms between shots
+  private lastShotTime: number = 0; // Timestamp of last shot
+
+  constructor(x: number, y: number) {
+    super(x, y, {
+      width: 16,
+      height: 16,
+      image: 'mainPlayerImage',
+      anchorPoint: new me.Vector2d(0.5, 0.5),
+    });
 
     // Create a new body component
     const body = new me.Body(this);
-
-    // Remove current shape
-    //body.removeShape(body.getShape(0));
     // add a rectangle shape
-    body.addShape(new me.Rect(0, 0, 64, 32));
+    body.addShape(new me.Rect(0, 0, 16, 16));
 
     // set a "player object" type
     body.collisionType = me.collision.types.PLAYER_OBJECT;
 
     // init force, max velo and friction
     body.force.set(1, 0);
-    body.setMaxVelocity(4, 15);
+    body.setMaxVelocity(2, 15);
     body.setFriction(0.4, 0);
     body.mass = 1;
     body.gravityScale = 1;
@@ -38,11 +44,11 @@ class PlayerEntity extends me.Entity {
     this.renderable.addAnimation('run', [0, 1]);
 
     // define a standing animation (using the first frame)
-    this.renderable.addAnimation('idle', [4, 4, 4, 5, 5, 5, 6, 6, 6]);
+    this.renderable.addAnimation('idle', [4, 5, 6], 200);
 
-    this.renderable.addAnimation('jump', [0]);
+    this.renderable.addAnimation('jump', [8]);
 
-    this.renderable.addAnimation('damage', [0]);
+    this.renderable.addAnimation('damage', [12, 13]);
 
     // set the standing animation as default
     this.renderable.setCurrentAnimation('idle');
@@ -61,8 +67,8 @@ class PlayerEntity extends me.Entity {
     if (me.input.isKeyPressed('left')) {
       console.log('left');
 
-      let collisionBox = this.body.getShape(0);
-      collisionBox.pos.x = -64;
+      //let collisionBox = this.body.getShape(0);
+      //collisionBox.pos.x = -64;
 
       // update the default force
       this.body.force.x = -this.body.maxVel.x;
@@ -76,8 +82,8 @@ class PlayerEntity extends me.Entity {
     } else if (me.input.isKeyPressed('right')) {
       console.log('right');
 
-      let collisionBox = this.body.getShape(0);
-      collisionBox.pos.x = 0;
+      //let collisionBox = this.body.getShape(0);
+      //collisionBox.pos.x = 0;
 
       // unflip the sprite
       this.renderable.flipX(false);
@@ -105,6 +111,23 @@ class PlayerEntity extends me.Entity {
       if (!this.renderable.isCurrentAnimation('jump')) {
         this.renderable.setCurrentAnimation('jump');
       }
+    }
+
+    // TEST: SHOOTING!
+    // Check if the player fires a bullet
+    if (
+      me.input.isKeyPressed('shoot') &&
+      me.timer.getTime() - this.lastShotTime >= this.shootCooldown
+    ) {
+      this.lastShotTime = me.timer.getTime();
+
+      // Spawn a new bullet entity
+      const bullet = me.pool.pull(
+        'mainPlayerAttack',
+        this.pos.x + this.width / 2,
+        this.pos.y + this.height / 2
+      ) as me.Renderable;
+      me.game.world.addChild(bullet, 10);
     }
 
     return super.update(dt) || this.body.vel.x !== 0 || this.body.vel.y !== 0;

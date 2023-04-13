@@ -10,10 +10,16 @@
   </data>
  </layer>
  <objectgroup color="#00ff00" id="3" name="mainPlayer" tintcolor="#00ff00">
-  <object id="1" name="mainPlayer" x="32.17" y="293.246" width="64" height="32">
+  <object id="1" name="mainPlayer" x="33.6245" y="278.519" width="16" height="16">
    <properties>
-    <property name="framewidth" value="64"/>
-    <property name="image" value="gripe_run_right"/>
+    <property name="anchorPoint" value="0.5"/>
+    <property name="frameheight" value="16"/>
+    <property name="framewidth" value="16"/>
+    <property name="height" value="16"/>
+    <property name="id" value="1"/>
+    <property name="image" value="mainPlayerImage"/>
+    <property name="type" value="mainPlayer"/>
+    <property name="width" value="16"/>
    </properties>
   </object>
  </objectgroup>
@@ -23,7 +29,7 @@
   </data>
  </layer>
  <objectgroup id="9" name="Collision">
-  <object id="12" x="-11" y="325.25" width="490.667" height="38.75"/>
+  <object id="12" x="-7.72727" y="311.977" width="490.667" height="38.75"/>
   <object id="13" x="255.917" y="68.5" width="64.0833" height="123.333"/>
  </objectgroup>
 </map>
