@@ -24,26 +24,56 @@
          "name":"mainPlayer",
          "objects":[
                 {
-                 "height":32,
+                 "height":16,
                  "id":1,
                  "name":"mainPlayer",
                  "properties":[
                         {
+                         "name":"anchorPoint",
+                         "type":"string",
+                         "value":"0.5"
+                        }, 
+                        {
+                         "name":"frameheight",
+                         "type":"string",
+                         "value":"16"
+                        }, 
+                        {
                          "name":"framewidth",
                          "type":"string",
-                         "value":"64"
+                         "value":"16"
+                        }, 
+                        {
+                         "name":"height",
+                         "type":"string",
+                         "value":"16"
+                        }, 
+                        {
+                         "name":"id",
+                         "type":"string",
+                         "value":"1"
                         }, 
                         {
                          "name":"image",
                          "type":"string",
-                         "value":"gripe_run_right"
+                         "value":"mainPlayerImage"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"mainPlayer"
+                        }, 
+                        {
+                         "name":"width",
+                         "type":"string",
+                         "value":"16"
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":64,
-                 "x":32.17,
-                 "y":293.246
+                 "width":16,
+                 "x":33.6245454545455,
+                 "y":278.518727272727
                 }],
          "opacity":1,
          "tintcolor":"#00ff00",
@@ -79,8 +109,8 @@
                  "type":"",
                  "visible":true,
                  "width":490.667,
-                 "x":-11,
-                 "y":325.25
+                 "x":-7.72727272727273,
+                 "y":311.977272727273
                 }, 
                 {
                  "height":123.333,

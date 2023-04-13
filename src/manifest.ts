@@ -22,9 +22,9 @@ const DataManifest: MData[] = [
   { name: 'area01', type: 'tmx', src: 'data/map/area01.json' },
   // main character png
   {
-    name: 'gripe_run_right',
+    name: 'mainPlayerImage',
     type: 'image',
-    src: 'data/img/sprite/gripe_run_right.png',
+    src: 'data/img/sprite/mainPlayer16x16.png',
   },
   // title screen bg image
   {
