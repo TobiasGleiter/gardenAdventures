@@ -16,6 +16,17 @@ const DataManifest: MData[] = [
     src: 'data/map/Assets.tsx',
   },
 
+    //Background
+  {
+    name: 'Background_1',
+    type: 'image',
+    src: 'data/img/background/Background_1.png',
+  },
+  {
+    name: 'Background_2',
+    type: 'image',
+    src: 'data/img/background/Background_2.png',
+  },
   //Player
   {
     name: 'gripe_run_right',
