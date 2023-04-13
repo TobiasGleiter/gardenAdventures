@@ -11,12 +11,12 @@ class BulletEntity extends me.Entity {
     body.ignoreGravity;
 
     this.renderable.anchorPoint;
-    this.renderable.addAnimation('shoot', [0, 1, 2, 1]);
+    this.renderable.addAnimation('shoot', [1, 2, 1]);
     this.renderable.setCurrentAnimation('shoot');
   }
 
   update(dt: any): boolean {
-    this.renderable.pos.x += 2;
+    this.renderable.pos.x += 3;
 
     // Muss noch geändert werden
     if (this.renderable.pos.x > this.pos.x + 20) {

@@ -10,6 +10,7 @@ class PlayerEntity extends me.Entity {
 
   private shootCooldown: number = 500; // Time in ms between shots
   private lastShotTime: number = 0; // Timestamp of last shot
+  public facingLeft: boolean = false;
 
   constructor(x: number, y: number) {
     super(x, y, {
@@ -29,7 +30,7 @@ class PlayerEntity extends me.Entity {
 
     // init force, max velo and friction
     body.force.set(1, 0);
-    body.setMaxVelocity(2, 15);
+    body.setMaxVelocity(2, 8);
     body.setFriction(0.4, 0);
     body.mass = 1;
     body.gravityScale = 1;
@@ -44,7 +45,7 @@ class PlayerEntity extends me.Entity {
     this.renderable.addAnimation('run', [0, 1]);
 
     // define a standing animation (using the first frame)
-    this.renderable.addAnimation('idle', [4, 5, 6], 200);
+    this.renderable.addAnimation('idle', [4, 5, 6], 300);
 
     this.renderable.addAnimation('jump', [8]);
 
