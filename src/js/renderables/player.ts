@@ -8,9 +8,9 @@ class PlayerEntity extends me.Entity {
    * @param settings
    */
 
-  private shootCooldown: number = 500; // Time in ms between shots
+  private shootCooldown: number = 400; // Time in ms between shots
   private lastShotTime: number = 0; // Timestamp of last shot
-  public facingLeft: boolean = false;
+  private facingLeft: boolean = false;
 
   constructor(x: number, y: number) {
     super(x, y, {
@@ -65,9 +65,11 @@ class PlayerEntity extends me.Entity {
    * @returns {any|boolean}
    */
   update(dt: any) {
+    // Variables:
+
     if (me.input.isKeyPressed('left')) {
       console.log('left');
-
+      this.facingLeft = true;
       //let collisionBox = this.body.getShape(0);
       //collisionBox.pos.x = -64;
 
@@ -82,7 +84,7 @@ class PlayerEntity extends me.Entity {
       }
     } else if (me.input.isKeyPressed('right')) {
       console.log('right');
-
+      this.facingLeft = false;
       //let collisionBox = this.body.getShape(0);
       //collisionBox.pos.x = 0;
 
@@ -114,19 +116,21 @@ class PlayerEntity extends me.Entity {
       }
     }
 
-    // TEST: SHOOTING!
-    // Check if the player fires a bullet
+    // PLAYER SHOOT CHEEEEESE!
+    // Check if the player fires a bullet and if the time is up to shoot
     if (
       me.input.isKeyPressed('shoot') &&
       me.timer.getTime() - this.lastShotTime >= this.shootCooldown
     ) {
+      // Reset lastShotTime
       this.lastShotTime = me.timer.getTime();
-
       // Spawn a new bullet entity
       const bullet = me.pool.pull(
         'mainPlayerAttack',
-        this.pos.x + this.width / 2,
-        this.pos.y + this.height / 2
+        this.pos.x,
+        this.pos.y,
+        // Settings for bullet entity
+        { facingLeft: this.facingLeft, bulletVel: 3, bulletDistance: 100 }
       ) as me.Renderable;
       me.game.world.addChild(bullet, 10);
     }
