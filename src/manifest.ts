@@ -4,20 +4,7 @@ import { MData } from './types/dataModel';
 
 // note : this is note a webpack manifest
 const DataManifest: MData[] = [
-    //default
-  {
-    name: 'area01_level_tiles',
-    type: 'image',
-    src: 'data/img/map/area01_level_tiles.png',
-  },
-  {
-    name: 'area01_level_tiles',
-    type: 'tsx',
-    src: 'data/map/area01_level_tiles.tsx',
-  },
-  { name: 'area01', type: 'tmx', src: 'data/map/area01.json' },
-
-    //1st Level
+    //Tileset
   {
     name: 'Assets',
     type: 'image',
@@ -28,9 +15,11 @@ const DataManifest: MData[] = [
     type: 'tsx',
     src: 'data/map/Assets.tsx',
   },
-    //not sure
 
+    //1st Level
   { name: 'Plattformer2', type: 'tmx', src: 'data/map/Plattformer2.json' },
+
+    //Player
   {
     name: 'gripe_run_right',
     type: 'image',
