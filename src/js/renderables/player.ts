@@ -11,6 +11,7 @@ class PlayerEntity extends me.Entity {
   private shootCooldown: number = 400; // Time in ms between shots
   private lastShotTime: number = 0; // Timestamp of last shot
   private facingLeft: boolean = false;
+  private sneakingSpeed: number = 1;
 
   constructor(x: number, y: number) {
     super(x, y, {
@@ -42,7 +43,7 @@ class PlayerEntity extends me.Entity {
     this.alwaysUpdate = true;
 
     // define a basic walking animation (using all frames)
-    this.renderable.addAnimation('run', [0, 1]);
+    this.renderable.addAnimation('run', [0, 1], 200);
 
     // define a standing animation (using the first frame)
     this.renderable.addAnimation('idle', [4, 5, 6], 300);
@@ -65,16 +66,23 @@ class PlayerEntity extends me.Entity {
    * @returns {any|boolean}
    */
   update(dt: any) {
-    // Variables:
-
+    // PLAYER RUN
     if (me.input.isKeyPressed('left')) {
-      console.log('left');
       this.facingLeft = true;
       //let collisionBox = this.body.getShape(0);
       //collisionBox.pos.x = -64;
 
-      // update the default force
-      this.body.force.x = -this.body.maxVel.x;
+      // PLAYER SNEAK
+      if (me.input.isKeyPressed('sneak')) {
+        console.log('sneak');
+        // update the entity velocity
+        this.body.vel.x = -this.sneakingSpeed;
+      } else {
+        console.log('run');
+        // update the entity velocity
+        this.body.vel.x = -this.body.maxVel.x;
+      }
+
       // flip the sprite on horizontal axis
       this.renderable.flipX(true);
 
@@ -83,15 +91,24 @@ class PlayerEntity extends me.Entity {
         this.renderable.setCurrentAnimation('run');
       }
     } else if (me.input.isKeyPressed('right')) {
-      console.log('right');
       this.facingLeft = false;
       //let collisionBox = this.body.getShape(0);
       //collisionBox.pos.x = 0;
 
+      // PLAYER SNEAK
+      if (me.input.isKeyPressed('sneak')) {
+        console.log('sneak');
+        // update the entity velocity
+        this.body.vel.x = this.sneakingSpeed;
+      } else {
+        console.log('run');
+        // update the entity velocity
+        this.body.vel.x = this.body.maxVel.x;
+      }
+
       // unflip the sprite
       this.renderable.flipX(false);
-      // update the entity velocity
-      this.body.force.x = this.body.maxVel.x;
+
       // change to the walking animation
       if (!this.renderable.isCurrentAnimation('run')) {
         this.renderable.setCurrentAnimation('run');
@@ -101,6 +118,7 @@ class PlayerEntity extends me.Entity {
       this.renderable.setCurrentAnimation('idle');
     }
 
+    // PLAYER JUMP
     if (me.input.isKeyPressed('jump')) {
       if (!this.body.jumping && !this.body.falling) {
         // set current vel to the maximum defined value

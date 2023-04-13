@@ -64,7 +64,9 @@ device.onReady(() => {
     me.input.bindKey(me.input.KEY.UP, 'jump', true);
     me.input.bindKey(me.input.KEY.SPACE, 'jump', true);
     // map S to shoot
-    me.input.bindKey(me.input.KEY.Q, 'shoot');
+    me.input.bindKey(me.input.KEY.Q, 'shoot'); // Change to S
+    // map shift to sneak
+    me.input.bindKey(me.input.KEY.SHIFT, 'sneak');
 
     // Start the game.
     me.state.change(me.state.PLAY);
