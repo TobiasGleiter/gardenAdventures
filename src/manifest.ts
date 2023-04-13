@@ -16,15 +16,17 @@ const DataManifest: MData[] = [
     src: 'data/map/Assets.tsx',
   },
 
-    //1st Level
-  { name: 'Plattformer2', type: 'tmx', src: 'data/map/Plattformer2.json' },
-
-    //Player
+  //Player
   {
     name: 'gripe_run_right',
     type: 'image',
     src: 'data/img/sprite/gripe_run_right.png',
   },
+
+    //1st Level
+  { name: 'Lvl1-1', type: 'tmx', src: 'data/map/Lvl1-1.json' },
+
+
 ];
 
 export default DataManifest;
