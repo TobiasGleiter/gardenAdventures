@@ -14,7 +14,13 @@ import EnemyEntity from './js/renderables/enemies';
 
 device.onReady(() => {
   // initialize the display canvas once the device/browser is ready
-  if (!me.video.init(640, 480, { parent: 'screen', scale: 'auto' })) {
+  if (
+    !me.video.init(320, 240, {
+      parent: 'screen',
+      scale: 'auto',
+      scaleMethod: 'fit',
+    })
+  ) {
     alert('Your browser does not support HTML5 canvas.');
     return;
   }
@@ -72,6 +78,6 @@ device.onReady(() => {
     me.input.bindKey(me.input.KEY.SHIFT, 'sneak');
 
     // Start the game.
-    me.state.change(me.state.PLAY);
+    me.state.change(me.state.MENU);
   });
 });

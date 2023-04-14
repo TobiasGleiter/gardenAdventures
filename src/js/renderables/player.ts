@@ -36,16 +36,18 @@ class PlayerEntity extends me.Entity {
     body.setMaxVelocity(2, 8);
     body.setFriction(0.4, 0);
     body.mass = 1;
-    body.gravityScale = 1;
+    body.gravityScale = 0.8;
 
     // set the display to follow our position on both axis
-    me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH, 0.4);
+    me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH, 0.1);
 
     // ensure the player is updated even when outside of the viewport
     this.alwaysUpdate = true;
 
     // define a basic walking animation (using all frames)
     this.renderable.addAnimation('run', [0, 1], 200); // 0, 1
+
+    this.renderable.addAnimation('sneak', [2, 3], 500);
 
     // define a standing animation (using the first frame)
     this.renderable.addAnimation('idle', [4, 5, 6, 7, 6, 5], 200);
@@ -81,18 +83,21 @@ class PlayerEntity extends me.Entity {
         console.log('sneak');
         // update the entity velocity
         this.body.vel.x = -this.sneakingSpeed;
+        // flip the sprite on horizontal axis
+        this.renderable.flipX(true);
+        if (!this.renderable.isCurrentAnimation('sneak')) {
+          this.renderable.setCurrentAnimation('sneak');
+        }
       } else {
         console.log('run');
         // update the entity velocity
         this.body.vel.x = -this.body.maxVel.x;
-      }
-
-      // flip the sprite on horizontal axis
-      this.renderable.flipX(true);
-
-      // change to the walking animation
-      if (!this.renderable.isCurrentAnimation('run')) {
-        this.renderable.setCurrentAnimation('run');
+        // flip the sprite on horizontal axis
+        this.renderable.flipX(true);
+        // change to the walking animation
+        if (!this.renderable.isCurrentAnimation('run')) {
+          this.renderable.setCurrentAnimation('run');
+        }
       }
     } else if (me.input.isKeyPressed('right')) {
       this.facingLeft = false;
@@ -104,19 +109,20 @@ class PlayerEntity extends me.Entity {
         console.log('sneak');
         // update the entity velocity
         this.body.vel.x = this.sneakingSpeed;
+        if (!this.renderable.isCurrentAnimation('sneak')) {
+          this.renderable.setCurrentAnimation('sneak');
+        }
       } else {
         console.log('run');
         // update the entity velocity
         this.body.vel.x = this.body.maxVel.x;
+        // change to the walking animation
+        if (!this.renderable.isCurrentAnimation('run')) {
+          this.renderable.setCurrentAnimation('run');
+        }
       }
-
       // unflip the sprite
       this.renderable.flipX(false);
-
-      // change to the walking animation
-      if (!this.renderable.isCurrentAnimation('run')) {
-        this.renderable.setCurrentAnimation('run');
-      }
     } else {
       // change to the standing animation
       this.renderable.setCurrentAnimation('idle');
