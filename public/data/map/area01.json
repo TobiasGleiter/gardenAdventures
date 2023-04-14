@@ -18,84 +18,6 @@
          "y":0
         }, 
         {
-         "color":"#00ff00",
-         "draworder":"topdown",
-         "id":3,
-         "name":"mainPlayer",
-         "objects":[
-                {
-                 "height":16,
-                 "id":1,
-                 "name":"mainPlayer",
-                 "properties":[
-                        {
-                         "name":"anchorPoint",
-                         "type":"string",
-                         "value":"0.5"
-                        }, 
-                        {
-                         "name":"frameheight",
-                         "type":"string",
-                         "value":"16"
-                        }, 
-                        {
-                         "name":"framewidth",
-                         "type":"string",
-                         "value":"16"
-                        }, 
-                        {
-                         "name":"height",
-                         "type":"string",
-                         "value":"16"
-                        }, 
-                        {
-                         "name":"id",
-                         "type":"string",
-                         "value":"1"
-                        }, 
-                        {
-                         "name":"image",
-                         "type":"string",
-                         "value":"mainPlayerImage"
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"mainPlayer"
-                        }, 
-                        {
-                         "name":"width",
-                         "type":"string",
-                         "value":"16"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":33.6245,
-                 "y":278.519
-                }],
-         "opacity":1,
-         "tintcolor":"#00ff00",
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "color":"#aa0000",
-         "draworder":"topdown",
-         "id":10,
-         "name":"mainEnemy",
-         "objects":[],
-         "opacity":1,
-         "tintcolor":"#aa0000",
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
          "compression":"",
          "data":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUQAAAFIAAABWAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFwAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlAAAAAAAAAAAAAABrAAAAAAAAAAEAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAcAAAAAEAAAAqAAAAKgAAACoAAAAqAAAAKgAAAHkAAAABAAAAAQAAAAEAAAABAAAAAQAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAEAAAABAAAAAQAAAAEAAAABAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAAAQAAAAEAAAABAAAAAQAAAAEAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAABAAAAAQAAAAEAAAABAAAAAQAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAEAAAABAAAAAQAAAAEAAAABAAAA",
          "encoding":"base64",
@@ -122,8 +44,8 @@
                  "type":"",
                  "visible":true,
                  "width":490.667,
-                 "x":-1.97727,
-                 "y":318.977
+                 "x":-11,
+                 "y":325.25
                 }, 
                 {
                  "height":123.333,
@@ -141,9 +63,44 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "color":"#00ff00",
+         "draworder":"topdown",
+         "id":3,
+         "name":"mainPlayer",
+         "objects":[
+                {
+                 "height":32,
+                 "id":1,
+                 "name":"mainPlayer",
+                 "properties":[
+                        {
+                         "name":"framewidth",
+                         "type":"string",
+                         "value":"64"
+                        }, 
+                        {
+                         "name":"image",
+                         "type":"string",
+                         "value":"gripe_run_right"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":32.17,
+                 "y":293.246
+                }],
+         "opacity":1,
+         "tintcolor":"#00ff00",
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":11,
- "nextobjectid":17,
+ "nextlayerid":10,
+ "nextobjectid":14,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",

@@ -9,18 +9,28 @@ const DataManifest: MData[] = [
   { name: 'PressStart2P', type: 'binary', src: 'data/fnt/PressStart2P.fnt' },
   // level tiles
   {
-    name: 'area01_level_tiles',
+    name: 'Assets',
     type: 'image',
-    src: 'data/img/map/area01_level_tiles.png',
+    src: 'data/img/map/Assets.png',
   },
   {
-    name: 'area01_level_tiles',
+    name: 'Assets',
     type: 'tsx',
-    src: 'data/map/area01_level_tiles.tsx',
+    src: 'data/map/Assets.tsx',
   },
-  // level map
-  { name: 'area01', type: 'tmx', src: 'data/map/area01.json' },
-  // main character png
+
+    //Background
+  {
+    name: 'Background_1',
+    type: 'image',
+    src: 'data/img/background/Background_1.png',
+  },
+  {
+    name: 'Background_2',
+    type: 'image',
+    src: 'data/img/background/Background_2.png',
+  },
+  //Player
   {
     name: 'mainPlayerImage',
     type: 'image',
@@ -44,6 +54,11 @@ const DataManifest: MData[] = [
     type: 'image',
     src: 'data/img/sprite/title_screen.jpg',
   },
+
+    //1st Level
+  { name: 'Lvl1-1', type: 'tmx', src: 'data/map/Lvl1-1.json' },
+
+
 ];
 
 export default DataManifest;
