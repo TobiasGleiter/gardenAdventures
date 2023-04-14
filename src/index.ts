@@ -9,6 +9,8 @@ import PlayScreen from 'js/stage/play.ts';
 import TitleScreen from 'js/stage/title.ts';
 
 import DataManifest from 'manifest.ts';
+import BulletEntity from './js/renderables/bullet';
+import EnemyEntity from './js/renderables/enemies';
 
 device.onReady(() => {
   // initialize the display canvas once the device/browser is ready
@@ -53,6 +55,8 @@ device.onReady(() => {
 
     // add our player entity in the entity pool
     me.pool.register('mainPlayer', PlayerEntity);
+    me.pool.register('mainPlayerAttack', BulletEntity);
+    me.pool.register('EnemyEntity', EnemyEntity);
 
     // enable the keyboard
     me.input.bindKey(me.input.KEY.LEFT, 'left');
@@ -61,6 +65,11 @@ device.onReady(() => {
     me.input.bindKey(me.input.KEY.X, 'jump', true);
     me.input.bindKey(me.input.KEY.UP, 'jump', true);
     me.input.bindKey(me.input.KEY.SPACE, 'jump', true);
+    // map S to shoot
+    me.input.bindKey(me.input.KEY.S, 'shoot');
+    me.input.bindKey(me.input.KEY.DOWN, 'shoot');
+    // map shift to sneak
+    me.input.bindKey(me.input.KEY.SHIFT, 'sneak');
 
     // Start the game.
     me.state.change(me.state.PLAY);

@@ -1,9 +1,13 @@
 // a melonJS data manifest
-// import model of data
+// import model of data (models can be found in folder types)
 import { MData } from './types/dataModel';
 
 // note : this is note a webpack manifest
 const DataManifest: MData[] = [
+  // game font
+  { name: 'PressStart2P', type: 'image', src: 'data/fnt/PressStart2P.png' },
+  { name: 'PressStart2P', type: 'binary', src: 'data/fnt/PressStart2P.fnt' },
+  // level tiles
   {
     name: 'area01_level_tiles',
     type: 'image',
@@ -14,11 +18,31 @@ const DataManifest: MData[] = [
     type: 'tsx',
     src: 'data/map/area01_level_tiles.tsx',
   },
+  // level map
   { name: 'area01', type: 'tmx', src: 'data/map/area01.json' },
+  // main character png
   {
-    name: 'gripe_run_right',
+    name: 'mainPlayerImage',
     type: 'image',
-    src: 'data/img/sprite/gripe_run_right.png',
+    src: 'data/img/sprite/mainPlayer16x16.png',
+  },
+  // bullet png
+  {
+    name: 'mainPlayerAttack',
+    type: 'image',
+    src: 'data/img/sprite/bullet.png',
+  },
+  // Enemy
+  {
+    name: 'enemy',
+    type: 'image',
+    src: 'data/img/sprite/enemy.png',
+  },
+  // title screen bg image
+  {
+    name: 'title_screen',
+    type: 'image',
+    src: 'data/img/sprite/title_screen.jpg',
   },
 ];
 
