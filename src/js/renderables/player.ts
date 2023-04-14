@@ -12,6 +12,7 @@ class PlayerEntity extends me.Entity {
   private lastShotTime: number = 0; // Timestamp of last shot
   private facingLeft: boolean = false;
   private sneakingSpeed: number = 1;
+  private jumpCounter: number = 0;
 
   constructor(x: number, y: number) {
     super(x, y, {
@@ -130,14 +131,19 @@ class PlayerEntity extends me.Entity {
 
     // PLAYER JUMP
     if (me.input.isKeyPressed('jump')) {
-      if (!this.body.jumping && !this.body.falling) {
+      if (this.jumpCounter<2) {
         // set current vel to the maximum defined value
         // gravity will then do the rest
-        this.body.force.y = -this.body.maxVel.y;
+        if(this.body.force.y < 1){
+          this.body.force.y = -this.body.maxVel.y * 2;
+        }
+        else{
+          this.body.force.y = -this.body.maxVel.y;
+        }
+        this.jumpCounter += 1;
       }
-    } else {
-      this.body.force.y = 0;
     }
+
     if (this.body.jumping || this.body.falling) {
       if (!this.renderable.isCurrentAnimation('jump')) {
         this.renderable.setCurrentAnimation('jump');
@@ -172,6 +178,7 @@ class PlayerEntity extends me.Entity {
    * @returns {boolean}
    */
   onCollision(response: any) {
+    this.jumpCounter = 0;
     switch (response.b.body.collisionType) {
       case me.collision.types.ENEMY_OBJECT:
         if (response.overlapV.y > 0 && this.body.falling) {
@@ -180,7 +187,7 @@ class PlayerEntity extends me.Entity {
         } else {
           // let's flicker in case we touched an enemy
           this.renderable.flicker(750);
-          console.log('enmey');
+          console.log('enemy');
           this.renderable.setCurrentAnimation('damage');
         }
     }
