@@ -21,7 +21,7 @@ class PlayerEntity extends me.Entity {
       width: 16,
       height: 8,
       image: 'mainPlayerImage',
-      anchorPoint: new me.Vector2d(0.5, 0.5),
+      anchorPoint: new me.Vector2d(0.5, 1),
     });
 
     // Create a new body component
@@ -131,13 +131,12 @@ class PlayerEntity extends me.Entity {
 
     // PLAYER JUMP
     if (me.input.isKeyPressed('jump')) {
-      if (this.jumpCounter<2) {
+      if (this.jumpCounter < 2) {
         // set current vel to the maximum defined value
         // gravity will then do the rest
-        if(this.body.force.y < 1){
+        if (this.body.force.y < 1) {
           this.body.force.y = -this.body.maxVel.y * 2;
-        }
-        else{
+        } else {
           this.body.force.y = -this.body.maxVel.y;
         }
         this.jumpCounter += 1;
