@@ -15,7 +15,7 @@ import EnemyEntity from './js/renderables/enemies';
 device.onReady(() => {
   // initialize the display canvas once the device/browser is ready
   if (
-    !me.video.init(320, 240, {
+    !me.video.init(640, 380, {
       parent: 'screen',
       scale: 'auto',
       scaleMethod: 'fit',
@@ -70,14 +70,15 @@ device.onReady(() => {
     // map X, Up Arrow and Space for jump
     me.input.bindKey(me.input.KEY.X, 'jump', true);
     me.input.bindKey(me.input.KEY.UP, 'jump', true);
-    me.input.bindKey(me.input.KEY.SPACE, 'jump', true);
+    //me.input.bindKey(me.input.KEY.SPACE, 'jump', true);
     // map S to shoot
     me.input.bindKey(me.input.KEY.S, 'shoot');
     me.input.bindKey(me.input.KEY.DOWN, 'shoot');
+    me.input.bindKey(me.input.KEY.SPACE, 'shoot');
     // map shift to sneak
     me.input.bindKey(me.input.KEY.SHIFT, 'sneak');
 
     // Start the game.
-    me.state.change(me.state.MENU);
+    me.state.change(me.state.PLAY);
   });
 });

@@ -33,10 +33,10 @@ class PlayerEntity extends me.Entity {
 
     // init force, max velo and friction
     body.force.set(1, 0);
-    body.setMaxVelocity(2, 8);
+    body.setMaxVelocity(2.5, 8);
     body.setFriction(0.4, 0);
     body.mass = 1;
-    body.gravityScale = 0.8;
+    body.gravityScale = 0.6;
 
     // set the display to follow our position on both axis
     me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH, 0.1);
