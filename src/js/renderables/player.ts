@@ -7,12 +7,13 @@ class PlayerEntity extends me.Entity {
    * @param y
    * @param settings
    */
-
   private shootCooldown: number = 400; // Time in ms between shots
   private lastShotTime: number = 0; // Timestamp of last shot
   private facingLeft: boolean = false;
   private sneakingSpeed: number = 1;
   private jumpCounter: number = 0;
+  private idleCooldown: number = 1000;
+  private lastIdleTime: number = 0;
 
   constructor(x: number, y: number) {
     super(x, y, {
@@ -58,6 +59,7 @@ class PlayerEntity extends me.Entity {
     this.renderable.addAnimation('damage', [12, 13]);
 
     this.renderable.addAnimation('dead', [14]);
+    this.renderable.addAnimation('shoot', [15]);
 
     // set the standing animation as default
     this.renderable.setCurrentAnimation('idle');
@@ -124,7 +126,8 @@ class PlayerEntity extends me.Entity {
       }
       // unflip the sprite
       this.renderable.flipX(false);
-    } else {
+    } else if (me.timer.getTime() - this.lastIdleTime >= this.idleCooldown) {
+      this.lastIdleTime = me.timer.getTime();
       // change to the standing animation
       this.renderable.setCurrentAnimation('idle');
     }
@@ -166,6 +169,11 @@ class PlayerEntity extends me.Entity {
         { facingLeft: this.facingLeft, bulletVel: 3, bulletDistance: 100 }
       ) as me.Renderable;
       me.game.world.addChild(bullet, 10);
+
+      // animation stuff
+      if (!this.renderable.isCurrentAnimation('shoot')) {
+        this.renderable.setCurrentAnimation('shoot');
+      }
     }
 
     return super.update(dt) || this.body.vel.x !== 0 || this.body.vel.y !== 0;
@@ -176,7 +184,7 @@ class PlayerEntity extends me.Entity {
    *
    * @returns {boolean}
    */
-  onCollision(response: any) {
+  onCollision(response: any): any {
     this.jumpCounter = 0;
     switch (response.b.body.collisionType) {
       case me.collision.types.ENEMY_OBJECT:
@@ -185,9 +193,9 @@ class PlayerEntity extends me.Entity {
           this.body.vel.y = -this.body.maxVel.y;
         } else {
           // let's flicker in case we touched an enemy
-          this.renderable.flicker(750);
+          //this.renderable.flicker(750);
           console.log('enemy');
-          this.renderable.setCurrentAnimation('damage');
+          this.renderable.setCurrentAnimation('dead');
         }
     }
   }
