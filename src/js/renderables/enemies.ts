@@ -25,7 +25,7 @@ class EnemyEntity extends me.Entity {
     // init force, max velo and friction
     body.force.set(0, 0);
     body.maxVel.set(0, 0);
-    body.gravityScale = 1;
+    body.ignoreGravity;
 
     // enable physic collision (off by default for basic me.Renderable)
     this.isKinematic = false;
@@ -42,14 +42,15 @@ class EnemyEntity extends me.Entity {
    *
    * @returns {boolean}
    */
-  onCollision(response: any) {
+  onCollision(response: any): any {
     switch (response.b.body.collisionType) {
       case me.collision.types.PROJECTILE_OBJECT:
         this.alive = false;
         if (!this.alive) {
-          me.game.world.removeChild(this);
+          me.game.world.removeChild(this as any);
           console.log('IAM dead!');
         }
+        break;
     }
   }
 }
