@@ -29,6 +29,7 @@ class TitleScreen extends me.Stage {
         font: 'PressStart2P',
         text: 'PRESS ENTER TO PLAY!',
         textAlign: 'center',
+        size: 0.5,
       }
     );
     me.game.world.addChild(text);

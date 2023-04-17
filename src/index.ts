@@ -14,7 +14,13 @@ import EnemyEntity from './js/renderables/enemies';
 
 device.onReady(() => {
   // initialize the display canvas once the device/browser is ready
-  if (!me.video.init(640, 480, { parent: 'screen', scale: 'auto' })) {
+  if (
+    !me.video.init(640, 380, {
+      parent: 'screen',
+      scale: 'auto',
+      scaleMethod: 'fit',
+    })
+  ) {
     alert('Your browser does not support HTML5 canvas.');
     return;
   }
@@ -64,10 +70,11 @@ device.onReady(() => {
     // map X, Up Arrow and Space for jump
     me.input.bindKey(me.input.KEY.X, 'jump', true);
     me.input.bindKey(me.input.KEY.UP, 'jump', true);
-    me.input.bindKey(me.input.KEY.SPACE, 'jump', true);
+    //me.input.bindKey(me.input.KEY.SPACE, 'jump', true);
     // map S to shoot
     me.input.bindKey(me.input.KEY.S, 'shoot');
     me.input.bindKey(me.input.KEY.DOWN, 'shoot');
+    me.input.bindKey(me.input.KEY.SPACE, 'shoot');
     // map shift to sneak
     me.input.bindKey(me.input.KEY.SHIFT, 'sneak');
 

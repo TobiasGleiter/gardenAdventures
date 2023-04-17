@@ -55,8 +55,10 @@ const DataManifest: MData[] = [
     src: 'data/img/sprite/title_screen.jpg',
   },
 
-    //1st Level
+    //Levels
   { name: 'Lvl1-1', type: 'tmx', src: 'data/map/Lvl1-1.json' },
+  { name: 'Lvl1-2', type: 'tmx', src: 'data/map/Lvl1-2.json' },
+  { name: 'Lvl1-3', type: 'tmx', src: 'data/map/Lvl1-3.json' },
 
 
 ];
