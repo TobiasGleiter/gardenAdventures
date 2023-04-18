@@ -72,7 +72,7 @@ device.onReady(() => {
     me.input.bindKey(me.input.KEY.UP, 'jump', true);
     //me.input.bindKey(me.input.KEY.SPACE, 'jump', true);
     // map S to shoot
-    me.input.bindKey(me.input.KEY.S, 'shoot');
+    //me.input.bindKey(me.input.KEY.S, 'shoot');
     me.input.bindKey(me.input.KEY.DOWN, 'shoot');
     me.input.bindKey(me.input.KEY.SPACE, 'shoot');
     // map shift to sneak
