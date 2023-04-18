@@ -41,7 +41,7 @@ class PlayerEntity extends me.Entity {
     body.gravityScale = 0.6;
 
     // set the display to follow our position on both axis
-    me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH, 0.1);
+    me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH, 1);
 
     // ensure the player is updated even when outside of the viewport
     this.alwaysUpdate = true;
