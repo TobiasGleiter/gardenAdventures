@@ -19,7 +19,7 @@ const DataManifest: MData[] = [
     src: 'data/map/Assets.tsx',
   },
 
-    //Background
+  //Background
   {
     name: 'Background_1',
     type: 'image',
@@ -34,7 +34,7 @@ const DataManifest: MData[] = [
   {
     name: 'mainPlayerImage',
     type: 'image',
-    src: 'data/img/sprite/mainPlayer16x16.png',
+    src: 'data/img/sprite/mainPlayer16x16.png', //mainPlayer32x32.png
   },
   // bullet png
   {
@@ -55,12 +55,10 @@ const DataManifest: MData[] = [
     src: 'data/img/sprite/title_screen.jpg',
   },
 
-    //Levels
+  //Levels
   { name: 'Lvl1-1', type: 'tmx', src: 'data/map/Lvl1-1.json' },
   { name: 'Lvl1-2', type: 'tmx', src: 'data/map/Lvl1-2.json' },
   { name: 'Lvl1-3', type: 'tmx', src: 'data/map/Lvl1-3.json' },
-
-
 ];
 
 export default DataManifest;
