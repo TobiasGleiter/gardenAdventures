@@ -14,6 +14,7 @@ class PlayerEntity extends me.Entity {
   private jumpCounter: number = 0;
   private idleCooldown: number = 1000;
   private lastIdleTime: number = 0;
+  private health: number = 3;
 
   constructor(x: number, y: number) {
     super(x, y, {
@@ -176,6 +177,12 @@ class PlayerEntity extends me.Entity {
       }
     }
 
+    // Gameover
+    if (this.health <= 0) {
+      // Start the game.
+      me.state.change(me.state.MENU, true);
+    }
+
     return super.update(dt) || this.body.vel.x !== 0 || this.body.vel.y !== 0;
   }
 
@@ -192,10 +199,12 @@ class PlayerEntity extends me.Entity {
           // bounce (force jump)
           this.body.vel.y = -this.body.maxVel.y;
         } else {
+          this.health -= 1;
           // let's flicker in case we touched an enemy
           this.renderable.flicker(750);
-          console.log('enemy');
           this.renderable.setCurrentAnimation('damage');
+          console.log('enemy');
+          console.log(this.health);
         }
     }
   }
