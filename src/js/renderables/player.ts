@@ -17,10 +17,10 @@ class PlayerEntity extends me.Entity {
 
   constructor(x: number, y: number) {
     super(x, y, {
-      frameheight: 16,
-      framewidth: 16,
-      width: 16,
-      height: 8,
+      frameheight: 32,
+      framewidth: 32,
+      width: 32,
+      height: 24,
       image: 'mainPlayerImage',
       anchorPoint: new me.Vector2d(0.5, 1),
     });
@@ -28,7 +28,7 @@ class PlayerEntity extends me.Entity {
     // Create a new body component
     const body = new me.Body(this);
     // add a rectangle shape
-    body.addShape(new me.Rect(0, 0, 16, 8));
+    body.addShape(new me.Rect(0, 0, 32, 18));
 
     // set a "player object" type
     body.collisionType = me.collision.types.PLAYER_OBJECT;
@@ -163,8 +163,8 @@ class PlayerEntity extends me.Entity {
       // Spawn a new bullet entity
       const bullet = me.pool.pull(
         'mainPlayerAttack',
-        this.pos.x,
-        this.pos.y,
+        this.pos.x + 20,
+        this.pos.y + 10,
         // Settings for bullet entity
         { facingLeft: this.facingLeft, bulletVel: 3, bulletDistance: 100 }
       ) as me.Renderable;
@@ -193,9 +193,9 @@ class PlayerEntity extends me.Entity {
           this.body.vel.y = -this.body.maxVel.y;
         } else {
           // let's flicker in case we touched an enemy
-          //this.renderable.flicker(750);
+          this.renderable.flicker(750);
           console.log('enemy');
-          this.renderable.setCurrentAnimation('dead');
+          this.renderable.setCurrentAnimation('damage');
         }
     }
   }
