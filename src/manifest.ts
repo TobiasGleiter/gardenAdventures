@@ -18,7 +18,16 @@ const DataManifest: MData[] = [
     type: 'tsx',
     src: 'data/map/Assets.tsx',
   },
-
+  {
+    name: 'obstacles',
+    type: 'image',
+    src: 'data/img/obstacles/obstacles.png',
+  },
+  {
+    name: 'obstacles',
+    type: 'tsx',
+    src: 'data/map/obstacles.tsx',
+  },
     //Background
   {
     name: 'Background_1',
