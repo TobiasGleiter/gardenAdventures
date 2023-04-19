@@ -177,11 +177,6 @@
                          "name":"framewidth",
                          "type":"string",
                          "value":"64"
-                        }, 
-                        {
-                         "name":"image",
-                         "type":"string",
-                         "value":"gripe_run_right"
                         }],
                  "rotation":0,
                  "type":"",

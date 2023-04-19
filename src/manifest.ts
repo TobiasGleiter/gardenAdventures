@@ -18,7 +18,16 @@ const DataManifest: MData[] = [
     type: 'tsx',
     src: 'data/map/Assets.tsx',
   },
-
+  {
+    name: 'obstacles',
+    type: 'image',
+    src: 'data/img/obstacles/obstacles.png',
+  },
+  {
+    name: 'obstacles',
+    type: 'tsx',
+    src: 'data/map/obstacles.tsx',
+  },
   //Background
   {
     name: 'Background_1',
@@ -29,6 +38,11 @@ const DataManifest: MData[] = [
     name: 'Background_2',
     type: 'image',
     src: 'data/img/background/Background_2.png',
+  },
+  {
+    name: 'Background_2',
+    type: 'tsx',
+    src: 'data/map/Background_2.tsx',
   },
   //Player
   {
@@ -59,6 +73,7 @@ const DataManifest: MData[] = [
   { name: 'Lvl1-1', type: 'tmx', src: 'data/map/Lvl1-1.json' },
   { name: 'Lvl1-2', type: 'tmx', src: 'data/map/Lvl1-2.json' },
   { name: 'Lvl1-3', type: 'tmx', src: 'data/map/Lvl1-3.json' },
+  { name: 'Lvl1-4', type: 'tmx', src: 'data/map/Lvl1-4.json' },
 ];
 
 export default DataManifest;
