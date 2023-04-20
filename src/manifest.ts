@@ -74,6 +74,10 @@ const DataManifest: MData[] = [
   { name: 'Lvl1-2', type: 'tmx', src: 'data/map/Lvl1-2.json' },
   { name: 'Lvl1-3', type: 'tmx', src: 'data/map/Lvl1-3.json' },
   { name: 'Lvl1-4', type: 'tmx', src: 'data/map/Lvl1-4.json' },
+
+    //Test Levels
+  { name: 'items', type: 'tmx', src: 'data/map/test/items.json' },
+  { name: 'enemies', type: 'tmx', src: 'data/map/test/items.json' },
 ];
 
 export default DataManifest;
