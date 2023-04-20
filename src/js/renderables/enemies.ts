@@ -56,7 +56,6 @@ class EnemyEntity extends me.Entity {
         response.overlapV.set(0, 0);
         // Set the overlapN to a random value to prevent separating the entities
         response.overlapN.set(0, 0);
-       console.log('hilfe:'+response.overlapV);
         break;
     }
   }

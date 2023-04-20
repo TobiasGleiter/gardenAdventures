@@ -68,6 +68,12 @@ const DataManifest: MData[] = [
     type: 'image',
     src: 'data/img/sprite/title_screen.jpg',
   },
+  // title screen bg image
+  {
+    name: 'health',
+    type: 'image',
+    src: 'data/img/sprite/health.png',
+  },
 
   //Levels
   { name: 'Lvl1-1', type: 'tmx', src: 'data/map/Lvl1-1.json' },

@@ -1,4 +1,5 @@
 import * as me from 'melonjs';
+import game from '../../game';
 import { MSettingsBullet } from '../../types/dataModel';
 
 class BulletEntity extends me.Entity {
@@ -63,14 +64,20 @@ class BulletEntity extends me.Entity {
    *
    * @returns {boolean}
    */
-  onCollision(response: any) {
+  onCollision(response: any): any {
+    me.game.world.removeChild(this as any);
     switch (response.b.body.collisionType) {
       case me.collision.types.ENEMY_OBJECT:
         this.alive = false;
         if (!this.alive) {
-          me.game.world.removeChild(this);
+          me.game.world.removeChild(this as any);
           console.log('shot an enmey');
+          game.data.score++;
         }
+        break;
+      case me.collision.types.WORLD_SHAPE:
+        console.log('world');
+        break;
     }
   }
 }
