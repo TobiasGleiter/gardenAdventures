@@ -165,8 +165,8 @@ class PlayerEntity extends me.Entity {
       // Spawn a new bullet entity
       const bullet = me.pool.pull(
         'mainPlayerAttack',
-        this.pos.x + 20,
-        this.pos.y + 10,
+        this.pos.x + 10,
+        this.pos.y + 5,
         // Settings for bullet entity
         { facingLeft: this.facingLeft, bulletVel: 3, bulletDistance: 100 }
       ) as me.Renderable;
@@ -196,17 +196,17 @@ class PlayerEntity extends me.Entity {
     this.jumpCounter = 0;
     switch (response.b.body.collisionType) {
       case me.collision.types.ENEMY_OBJECT:
-          this.renderable.flicker(750);
-          this.renderable.setCurrentAnimation('damage');
+        this.renderable.flicker(750);
+        this.renderable.setCurrentAnimation('damage');
 
-          this.hurt();
-          // Set the overlapV to 0 to prevent separating the entities
-          response.overlapV.set(0, 0);
-          // Set the overlapN to a random value to prevent separating the entities
-          response.overlapN.set(0, 0);
+        this.hurt();
+        // Set the overlapV to 0 to prevent separating the entities
+        response.overlapV.set(0, 0);
+        // Set the overlapN to a random value to prevent separating the entities
+        response.overlapN.set(0, 0);
     }
   }
-  hurt(){
+  hurt() {
     //this.health -= 1;
   }
 }
