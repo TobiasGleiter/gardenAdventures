@@ -21,11 +21,10 @@ class BulletEntity extends me.Entity {
 
     body.setMaxVelocity(100, 0);
     body.collisionType = me.collision.types.PROJECTILE_OBJECT;
-    body.setCollisionMask(me.collision.types.ENEMY_OBJECT);
+    body.collisionMask = me.collision.types.ENEMY_OBJECT;
 
-    body.setMaxVelocity(20, 20);
-    body.gravityScale = 0.05;
-    body.mass = 0.1;
+    body.setMaxVelocity(2, 0);
+    body.ignoreGravity;
 
     this.isKinematic = false;
     // settings
@@ -38,6 +37,7 @@ class BulletEntity extends me.Entity {
 
     this.alive = true;
 
+    this.alwaysUpdate = true;
     // Add the body component to the entity
     this.body = body;
   }
@@ -68,7 +68,6 @@ class BulletEntity extends me.Entity {
    * @returns {boolean}
    */
   onCollision(response: any): any {
-    me.game.world.removeChild(this as any);
     switch (response.b.body.collisionType) {
       case me.collision.types.ENEMY_OBJECT:
         this.alive = false;
@@ -77,9 +76,6 @@ class BulletEntity extends me.Entity {
           console.log('shot an enmey');
           game.data.score++;
         }
-        break;
-      case me.collision.types.WORLD_SHAPE:
-        console.log('world');
         break;
     }
   }

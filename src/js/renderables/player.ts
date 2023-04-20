@@ -172,8 +172,8 @@ class PlayerEntity extends me.Entity {
         // Spawn a new bullet entity
         const bullet = me.pool.pull(
           'mainPlayerAttack',
-          this.pos.x + 10,
-          this.pos.y + 5,
+          this.pos.x + 5,
+          this.pos.y + 2,
           // Settings for bullet entity
           { facingLeft: this.facingLeft, bulletVel: 3, bulletDistance: 100 }
         ) as me.Renderable;
@@ -183,6 +183,17 @@ class PlayerEntity extends me.Entity {
         if (!this.renderable.isCurrentAnimation('shoot')) {
           this.renderable.setCurrentAnimation('shoot');
         }
+      }
+
+      // check if we fell into a hole
+      if (!this.inViewport && this.pos.y > me.video.renderer.getHeight()) {
+        // if yes reset the game
+        me.game.world.removeChild(this);
+        me.game.viewport.fadeIn('#fff', 150, function () {
+          me.level.reload();
+          me.game.viewport.fadeOut('#fff', 150);
+        });
+        return true;
       }
     }
 
@@ -195,7 +206,10 @@ class PlayerEntity extends me.Entity {
    * @returns {boolean}
    */
   onCollision(response: any): any {
-    if ((response.a.bottom-response.b.top)>0 && (response.a.bottom-response.b.top)<1){
+    if (
+      response.a.bottom - response.b.top > 0 &&
+      response.a.bottom - response.b.top < 1
+    ) {
       this.jumpCounter = 0;
     }
     switch (response.b.body.collisionType) {
@@ -206,10 +220,11 @@ class PlayerEntity extends me.Entity {
         response.overlapV.set(0, 0);
         // Set the overlapN to a random value to prevent separating the entities
         response.overlapN.set(0, 0);
+        break;
     }
   }
 
-  //
+  // when player get hurt by enemy
   hurt() {
     var sprite = this.renderable;
     // check if immune
@@ -233,7 +248,6 @@ class PlayerEntity extends me.Entity {
       // Start the game.
       if (!this.renderable.isCurrentAnimation('dead')) {
         this.renderable.setCurrentAnimation('dead');
-
         sprite.flicker(0);
       }
       // timer to reset immune

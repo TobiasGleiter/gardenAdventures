@@ -48,7 +48,6 @@ class HealthItems extends me.Container {
     healthImages.forEach((item: me.Sprite) => {
       item.name = 'health';
       this.addChild(item, 1);
-      console.log(item);
     });
     // add to the world container
 
