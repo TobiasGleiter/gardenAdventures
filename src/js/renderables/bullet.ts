@@ -22,7 +22,10 @@ class BulletEntity extends me.Entity {
     body.setMaxVelocity(100, 0);
     body.collisionType = me.collision.types.PROJECTILE_OBJECT;
     body.setCollisionMask(me.collision.types.ENEMY_OBJECT);
-    body.ignoreGravity;
+
+    body.setMaxVelocity(20, 20);
+    body.gravityScale = 0.05;
+    body.mass = 0.1;
 
     this.isKinematic = false;
     // settings
