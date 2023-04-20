@@ -195,7 +195,9 @@ class PlayerEntity extends me.Entity {
    * @returns {boolean}
    */
   onCollision(response: any): any {
-    this.jumpCounter = 0;
+    if ((response.a.bottom-response.b.top)>0 && (response.a.bottom-response.b.top)<1){
+      this.jumpCounter = 0;
+    }
     switch (response.b.body.collisionType) {
       case me.collision.types.ENEMY_OBJECT:
         this.hurt();
