@@ -7,6 +7,7 @@ class PlayerEntity extends me.Entity {
    * @param y
    * @param settings
    */
+
   private shootCooldown: number = 400; // Time in ms between shots
   private lastShotTime: number = 0; // Timestamp of last shot
   private facingLeft: boolean = false;
@@ -18,10 +19,10 @@ class PlayerEntity extends me.Entity {
 
   constructor(x: number, y: number) {
     super(x, y, {
-      frameheight: 32,
-      framewidth: 32,
-      width: 32,
-      height: 24,
+      frameheight: 16,
+      framewidth: 16,
+      width: 16,
+      height: 8,
       image: 'mainPlayerImage',
       anchorPoint: new me.Vector2d(0.5, 1),
     });
@@ -29,7 +30,7 @@ class PlayerEntity extends me.Entity {
     // Create a new body component
     const body = new me.Body(this);
     // add a rectangle shape
-    body.addShape(new me.Rect(0, 0, 32, 18));
+    body.addShape(new me.Rect(0, 0, 16, 8));
 
     // set a "player object" type
     body.collisionType = me.collision.types.PLAYER_OBJECT;
@@ -195,18 +196,18 @@ class PlayerEntity extends me.Entity {
     this.jumpCounter = 0;
     switch (response.b.body.collisionType) {
       case me.collision.types.ENEMY_OBJECT:
-        if (response.overlapV.y > 0 && this.body.falling) {
-          // bounce (force jump)
-          this.body.vel.y = -this.body.maxVel.y;
-        } else {
-          this.health -= 1;
-          // let's flicker in case we touched an enemy
           this.renderable.flicker(750);
           this.renderable.setCurrentAnimation('damage');
-          console.log('enemy');
-          console.log(this.health);
-        }
+
+          this.hurt();
+          // Set the overlapV to 0 to prevent separating the entities
+          response.overlapV.set(0, 0);
+          // Set the overlapN to a random value to prevent separating the entities
+          response.overlapN.set(0, 0);
     }
+  }
+  hurt(){
+    //this.health -= 1;
   }
 }
 

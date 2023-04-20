@@ -15,7 +15,7 @@ import EnemyEntity from './js/renderables/enemies';
 device.onReady(() => {
   // initialize the display canvas once the device/browser is ready
   if (
-    !me.video.init(640, 200, {
+    !me.video.init(500, 240, {
       parent: 'screen',
       scale: 'auto',
       scaleMethod: 'fit',

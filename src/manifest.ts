@@ -48,7 +48,7 @@ const DataManifest: MData[] = [
   {
     name: 'mainPlayerImage',
     type: 'image',
-    src: 'data/img/sprite/mainPlayer32x32.png', //mainPlayer32x32.png
+    src: 'data/img/sprite/mainPlayer16x16.png', //mainPlayer32x32.png
   },
   // bullet png
   {
