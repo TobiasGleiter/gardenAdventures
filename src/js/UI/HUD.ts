@@ -62,8 +62,14 @@ class HealthItems extends me.Container {
     if (this.health !== game.data.health) {
       this.health = game.data.health;
       //this.setText(this.health);
-
-      this.removeChild(healthImages[this.health]);
+      // set animation damage
+      // tint to red and flicker
+      healthImages[this.health].tint.setColor(255, 0, 0);
+      healthImages[this.health].flicker(750, () => {
+        // clear the tint once the flickering effect is over
+        healthImages[this.health].tint.setColor(255, 255, 255);
+        this.removeChild(healthImages[this.health]);
+      });
     }
 
     return super.update(dt);

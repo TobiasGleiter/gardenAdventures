@@ -237,7 +237,6 @@ class PlayerEntity extends me.Entity {
 
     // timer to reset immune
     me.timer.setTimeout(() => {
-      me.timer.reset();
       this.isImmune = false;
     }, 750);
 
@@ -252,9 +251,8 @@ class PlayerEntity extends me.Entity {
       }
       // timer to reset immune
       me.timer.setTimeout(() => {
-        me.timer.reset();
         me.state.change(me.state.MENU, false);
-      }, 750);
+      }, 1000);
     } else {
       // set animation damage
       // tint to red and flicker
