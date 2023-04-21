@@ -13,7 +13,7 @@ class BirdEnemyEntity extends me.Entity {
     // call the parent constructor
     super(x, y, settings);
 
-    this.renderable.addAnimation('idle', [0, 1]);
+    this.renderable.addAnimation('idle', [0]);
     this.renderable.setCurrentAnimation('idle');
 
     // add a physic body

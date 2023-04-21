@@ -19,7 +19,7 @@ class BugEnemyEntity extends me.Entity {
     // add a physic body
     const body = new me.Body(this);
     // add a default collision shape
-    body.addShape(new me.Rect(0, 0, this.width, this.height));
+    body.addShape(new me.Rect(0, 0, 32, 32));
     body.collisionType = me.collision.types.ENEMY_OBJECT;
 
     // init force, max velo and friction
