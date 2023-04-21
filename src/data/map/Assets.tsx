@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.10" tiledversion="1.10.1" name="Assets" tilewidth="16" tileheight="16" tilecount="625" columns="25">
  <image source="../img/map/Assets.png" width="400" height="400"/>
- <tile id="2">
+ <tile id="2" type="platform">
+  <properties>
+   <property name="type" value="platform"/>
+  </properties>
   <objectgroup draworder="index" id="2">
    <object id="1" x="1.20936" y="-0.188891" width="14.6053" height="10.7038"/>
   </objectgroup>
  </tile>
- <tile id="3">
+ <tile id="3" type="platform">
+  <properties>
+   <property name="type" value="platform"/>
+  </properties>
   <objectgroup draworder="index" id="2">
-   <object id="1" name="Collision" x="0" y="0" width="16.0937" height="10.3261"/>
+   <object id="1" name="Collision" x="0" y="0" width="16.0937" height="10.3261">
+    <properties>
+     <property name="type" value="platform"/>
+    </properties>
+   </object>
   </objectgroup>
  </tile>
  <tile id="4">

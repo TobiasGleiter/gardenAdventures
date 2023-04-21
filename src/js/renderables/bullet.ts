@@ -1,4 +1,5 @@
 import * as me from 'melonjs';
+import game from '../../game';
 import { MSettingsBullet } from '../../types/dataModel';
 
 class BulletEntity extends me.Entity {
@@ -20,7 +21,9 @@ class BulletEntity extends me.Entity {
 
     body.setMaxVelocity(100, 0);
     body.collisionType = me.collision.types.PROJECTILE_OBJECT;
-    body.setCollisionMask(me.collision.types.ENEMY_OBJECT);
+    //body.collisionMask = me.collision.types.ALL_OBJECT;
+
+    body.setMaxVelocity(2, 0);
     body.ignoreGravity;
 
     this.isKinematic = false;
@@ -34,6 +37,7 @@ class BulletEntity extends me.Entity {
 
     this.alive = true;
 
+    this.alwaysUpdate = true;
     // Add the body component to the entity
     this.body = body;
   }
@@ -47,12 +51,20 @@ class BulletEntity extends me.Entity {
     }
     // Remove this bullet if too far away
     if (!this.facingLeft && this.renderable.pos.x > this.bulletDistance) {
-      me.game.world.removeChild(this);
+      me.game.world.removeChild(this as any);
     } else if (
       this.facingLeft &&
       this.renderable.pos.x < -this.bulletDistance
     ) {
-      me.game.world.removeChild(this);
+      me.game.world.removeChild(this as any);
+    }
+
+    // check if we fell into a hole
+    if (!this.inViewport && this.pos.x > me.video.renderer.getWidth()){
+      // if yes reset the game
+      me.game.world.removeChild(this as any);
+
+      return true;
     }
 
     return super.update(dt);
@@ -63,14 +75,24 @@ class BulletEntity extends me.Entity {
    *
    * @returns {boolean}
    */
-  onCollision(response: any) {
+  onCollision(response: any): any {
     switch (response.b.body.collisionType) {
       case me.collision.types.ENEMY_OBJECT:
         this.alive = false;
         if (!this.alive) {
-          me.game.world.removeChild(this);
-          console.log('shot an enmey');
+          me.game.world.removeChild(this as any);
+          game.data.score++;
         }
+        break;
+        case me.collision.types.PLAYER_OBJECT:
+          // Set the overlapV to 0 to prevent separating the entities
+          response.overlapV.set(0, 0);
+          // Set the overlapN to a random value to prevent separating the entities
+          response.overlapN.set(0, 0);
+          break;
+        case me.collision.types.WORLD_SHAPE:
+          me.game.world.removeChild(this as any);
+
     }
   }
 }
