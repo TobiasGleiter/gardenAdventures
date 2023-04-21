@@ -12,6 +12,16 @@ import DataManifest from 'manifest.ts';
 import BulletEntity from './js/renderables/bullet';
 import EnemyEntity from './js/renderables/enemies';
 
+import BeeEnemyEntity from './js/renderables/beeEnemy';
+import BirdEnemyEntity from './js/renderables/birdEnemy';
+import BugEnemyEntity from './js/renderables/bugEnemy';
+import CaterpillarEnemyEntity from './js/renderables/caterpillarEnemy';
+import MoleEnemyEntity from './js/renderables/moleEnemy';
+import MothEnemyEntity from './js/renderables/mothEnemy';
+import SnailEnemyEntity from './js/renderables/snailEnemy';
+import WaspEnemyEntity from './js/renderables/waspEnemy';
+import WormEnemyEntity from './js/renderables/wormEnemy';
+
 device.onReady(() => {
   // initialize the display canvas once the device/browser is ready
   if (
@@ -63,6 +73,16 @@ device.onReady(() => {
     me.pool.register('mainPlayer', PlayerEntity);
     me.pool.register('mainPlayerAttack', BulletEntity);
     me.pool.register('EnemyEntity', EnemyEntity);
+
+    me.pool.register('BeeEnemyEntity', BeeEnemyEntity);
+    me.pool.register('BirdEnemyEntity', BirdEnemyEntity);
+    me.pool.register('BugEnemyEntity', BugEnemyEntity);
+    me.pool.register('CaterpillarEnemyEntity', CaterpillarEnemyEntity);
+    me.pool.register('MoleEnemyEntity', MoleEnemyEntity);
+    me.pool.register('MothEnemyEntity', MothEnemyEntity);
+    me.pool.register('SnailEnemyEntity', SnailEnemyEntity);
+    me.pool.register('WaspEnemyEntity', WaspEnemyEntity);
+    me.pool.register('WormEnemyEntity', WormEnemyEntity);
 
     // enable the keyboard
     me.input.bindKey(me.input.KEY.LEFT, 'left');

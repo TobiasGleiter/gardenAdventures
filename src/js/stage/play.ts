@@ -6,7 +6,7 @@ class PlayScreen extends me.Stage {
    */
   onResetEvent() {
     // load a level
-    me.level.load('Lvl1-3');
+    me.level.load('enemies');
   }
   // Run on game resources loaded.
 }
