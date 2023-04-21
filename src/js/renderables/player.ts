@@ -92,7 +92,6 @@ class PlayerEntity extends me.Entity {
 
         // PLAYER SNEAK
         if (me.input.isKeyPressed('sneak')) {
-          console.log('sneak');
           // update the entity velocity
           this.body.vel.x = -this.sneakingSpeed;
           // flip the sprite on horizontal axis
@@ -101,7 +100,6 @@ class PlayerEntity extends me.Entity {
             this.renderable.setCurrentAnimation('sneak');
           }
         } else {
-          console.log('run');
           // update the entity velocity
           this.body.vel.x = -this.body.maxVel.x;
           // flip the sprite on horizontal axis
@@ -118,14 +116,12 @@ class PlayerEntity extends me.Entity {
 
         // PLAYER SNEAK
         if (me.input.isKeyPressed('sneak')) {
-          console.log('sneak');
           // update the entity velocity
           this.body.vel.x = this.sneakingSpeed;
           if (!this.renderable.isCurrentAnimation('sneak')) {
             this.renderable.setCurrentAnimation('sneak');
           }
         } else {
-          console.log('run');
           // update the entity velocity
           this.body.vel.x = this.body.maxVel.x;
           // change to the walking animation
@@ -216,6 +212,12 @@ class PlayerEntity extends me.Entity {
       case me.collision.types.ENEMY_OBJECT:
         this.hurt();
 
+        // Set the overlapV to 0 to prevent separating the entities
+        response.overlapV.set(0, 0);
+        // Set the overlapN to a random value to prevent separating the entities
+        response.overlapN.set(0, 0);
+        break;
+      case me.collision.types.PROJECTILE_OBJECT:
         // Set the overlapV to 0 to prevent separating the entities
         response.overlapV.set(0, 0);
         // Set the overlapN to a random value to prevent separating the entities

@@ -48,7 +48,6 @@ class EnemyEntity extends me.Entity {
         this.alive = false;
         if (!this.alive) {
           me.game.world.removeChild(this as any);
-          console.log('IAM dead!');
         }
         break;
       case me.collision.types.PLAYER_OBJECT:

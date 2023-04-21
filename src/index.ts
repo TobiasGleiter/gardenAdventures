@@ -47,11 +47,6 @@ device.onReady(() => {
 
   // set and load all resources.
   loader.preload(DataManifest, function () {
-    // create a new instance of the TMXTileMap class
-    // create a new level object based on the TMX JSON object
-    //var level = new me.TMXTileMap("area01", me.loader.getTMX("area01"));
-    //console.log(level);
-
     // set the user defined game stages
     me.state.set(me.state.MENU, new TitleScreen());
     me.state.set(me.state.PLAY, new PlayScreen());
