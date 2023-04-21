@@ -65,11 +65,13 @@ class HealthItems extends me.Container {
       // set animation damage
       // tint to red and flicker
       healthImages[this.health].tint.setColor(255, 0, 0);
-      healthImages[this.health].flicker(750, () => {
+
+      healthImages[this.health].flicker(250, () => {
         // clear the tint once the flickering effect is over
         healthImages[this.health].tint.setColor(255, 255, 255);
         this.removeChild(healthImages[this.health]);
       });
+
     }
 
     return super.update(dt);

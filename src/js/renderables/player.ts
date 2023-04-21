@@ -210,7 +210,9 @@ class PlayerEntity extends me.Entity {
     }
     switch (response.b.body.collisionType) {
       case me.collision.types.ENEMY_OBJECT:
-        this.hurt();
+          this.hurt();
+
+
 
         // Set the overlapV to 0 to prevent separating the entities
         response.overlapV.set(0, 0);
@@ -235,12 +237,13 @@ class PlayerEntity extends me.Entity {
       game.data.health--;
       // set immune to true
       this.isImmune = true;
+      // timer to reset immune
+      me.timer.setTimeout(() => {
+        this.isImmune = false;
+      }, 750);
     }
 
-    // timer to reset immune
-    me.timer.setTimeout(() => {
-      this.isImmune = false;
-    }, 750);
+
 
     // Gameover after 3 hits
     if (game.data.health < 1) {
@@ -254,7 +257,7 @@ class PlayerEntity extends me.Entity {
       // timer to reset immune
       me.timer.setTimeout(() => {
         me.state.change(me.state.MENU, false);
-      }, 1000);
+      }, 1500);
     } else {
       // set animation damage
       // tint to red and flicker

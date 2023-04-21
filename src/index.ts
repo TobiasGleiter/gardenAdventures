@@ -52,7 +52,7 @@ device.onReady(() => {
     me.state.set(me.state.PLAY, new PlayScreen());
 
     // set a global fading transition for the screen
-    me.state.transition('fade', '#FFFFFF', 250);
+    me.state.transition('fade', '#FFFFFF', 50);
 
     // add our player entity in the entity pool
     me.pool.register('mainPlayer', PlayerEntity);
@@ -74,6 +74,6 @@ device.onReady(() => {
     me.input.bindKey(me.input.KEY.SHIFT, 'sneak');
 
     // Start the game.
-    me.state.change(me.state.PLAY);
+    me.state.change(me.state.PLAY, true);
   });
 });
