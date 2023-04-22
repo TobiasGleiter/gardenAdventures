@@ -1,13 +1,13 @@
 {
-    "activeFile": "src/data/map/test/enemies.json",
+    "activeFile": "src/data/map/Lvl1-3.json",
     "expandedProjectPaths": [
-        "src/data/map",
-        "public/data/map",
-        "public/data",
         "src",
         ".",
+        "src/data/map/test",
+        "public/data",
         "src/data",
-        "src/data/map/test"
+        "src/data/map",
+        "public/data/map"
     ],
     "fileStates": {
         "public/data/map/Assets.tsx": {
@@ -45,22 +45,22 @@
                 4
             ],
             "scale": 4,
-            "selectedLayer": 4,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 479.875,
-                "y": 135.875
+                "x": 597.5,
+                "y": 133.75
             }
         },
         "src/data/map/Lvl1-3.json": {
             "expandedObjectLayers": [
-                4,
-                5
+                5,
+                4
             ],
             "scale": 4,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 319.875,
-                "y": 135.875
+                "x": 128.75,
+                "y": 135.5
             }
         },
         "src/data/map/enemies.json": {
@@ -79,8 +79,8 @@
             "scale": 1.5,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 302.6666666666667,
-                "y": 118.66666666666669
+                "x": 302,
+                "y": 118
             }
         },
         "src/data/map/test/items.json": {
@@ -108,9 +108,9 @@
     "recentFiles": [
         "src/data/map/obstacles.tsx",
         "src/data/map/Lvl1-2.json",
-        "src/data/map/Lvl1-3.json",
-        "src/data/map/Assets.tsx",
         "src/data/map/test/enemies.json",
+        "src/data/map/Assets.tsx",
+        "src/data/map/Lvl1-3.json",
         "src/data/map/test/items.json",
         "src/data/map/enemies.json",
         "src/data/map/Lvl1-1.json",
