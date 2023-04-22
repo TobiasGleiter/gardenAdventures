@@ -62,6 +62,53 @@ const DataManifest: MData[] = [
     type: 'image',
     src: 'data/img/sprite/enemy.png',
   },
+
+  {
+    name: 'mothEnemy',
+    type: 'image',
+    src: 'data/img/sprite/moth_enemy.png',
+  },
+  {
+    name: 'birdEnemy',
+    type: 'image',
+    src: 'data/img/sprite/bird_enemy.png',
+  },
+  {
+    name: 'moleEnemy',
+    type: 'image',
+    src: 'data/img/sprite/mole_enemy.png',
+  },
+  {
+    name: 'beeEnemy',
+    type: 'image',
+    src: 'data/img/sprite/bee_enemy.png',
+  },
+  {
+    name: 'waspEnemy',
+    type: 'image',
+    src: 'data/img/sprite/wasp_enemy.png',
+  },
+  {
+    name: 'snailEnemy',
+    type: 'image',
+    src: 'data/img/sprite/snail_enemy.png',
+  },
+  {
+    name: 'caterpillarEnemy',
+    type: 'image',
+    src: 'data/img/sprite/caterpillar_enemy.png',
+  },
+  {
+    name: 'bugEnemy',
+    type: 'image',
+    src: 'data/img/sprite/bug_enemy.png',
+  },
+  {
+    name: 'wormEnemy',
+    type: 'image',
+    src: 'data/img/sprite/worm_enemy.png',
+  },
+
   // title screen bg image
   {
     name: 'title_screen',
@@ -81,9 +128,9 @@ const DataManifest: MData[] = [
   { name: 'Lvl1-3', type: 'tmx', src: 'data/map/Lvl1-3.json' },
   { name: 'Lvl1-4', type: 'tmx', src: 'data/map/Lvl1-4.json' },
 
-    //Test Levels
+  //Test Levels
   { name: 'items', type: 'tmx', src: 'data/map/test/items.json' },
-  { name: 'enemies', type: 'tmx', src: 'data/map/test/items.json' },
+  { name: 'enemies', type: 'tmx', src: 'data/map/test/enemies.json' },
 ];
 
 export default DataManifest;
