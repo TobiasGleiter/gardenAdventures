@@ -1,12 +1,12 @@
 {
     "activeFile": "src/data/map/Lvl1-2.json",
     "expandedProjectPaths": [
+        "src",
         "src/data/map",
         ".",
-        "src/data",
-        "public/data",
         "public/data/map",
-        "src"
+        "src/data",
+        "public/data"
     ],
     "fileStates": {
         "public/data/map/Assets.tsx": {
@@ -24,6 +24,9 @@
         "src/data/map/Assets.tsx": {
             "scaleInDock": 1
         },
+        "src/data/map/Background_2.tsx": {
+            "scaleInDock": 1
+        },
         "src/data/map/Lvl1-1.json": {
             "scale": 4,
             "selectedLayer": 3,
@@ -37,10 +40,10 @@
                 4
             ],
             "scale": 4,
-            "selectedLayer": 4,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 764,
-                "y": 163.25
+                "x": 808.25,
+                "y": 135.25
             }
         },
         "src/data/map/Lvl1-3.json": {
@@ -51,7 +54,7 @@
             "scale": 4,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 319.875,
+                "x": 320,
                 "y": 135.875
             }
         },

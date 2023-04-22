@@ -9,7 +9,7 @@ class PlayScreen extends me.Stage {
    */
   onResetEvent() {
     // load a level
-    me.level.load('Lvl1-1');
+    me.level.load('enemies');
 
     // reset the score
     game.data.score = 0;
