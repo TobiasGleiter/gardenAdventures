@@ -11,6 +11,7 @@ import TitleScreen from 'js/stage/title.ts';
 import DataManifest from 'manifest.ts';
 import BulletEntity from './js/renderables/bullet';
 import EnemyEntity from './js/renderables/enemies';
+import CollectableEntity from "./js/renderables/collectables";
 
 import BeeEnemyEntity from './js/renderables/beeEnemy';
 import BirdEnemyEntity from './js/renderables/birdEnemy';
@@ -68,6 +69,7 @@ device.onReady(() => {
     me.pool.register('mainPlayer', PlayerEntity);
     me.pool.register('mainPlayerAttack', BulletEntity);
     me.pool.register('EnemyEntity', EnemyEntity);
+    me.pool.register('strawberry', CollectableEntity);
 
     me.pool.register('BeeEnemyEntity', BeeEnemyEntity);
     me.pool.register('BirdEnemyEntity', BirdEnemyEntity);

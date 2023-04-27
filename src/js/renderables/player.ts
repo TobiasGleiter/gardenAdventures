@@ -1,6 +1,10 @@
 import * as me from 'melonjs';
 import game from '../../game';
 
+// SERVER
+import network from "../../multiplayer/network";
+const serverUrl = 'http://localhost:3000';
+
 class PlayerEntity extends me.Entity {
   /**
    *
@@ -74,6 +78,9 @@ class PlayerEntity extends me.Entity {
     this.alive = true;
     // Add the body component to the entity
     this.body = body;
+
+    // SERVER
+    network.init(serverUrl)
   }
 
   /**
@@ -84,8 +91,10 @@ class PlayerEntity extends me.Entity {
    */
   update(dt: any) {
     if (this.alive) {
+
       // PLAYER RUN
       if (me.input.isKeyPressed('left')) {
+        network.sendPosition({x: this.pos.x, y: this.pos.y})
         this.facingLeft = true;
         //let collisionBox = this.body.getShape(0);
         //collisionBox.pos.x = -64;
@@ -211,8 +220,6 @@ class PlayerEntity extends me.Entity {
     switch (response.b.body.collisionType) {
       case me.collision.types.ENEMY_OBJECT:
           this.hurt();
-
-
 
         // Set the overlapV to 0 to prevent separating the entities
         response.overlapV.set(0, 0);
