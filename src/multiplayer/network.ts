@@ -1,5 +1,6 @@
 // @ts-nocheck
 import io from "socket.io-client";
+import {createSocket} from "dgram";
 //const socket = io('http://localhost:3000');
 
 class Network {
@@ -16,7 +17,22 @@ class Network {
         this.socket.emit('movePlayer', positionData);
     }
 
+    sendScore(data) {
+        this.socket.emit('score', data);
+    }
 
+    getPlayerId() {
+        return this.socket.id;
+    }
+
+
+    async getScoreboard() {
+        this.socket.emit("getScoreboard");
+            return this.socket.on("scoreboard", (data) => {
+            console.log(data);
+        });
+
+    }
 }
 
 const network = new Network();

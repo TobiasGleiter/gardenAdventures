@@ -1,6 +1,7 @@
 import * as me from 'melonjs';
 import game from '../../game';
 import UIContainer from '../UI/HUD';
+import network from "../../multiplayer/network";
 
 
 
@@ -10,6 +11,9 @@ class PlayScreen extends me.Stage {
    *  action to perform on state change
    */
   onResetEvent() {
+    // GET SCOREBOARD
+    network.getScoreboard();
+
     const player = me.pool.pull(
         'mainPlayer',
         100, 100
@@ -29,6 +33,20 @@ class PlayScreen extends me.Stage {
   }
   // Run on game resources loaded.
   onDestroyEvent(): void {
+    // SEND SCORE TO SERVER IF FINISHED
+    let isFinished = true;
+    if(isFinished) {
+      const res = {
+        player: "123" as string, //network.getPlayerId()
+        score: game.data.score as number,
+        level: me.level.getCurrentLevel().name as string
+      }
+      // Send score to server
+      network.sendScore(res);
+    }
+
+
+
     me.game.world.removeChild(this.HUD);
   }
 }

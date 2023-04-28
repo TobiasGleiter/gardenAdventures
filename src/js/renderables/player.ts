@@ -195,7 +195,8 @@ class PlayerEntity extends me.Entity {
         // if yes reset the game
         me.game.world.removeChild(this);
         me.game.viewport.fadeIn('#fff', 150, function () {
-          me.level.reload();
+          //me.level.reload();
+          me.state.change(me.state.MENU, false);
           me.game.viewport.fadeOut('#fff', 150);
         });
         return true;

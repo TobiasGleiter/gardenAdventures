@@ -23,7 +23,11 @@ import SnailEnemyEntity from './js/renderables/snailEnemy';
 import WaspEnemyEntity from './js/renderables/waspEnemy';
 import WormEnemyEntity from './js/renderables/wormEnemy';
 
+import network from './multiplayer/network';
+const serverUrl = 'http://localhost:3000';
+
 device.onReady(() => {
+  network.init(serverUrl);
   // initialize the display canvas once the device/browser is ready
   if (
     !me.video.init(500, 240, {
