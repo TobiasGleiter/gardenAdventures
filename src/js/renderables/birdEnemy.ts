@@ -1,19 +1,26 @@
 import * as me from 'melonjs';
 
 class BirdEnemyEntity extends me.Entity {
+  private health: number = 2;
+  //private shootCooldown: number = 1000; // Time in ms between shots
+  //private lastShotTime: number = 0; // Timestamp of last shot
+
   constructor(x: number, y: number, settings: any) {
     // define this here instead of tiled
-    settings.image = 'birdEnemy';
+    //settings.image = 'birdEnemy';
+    settings.image = 'enemies2';
 
     // adjust the size setting information to match the sprite size
     // so that the entity object is created with the right size
     settings.framewidth = settings.width = 50;
     settings.frameheight = settings.height = 50;
-
+    settings.anchorPoint = new me.Vector2d(0.5, 1);
+    
     // call the parent constructor
     super(x, y, settings);
 
-    this.renderable.addAnimation('idle', [0]);
+    this.renderable.addAnimation('idle', [32]);
+    this.renderable.addAnimation('dead', [127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145]);
     this.renderable.setCurrentAnimation('idle');
 
     // add a physic body
@@ -45,12 +52,34 @@ class BirdEnemyEntity extends me.Entity {
   onCollision(response: any): any {
     switch (response.b.body.collisionType) {
       case me.collision.types.PROJECTILE_OBJECT:
-        this.alive = false;
-        if (!this.alive) {
-          me.game.world.removeChild(this as any);
-          console.log('IAM dead!');
-        }
+        //console.log(response.b.name)
+        if (response.b.name == "playerAttack") {
+          if (this.health > 0) {
+            this.health = this.health - 1;
+          } else if(this.health <= 0) {
+            this.alive = false;
+            if (!this.alive) {
+            //Death-animation and remove of object
+              this.renderable.setCurrentAnimation('dead', () => {
+                me.game.world.removeChild(this);           
+              });
+            }
+          }
+        } 
+      
         break;
+      case me.collision.types.PLAYER_OBJECT:
+          // Set the overlapV to 0 to prevent separating the entities
+          response.overlapV.set(0, 0);
+          // Set the overlapN to a random value to prevent separating the entities
+          response.overlapN.set(0, 0);
+          break;
+      case me.collision.types.ENEMY_OBJECT:
+            // Set the overlapV to 0 to prevent separating the entities
+            response.overlapV.set(0, 0);
+            // Set the overlapN to a random value to prevent separating the entities
+            response.overlapN.set(0, 0);
+            break;
     }
   }
 }

@@ -74,6 +74,7 @@ class PlayerEntity extends me.Entity {
     this.alive = true;
     // Add the body component to the entity
     this.body = body;
+    this.name = "PlayerEntity"
   }
 
   /**

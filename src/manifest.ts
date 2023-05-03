@@ -62,8 +62,23 @@ const DataManifest: MData[] = [
     type: 'image',
     src: 'data/img/sprite/enemy.png',
   },
-
   {
+    name: 'enemies',
+    type: 'image',
+    src: 'data/img/sprite/enemies.png',
+  },
+  {
+    name: 'enemies1',
+    type: 'image',
+    src: 'data/img/sprite/enemies1.png',
+  },
+  {
+    name: 'enemies2',
+    type: 'image',
+    src: 'data/img/sprite/enemies2.png',
+  },
+
+/*  {
     name: 'mothEnemy',
     type: 'image',
     src: 'data/img/sprite/moth_enemy.png',
@@ -107,6 +122,28 @@ const DataManifest: MData[] = [
     name: 'wormEnemy',
     type: 'image',
     src: 'data/img/sprite/worm_enemy.png',
+  },*/
+
+  // Attacks
+/*  {
+    name: 'mothAttack',
+    type: 'image',
+    src: 'data/img/sprite/moth_attack.png',
+  },
+  {
+    name: 'stingAttack',
+    type: 'image',
+    src: 'data/img/sprite/sting_attack.png',
+  },*/
+  {
+    name: 'attacks',
+    type: 'image',
+    src: 'data/img/sprite/attacks.png',
+  },
+  {
+    name: 'attacks1',
+    type: 'image',
+    src: 'data/img/sprite/attacks1.png',
   },
 
   // title screen bg image
@@ -131,6 +168,7 @@ const DataManifest: MData[] = [
   //Test Levels
   { name: 'items', type: 'tmx', src: 'data/map/test/items.json' },
   { name: 'enemies', type: 'tmx', src: 'data/map/test/enemies.json' },
+
 ];
 
 export default DataManifest;
