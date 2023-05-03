@@ -22,6 +22,11 @@ import SnailEnemyEntity from './js/renderables/snailEnemy';
 import WaspEnemyEntity from './js/renderables/waspEnemy';
 import WormEnemyEntity from './js/renderables/wormEnemy';
 
+import MothAttack from './js/renderables/mothAttack';
+import StingAttack from './js/renderables/stingAttack';
+import SlimeAttack from './js/renderables/slimeAttack';
+import AcidAttack from './js/renderables/acidAttack';
+
 device.onReady(() => {
   // initialize the display canvas once the device/browser is ready
   if (
@@ -79,6 +84,11 @@ device.onReady(() => {
     me.pool.register('WaspEnemyEntity', WaspEnemyEntity);
     me.pool.register('WormEnemyEntity', WormEnemyEntity);
 
+    me.pool.register('MothAttack', MothAttack);
+    me.pool.register('StingAttack', StingAttack);
+    me.pool.register('SlimeAttack', SlimeAttack);
+    me.pool.register('AcidAttack', AcidAttack);    
+    
     // enable the keyboard
     me.input.bindKey(me.input.KEY.LEFT, 'left');
     me.input.bindKey(me.input.KEY.RIGHT, 'right');
