@@ -21,6 +21,7 @@ import MothEnemyEntity from './js/renderables/mothEnemy';
 import SnailEnemyEntity from './js/renderables/snailEnemy';
 import WaspEnemyEntity from './js/renderables/waspEnemy';
 import WormEnemyEntity from './js/renderables/wormEnemy';
+import SpikeEnemyEntity from './js/renderables/spikeEnemy';
 
 import MothAttack from './js/renderables/mothAttack';
 import StingAttack from './js/renderables/stingAttack';
@@ -83,6 +84,7 @@ device.onReady(() => {
     me.pool.register('SnailEnemyEntity', SnailEnemyEntity);
     me.pool.register('WaspEnemyEntity', WaspEnemyEntity);
     me.pool.register('WormEnemyEntity', WormEnemyEntity);
+    me.pool.register('SpikeEnemyEntity', SpikeEnemyEntity);
 
     me.pool.register('MothAttack', MothAttack);
     me.pool.register('StingAttack', StingAttack);
