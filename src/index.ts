@@ -21,6 +21,7 @@ import MothEnemyEntity from './js/renderables/mothEnemy';
 import SnailEnemyEntity from './js/renderables/snailEnemy';
 import WaspEnemyEntity from './js/renderables/waspEnemy';
 import WormEnemyEntity from './js/renderables/wormEnemy';
+import SpikeEnemyEntity from './js/renderables/spikeEnemy';
 
 device.onReady(() => {
   // initialize the display canvas once the device/browser is ready
@@ -78,6 +79,7 @@ device.onReady(() => {
     me.pool.register('SnailEnemyEntity', SnailEnemyEntity);
     me.pool.register('WaspEnemyEntity', WaspEnemyEntity);
     me.pool.register('WormEnemyEntity', WormEnemyEntity);
+    me.pool.register('SpikeEnemyEntity', SpikeEnemyEntity);
 
     // enable the keyboard
     me.input.bindKey(me.input.KEY.LEFT, 'left');
