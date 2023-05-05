@@ -26,13 +26,8 @@ class CollectableEntity extends me.Collectable {
      * collision handling
      */
     onCollision(/*response*/) {
-
-        if (game.data.health < 5){
-            game.data.health++;
-        }
-
+        game.data.health++;
         //avoid further collision and delete it
-
         me.game.world.removeChild(this as any);
 
         return false;

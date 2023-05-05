@@ -1,8 +1,11 @@
 import * as me from 'melonjs';
+import network from "../../multiplayer/network";
+import {BitmapText} from "melonjs";
 
 
 class Highscore extends me.Stage {
     onResetEvent() {
+
         const backgroundImage = new me.Sprite(
             me.game.viewport.width / 2,
             me.game.viewport.height / 2,
@@ -21,23 +24,53 @@ class Highscore extends me.Stage {
         me.game.world.addChild(backgroundImage, 1);
 
 
-
-        // Highscore-Liste erstellen
-        const highscores = ['1. Highscore ', '2. Highscore ', '3. Highscore ', '4. Highscore ', '5. Highscore ', 'Your Highscore'];
-        const x = me.game.viewport.width / 2;
-        const startY = 80;
-        const spacing = 20;
-
-        for (let i = 0; i < highscores.length; i++) {
-            const highscoreText = new me.BitmapText(x, startY + i * spacing, {
-                font: 'PressStart2P',
-                text: highscores[i],
-                textAlign: 'center',
-                size: 0.5,
-            });
-            highscoreText.anchorPoint.set(0.5, 0);
-            me.game.world.addChild(highscoreText);
+        async function doSomething() {
+            try {
+                return await network.getScoreboard();
+            } catch (error) {
+                console.error(error);
+                return [];
+            }
         }
+
+        doSomething().then(highscores => {
+            // Highscore-Liste erstellen
+                        const x = me.game.viewport.width / 2;
+                        const startY = 80;
+                        const spacing = 20;
+
+                        for (let i = 0; i < highscores.length; i++) {
+                            const highscoreText = new me.BitmapText(x, startY + i * spacing, {
+                                font: 'PressStart2P',
+                                text: i+1 + '. ' + highscores[i],
+                                textAlign: 'center',
+                                size: 0.5,
+                            });
+                            highscoreText.anchorPoint.set(0.5, 0);
+                            me.game.world.addChild(highscoreText);
+                        }
+        }).catch(error => console.error(error));
+
+        async function doSomething2() {
+            try {
+                return await network.getMyScore();
+            } catch (error) {
+                console.error(error);
+                return [];
+            }
+        }
+
+        doSomething2().then(yourScore => {
+            const Score = new BitmapText(me.game.viewport.width/2, 190, {
+                font: "PressStart2P",
+                text: "Your Highscore: " + yourScore[0].Score,
+                textAlign: "center",
+                size: 0.7
+            });
+            Score.tint.setColor(43, 77, 189);
+            me.game.world.addChild(Score);
+        })
+
 
         // Zurück-Button erstellen
         const backButton = new me.BitmapText(

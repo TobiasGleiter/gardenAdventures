@@ -1,8 +1,5 @@
 import * as me from 'melonjs';
 
-
-
-
 export class LevelSelect extends me.Stage {
 
     onResetEvent() {
@@ -150,10 +147,6 @@ export class LevelSelect extends me.Stage {
                     me.level.load('Lvl1-4');
                 }
             });
-
-
-
-
 
         }
     }

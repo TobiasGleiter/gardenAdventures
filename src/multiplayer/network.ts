@@ -33,16 +33,29 @@ class Network {
 
 
     async getScoreboard() {
-        //this.socket.emit("getScoreboard");
-        /*let scoreboard = await this.socket.on("scoreboard", (data) => {
-            console.log(data);
-            this.scoreboard = data;
-            //console.log(this.scoreboard);
-        }).then(() => { return this.scoreboard});
-
-        console.log(scoreboard)
-        return scoreboard;*/
+        return new Promise((resolve) => {
+            const highscores = [];
+            this.socket.emit("getScoreboard");
+            this.socket.on("scoreboard", (data) => {
+                highscores.push(data[0].Score);
+                highscores.push(data[1].Score);
+                highscores.push(data[2].Score);
+                highscores.push(data[3].Score);
+                highscores.push(data[4].Score);
+                resolve(highscores);
+            });
+        });
     }
+
+    async getMyScore(){
+        return new Promise((resolve) => {
+            this.socket.emit("getScore");
+            this.socket.on('yourScore', (data) => {
+                resolve(data);
+            })
+        })
+    }
+
 
 }
 

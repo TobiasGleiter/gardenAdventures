@@ -1,7 +1,7 @@
 import * as me from 'melonjs';
 import game from '../../game';
-import network from '../../multiplayer/network';
 import UIContainer from '../UI/HUD';
+import network from "../../multiplayer/network";
 
 class PlayScreen extends me.Stage {
   private HUD: any;
@@ -21,8 +21,9 @@ class PlayScreen extends me.Stage {
     );
     pause.name = 'pausenname';
 
-    if (me.input.isKeyPressed('pause')) {
-      if (me.game.world.getChildByName('pausenname').length == 0) {
+    if (me.input.isKeyPressed("pause")) {
+
+      if(me.game.world.getChildByName('pausenname').length == 0){
         me.game.world.addChild(pause);
       }
 
@@ -41,7 +42,7 @@ class PlayScreen extends me.Stage {
 
   onResetEvent() {
     // load a level
-    me.level.load('Lvl1-2');
+    me.level.load('Lvl1-1');
 
     // reset the score
     game.data.score = 0;
@@ -58,6 +59,11 @@ class PlayScreen extends me.Stage {
 
     // scale to fit with the viewport size
     backgroundImage.scale(me.game.viewport.width, me.game.viewport.height);
+      // scale to fit with the viewport size
+      backgroundImage.scale(
+        me.game.viewport.width,
+        me.game.viewport.height
+      );
 
     // add to the world container
     me.game.world.addChild(backgroundImage, -3);
