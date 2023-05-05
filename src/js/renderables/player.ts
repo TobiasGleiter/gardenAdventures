@@ -187,7 +187,8 @@ class PlayerEntity extends me.Entity {
         // if yes reset the game
         me.game.world.removeChild(this);
         me.game.viewport.fadeIn('#fff', 150, function () {
-          me.level.reload();
+          //me.level.reload();
+          me.state.change(me.state.MENU, false);
           me.game.viewport.fadeOut('#fff', 150);
         });
         return true;
@@ -212,8 +213,6 @@ class PlayerEntity extends me.Entity {
     switch (response.b.body.collisionType) {
       case me.collision.types.ENEMY_OBJECT:
           this.hurt();
-
-
 
         // Set the overlapV to 0 to prevent separating the entities
         response.overlapV.set(0, 0);

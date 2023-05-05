@@ -76,13 +76,19 @@ class BulletEntity extends me.Entity {
    *
    * @returns {boolean}
    */
-  onCollision(response: any): any {
+  onCollision(response: any, other: any): any {
     switch (response.b.body.collisionType) {
       case me.collision.types.ENEMY_OBJECT:
+        // eslint-disable-next-line no-case-declarations
+
         this.alive = false;
         if (!this.alive) {
           me.game.world.removeChild(this as any);
-          game.data.score++;
+          if (!other.alive){
+            other.body.collisionMask = me.collision.types.WORLD_SHAPE;
+            game.data.score++;
+          }
+
         }
         break;
         case me.collision.types.PLAYER_OBJECT:

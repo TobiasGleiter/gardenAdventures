@@ -17,6 +17,8 @@ import Game_Over from 'js/stage/Game_over.ts';
 import DataManifest from 'manifest.ts';
 import BulletEntity from './js/renderables/bullet';
 import EnemyEntity from './js/renderables/enemies';
+import HealingItemEntity from "./js/renderables/healingItem";
+import CoinItemEntity from "./js/renderables/coinItem";
 
 import BeeEnemyEntity from './js/renderables/beeEnemy';
 import BirdEnemyEntity from './js/renderables/birdEnemy';
@@ -34,7 +36,8 @@ import StingAttack from './js/renderables/stingAttack';
 import SlimeAttack from './js/renderables/slimeAttack';
 import AcidAttack from './js/renderables/acidAttack';
 
-
+import network from './multiplayer/network';
+const serverUrl = 'http://localhost:3000';
 
 device.onReady(() => {
   // initialize the display canvas once the device/browser is ready
@@ -83,6 +86,12 @@ device.onReady(() => {
         // set a global fading transition for the screen
         me.state.transition('fade', '#FFFFFF', 50);
 
+        // add our player entity in the entity pool
+        me.pool.register('mainPlayer', PlayerEntity);
+        me.pool.register('mainPlayerAttack', BulletEntity);
+        me.pool.register('EnemyEntity', EnemyEntity);
+        me.pool.register('cheese', HealingItemEntity);
+        me.pool.register('coin', CoinItemEntity);
 
 
         // add our player entity in the entity pool
@@ -99,7 +108,7 @@ device.onReady(() => {
         me.pool.register('SnailEnemyEntity', SnailEnemyEntity);
         me.pool.register('WaspEnemyEntity', WaspEnemyEntity);
         me.pool.register('WormEnemyEntity', WormEnemyEntity);
-    me.pool.register('SpikeEnemyEntity', SpikeEnemyEntity);
+        me.pool.register('SpikeEnemyEntity', SpikeEnemyEntity);
 
         me.pool.register('MothAttack', MothAttack);
         me.pool.register('StingAttack', StingAttack);
@@ -107,6 +116,8 @@ device.onReady(() => {
         me.pool.register('AcidAttack', AcidAttack);
 
         // enable the keyboard
+        me.input.bindKey(me.input.KEY.ESC, 'pause');
+        me.input.bindKey(me.input.KEY.ENTER, 'resume');
         me.input.bindKey(me.input.KEY.LEFT, 'left');
         me.input.bindKey(me.input.KEY.RIGHT, 'right');
         // map X, Up Arrow and Space for jump
@@ -122,5 +133,7 @@ device.onReady(() => {
 
         // Start the game.
         me.state.change(me.state.PLAY, true);
-      });
+        // SERVER
+        network.init(serverUrl)
+  });
 });

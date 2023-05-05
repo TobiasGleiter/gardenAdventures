@@ -4,9 +4,11 @@ import { MData } from './types/dataModel';
 
 // note : this is note a webpack manifest
 const DataManifest: MData[] = [
+    // ----------------------------------------------------------------------------------
   // game font
   { name: 'PressStart2P', type: 'image', src: 'data/fnt/PressStart2P.png' },
   { name: 'PressStart2P', type: 'binary', src: 'data/fnt/PressStart2P.fnt' },
+  // ----------------------------------------------------------------------------------
   // level tiles
   {
     name: 'Assets',
@@ -49,6 +51,16 @@ const DataManifest: MData[] = [
     name: 'mainPlayerImage',
     type: 'image',
     src: 'data/img/sprite/mainPlayer16x16.png', //mainPlayer32x32.png
+  },
+  {
+    name: 'cheese',
+    type: 'image',
+    src: 'data/img/collectables/Kaese.png',
+  },
+  {
+    name: 'coin',
+    type: 'image',
+    src: 'data/img/collectables/Muenze.png',
   },
   // bullet png
   {
