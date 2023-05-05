@@ -13,7 +13,7 @@ class PlayScreen extends me.Stage {
 
     // reset the score
     game.data.score = 0;
-    game.data.health = 5;
+    game.data.health = 1;
 
     this.HUD = new UIContainer();
     me.game.world.addChild(this.HUD);

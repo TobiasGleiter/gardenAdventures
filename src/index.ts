@@ -1,12 +1,18 @@
 //@ts-nocheck
 import * as me from 'melonjs';
-import { audio, device, loader, plugin, utils } from 'melonjs';
+import {audio, device, loader, plugin, utils} from 'melonjs';
+
 
 import 'index.css';
 
 import PlayerEntity from 'js/renderables/player';
 import PlayScreen from 'js/stage/play.ts';
 import TitleScreen from 'js/stage/title.ts';
+import LevelSelect from 'js/stage/levelSelect.ts';
+import Highscore from 'js/stage/Highscore.ts';
+
+import Game_Over from 'js/stage/Game_over.ts';
+
 
 import DataManifest from 'manifest.ts';
 import BulletEntity from './js/renderables/bullet';
@@ -27,6 +33,8 @@ import MothAttack from './js/renderables/mothAttack';
 import StingAttack from './js/renderables/stingAttack';
 import SlimeAttack from './js/renderables/slimeAttack';
 import AcidAttack from './js/renderables/acidAttack';
+
+
 
 device.onReady(() => {
   // initialize the display canvas once the device/browser is ready
@@ -62,50 +70,57 @@ device.onReady(() => {
   loader.crossOrigin = 'anonymous';
 
   // set and load all resources.
-  loader.preload(DataManifest, function () {
-    // set the user defined game stages
-    me.state.set(me.state.MENU, new TitleScreen());
-    me.state.set(me.state.PLAY, new PlayScreen());
+  loader.preload(DataManifest,
+      function () {
+        // set the user defined game stages
+        me.state.set(me.state.MENU, new TitleScreen());
+        me.state.set(me.state.PLAY, new PlayScreen());
+        me.state.set(me.state.SETTINGS, new LevelSelect());
+        me.state.set(me.state.SCORE, new Highscore());
 
-    // set a global fading transition for the screen
-    me.state.transition('fade', '#FFFFFF', 50);
+        me.state.set(me.state.GAMEOVER, new Game_Over());
 
-    // add our player entity in the entity pool
-    me.pool.register('mainPlayer', PlayerEntity);
-    me.pool.register('mainPlayerAttack', BulletEntity);
-    me.pool.register('EnemyEntity', EnemyEntity);
+        // set a global fading transition for the screen
+        me.state.transition('fade', '#FFFFFF', 50);
 
-    me.pool.register('BeeEnemyEntity', BeeEnemyEntity);
-    me.pool.register('BirdEnemyEntity', BirdEnemyEntity);
-    me.pool.register('BugEnemyEntity', BugEnemyEntity);
-    me.pool.register('CaterpillarEnemyEntity', CaterpillarEnemyEntity);
-    me.pool.register('MoleEnemyEntity', MoleEnemyEntity);
-    me.pool.register('MothEnemyEntity', MothEnemyEntity);
-    me.pool.register('SnailEnemyEntity', SnailEnemyEntity);
-    me.pool.register('WaspEnemyEntity', WaspEnemyEntity);
-    me.pool.register('WormEnemyEntity', WormEnemyEntity);
+
+
+        // add our player entity in the entity pool
+        me.pool.register('mainPlayer', PlayerEntity);
+        me.pool.register('mainPlayerAttack', BulletEntity);
+        me.pool.register('EnemyEntity', EnemyEntity);
+
+        me.pool.register('BeeEnemyEntity', BeeEnemyEntity);
+        me.pool.register('BirdEnemyEntity', BirdEnemyEntity);
+        me.pool.register('BugEnemyEntity', BugEnemyEntity);
+        me.pool.register('CaterpillarEnemyEntity', CaterpillarEnemyEntity);
+        me.pool.register('MoleEnemyEntity', MoleEnemyEntity);
+        me.pool.register('MothEnemyEntity', MothEnemyEntity);
+        me.pool.register('SnailEnemyEntity', SnailEnemyEntity);
+        me.pool.register('WaspEnemyEntity', WaspEnemyEntity);
+        me.pool.register('WormEnemyEntity', WormEnemyEntity);
     me.pool.register('SpikeEnemyEntity', SpikeEnemyEntity);
 
-    me.pool.register('MothAttack', MothAttack);
-    me.pool.register('StingAttack', StingAttack);
-    me.pool.register('SlimeAttack', SlimeAttack);
-    me.pool.register('AcidAttack', AcidAttack);    
-    
-    // enable the keyboard
-    me.input.bindKey(me.input.KEY.LEFT, 'left');
-    me.input.bindKey(me.input.KEY.RIGHT, 'right');
-    // map X, Up Arrow and Space for jump
-    me.input.bindKey(me.input.KEY.X, 'jump', true);
-    me.input.bindKey(me.input.KEY.UP, 'jump', true);
-    //me.input.bindKey(me.input.KEY.SPACE, 'jump', true);
-    // map S to shoot
-    //me.input.bindKey(me.input.KEY.S, 'shoot');
-    me.input.bindKey(me.input.KEY.DOWN, 'shoot');
-    me.input.bindKey(me.input.KEY.SPACE, 'shoot');
-    // map shift to sneak
-    me.input.bindKey(me.input.KEY.SHIFT, 'sneak');
+        me.pool.register('MothAttack', MothAttack);
+        me.pool.register('StingAttack', StingAttack);
+        me.pool.register('SlimeAttack', SlimeAttack);
+        me.pool.register('AcidAttack', AcidAttack);
 
-    // Start the game.
-    me.state.change(me.state.PLAY, true);
-  });
+        // enable the keyboard
+        me.input.bindKey(me.input.KEY.LEFT, 'left');
+        me.input.bindKey(me.input.KEY.RIGHT, 'right');
+        // map X, Up Arrow and Space for jump
+        me.input.bindKey(me.input.KEY.X, 'jump', true);
+        me.input.bindKey(me.input.KEY.UP, 'jump', true);
+        //me.input.bindKey(me.input.KEY.SPACE, 'jump', true);
+        // map S to shoot
+        //me.input.bindKey(me.input.KEY.S, 'shoot');
+        me.input.bindKey(me.input.KEY.DOWN, 'shoot');
+        me.input.bindKey(me.input.KEY.SPACE, 'shoot');
+        // map shift to sneak
+        me.input.bindKey(me.input.KEY.SHIFT, 'sneak');
+
+        // Start the game.
+        me.state.change(me.state.PLAY, true);
+      });
 });
