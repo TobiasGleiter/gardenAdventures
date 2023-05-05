@@ -17,6 +17,9 @@ class SpikeEnemyEntity extends me.Entity {
     body.addShape(new me.Rect(0, 0, this.width, this.height));
     body.collisionType = me.collision.types.ENEMY_OBJECT;
 
+    // make it "alive"
+        this.alive = true;
+
     // enable physic collision (off by default for basic me.Renderable)
     this.isKinematic = false;
 
@@ -31,13 +34,12 @@ class SpikeEnemyEntity extends me.Entity {
    */
   onCollision(response: any): any {
     switch (response.b.body.collisionType) {
-      case me.collision.types.PROJECTILE_OBJECT:
-        this.alive = false;
-        if (!this.alive) {
-          me.game.world.removeChild(this as any);
-          console.log('IAM dead!');
-        }
-        break;
+      case me.collision.types.PLAYER_OBJECT:
+                // Set the overlapV to 0 to prevent separating the entities
+                response.overlapV.set(0, 0);
+                // Set the overlapN to a random value to prevent separating the entities
+                response.overlapN.set(0, 0);
+                break;
     }
   }
 }
