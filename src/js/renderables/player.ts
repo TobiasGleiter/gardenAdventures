@@ -1,10 +1,6 @@
 import * as me from 'melonjs';
 import game from '../../game';
 
-// SERVER
-import network from "../../multiplayer/network";
-const serverUrl = 'http://localhost:3000';
-
 class PlayerEntity extends me.Entity {
   /**
    *
@@ -78,9 +74,7 @@ class PlayerEntity extends me.Entity {
     this.alive = true;
     // Add the body component to the entity
     this.body = body;
-
-    // SERVER
-    network.init(serverUrl)
+    this.name = "PlayerEntity"
   }
 
   /**
@@ -91,10 +85,8 @@ class PlayerEntity extends me.Entity {
    */
   update(dt: any) {
     if (this.alive) {
-
       // PLAYER RUN
       if (me.input.isKeyPressed('left')) {
-        network.sendPosition({x: this.pos.x, y: this.pos.y})
         this.facingLeft = true;
         //let collisionBox = this.body.getShape(0);
         //collisionBox.pos.x = -64;

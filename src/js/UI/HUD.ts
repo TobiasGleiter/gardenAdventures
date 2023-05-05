@@ -6,6 +6,7 @@ import game from '../../game';
  */
 class ScoreItem extends me.BitmapText {
   private score: number;
+  //private score2: String;
   /**
    * constructor
    */
@@ -19,6 +20,7 @@ class ScoreItem extends me.BitmapText {
     });
 
     this.score = -1;
+
   }
 
   /**
@@ -59,7 +61,7 @@ class HealthItems extends me.Container {
    */
   update(dt: any) {
     let healthImages = me.game.world.getChildByName('health');
-    if (this.health !== game.data.health) {
+    if (this.health > game.data.health) {
       this.health = game.data.health;
       //this.setText(this.health);
       // set animation damage
@@ -72,6 +74,17 @@ class HealthItems extends me.Container {
         this.removeChild(healthImages[this.health]);
       });
 
+    }else if (this.health < game.data.health){
+      this.health = game.data.health;
+
+      // create new sprite and add it to the container
+      const newHealthImage = new me.Sprite(
+          healthImages[healthImages.length-1].pos.x - 10,
+          this.pos.y +20,
+          { image: me.loader.getImage('health') }
+      );
+      newHealthImage.name = 'health';
+      this.addChild(newHealthImage, 1);
     }
 
     return super.update(dt);
@@ -91,6 +104,7 @@ function createHealthImages(x: number, y: number, health: number): me.Sprite[] {
 
   return healthImages;
 }
+
 
 class UIContainer extends me.Container {
   constructor() {

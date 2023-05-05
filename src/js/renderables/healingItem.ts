@@ -9,16 +9,16 @@ class CollectableEntity extends me.Collectable {
         // call the super constructor
         super(x, y,
             {
-                framewidth: 12,
+                framewidth: 15,
                 frameheight: 16,
-                width: 12,
+                width: 15,
                 height: 16,
-                image: "strawberry",
+                image: "cheese",
                 anchorPoint: new me.Vector2d(0,0),
             }
         );
         // add a rectangle shape
-        this.body.addShape(new me.Rect(0, 0, 12, 16));
+        this.body.addShape(new me.Rect(0, 0, 15, 16));
 
         this.body.setCollisionMask(me.collision.types.PLAYER_OBJECT);
     }
@@ -27,8 +27,9 @@ class CollectableEntity extends me.Collectable {
      */
     onCollision(/*response*/) {
 
-        // give some score
-        game.data.score += 1;
+        if (game.data.health < 5){
+            game.data.health++;
+        }
 
         //avoid further collision and delete it
 

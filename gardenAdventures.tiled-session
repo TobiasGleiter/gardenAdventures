@@ -1,12 +1,13 @@
 {
-    "activeFile": "src/data/map/Lvl1-2.json",
+    "activeFile": "src/data/map/test/enemies.json",
     "expandedProjectPaths": [
-        "src",
-        "src/data/map",
-        ".",
-        "public/data/map",
         "src/data",
-        "public/data"
+        ".",
+        "src/data/map",
+        "src/data/map/test",
+        "src",
+        "public/data",
+        "public/data/map"
     ],
     "fileStates": {
         "public/data/map/Assets.tsx": {
@@ -42,38 +43,48 @@
             "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 808.25,
-                "y": 135.25
+                "x": 479.875,
+                "y": 135.875
             }
         },
         "src/data/map/Lvl1-3.json": {
             "expandedObjectLayers": [
-                4,
-                5
+                5,
+                4
             ],
             "scale": 4,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 320,
+                "x": 319.875,
                 "y": 135.875
             }
         },
         "src/data/map/obstacles.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 4
+        },
+        "src/data/map/test/enemies.json": {
+            "scale": 1.5,
+            "selectedLayer": 6,
+            "viewCenter": {
+                "x": 320.6666666666667,
+                "y": 148
+            }
         }
     },
     "last.imagePath": "C:/Users/Viktor/Documents/Dokumente/Studium/Semester4/Web/Projekt/_gardenAdventures/gardenAdventures/src/data/img/obstacles",
     "openFiles": [
         "src/data/map/obstacles.tsx",
         "src/data/map/Lvl1-2.json",
-        "src/data/map/Lvl1-3.json"
+        "src/data/map/Lvl1-3.json",
+        "src/data/map/test/enemies.json"
     ],
     "project": "gardenAdventures.tiled-project",
     "recentFiles": [
         "src/data/map/obstacles.tsx",
-        "src/data/map/Lvl1-3.json",
         "src/data/map/Lvl1-2.json",
+        "src/data/map/Lvl1-3.json",
+        "src/data/map/test/enemies.json",
         "src/data/map/Lvl1-1.json",
         "public/data/map/Assets.tsx",
         "public/data/map/Lvl1-1.json"

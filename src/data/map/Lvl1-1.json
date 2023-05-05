@@ -48,24 +48,24 @@
                 {
                  "height":16,
                  "id":24,
-                 "name":"strawberry",
+                 "name":"cheese",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":320.25,
-                 "y":47.5
+                 "x":223.302631578947,
+                 "y":46.9736842105263
                 }, 
                 {
                  "height":16,
                  "id":25,
-                 "name":"strawberry",
+                 "name":"coin",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":416.5,
-                 "y":144
+                 "x":319.710526315789,
+                 "y":47.1578947368421
                 }],
          "opacity":1,
          "type":"objectgroup",

@@ -11,7 +11,8 @@ import TitleScreen from 'js/stage/title.ts';
 import DataManifest from 'manifest.ts';
 import BulletEntity from './js/renderables/bullet';
 import EnemyEntity from './js/renderables/enemies';
-import CollectableEntity from "./js/renderables/collectables";
+import HealingItemEntity from "./js/renderables/healingItem";
+import CoinItemEntity from "./js/renderables/coinItem";
 
 import BeeEnemyEntity from './js/renderables/beeEnemy';
 import BirdEnemyEntity from './js/renderables/birdEnemy';
@@ -23,11 +24,15 @@ import SnailEnemyEntity from './js/renderables/snailEnemy';
 import WaspEnemyEntity from './js/renderables/waspEnemy';
 import WormEnemyEntity from './js/renderables/wormEnemy';
 
+import MothAttack from './js/renderables/mothAttack';
+import StingAttack from './js/renderables/stingAttack';
+import SlimeAttack from './js/renderables/slimeAttack';
+import AcidAttack from './js/renderables/acidAttack';
+
 import network from './multiplayer/network';
 const serverUrl = 'http://localhost:3000';
 
 device.onReady(() => {
-  network.init(serverUrl);
   // initialize the display canvas once the device/browser is ready
   if (
     !me.video.init(500, 240, {
@@ -73,7 +78,8 @@ device.onReady(() => {
     me.pool.register('mainPlayer', PlayerEntity);
     me.pool.register('mainPlayerAttack', BulletEntity);
     me.pool.register('EnemyEntity', EnemyEntity);
-    me.pool.register('strawberry', CollectableEntity);
+    me.pool.register('cheese', HealingItemEntity);
+    me.pool.register('coin', CoinItemEntity);
 
     me.pool.register('BeeEnemyEntity', BeeEnemyEntity);
     me.pool.register('BirdEnemyEntity', BirdEnemyEntity);
@@ -85,7 +91,14 @@ device.onReady(() => {
     me.pool.register('WaspEnemyEntity', WaspEnemyEntity);
     me.pool.register('WormEnemyEntity', WormEnemyEntity);
 
+    me.pool.register('MothAttack', MothAttack);
+    me.pool.register('StingAttack', StingAttack);
+    me.pool.register('SlimeAttack', SlimeAttack);
+    me.pool.register('AcidAttack', AcidAttack);
+
     // enable the keyboard
+    me.input.bindKey(me.input.KEY.ESC, 'pause');
+    me.input.bindKey(me.input.KEY.ENTER, 'resume');
     me.input.bindKey(me.input.KEY.LEFT, 'left');
     me.input.bindKey(me.input.KEY.RIGHT, 'right');
     // map X, Up Arrow and Space for jump
@@ -101,5 +114,8 @@ device.onReady(() => {
 
     // Start the game.
     me.state.change(me.state.PLAY, true);
+
+    // SERVER
+    network.init(serverUrl)
   });
 });
