@@ -1,7 +1,40 @@
-{ "compressionlevel":-1,
+{ "backgroundcolor":"#87ceeb",
+ "compressionlevel":-1,
  "height":30,
  "infinite":false,
  "layers":[
+        {
+         "id":14,
+         "image":"..\/img\/background\/Background_2.png",
+         "name":"Parallax_2",
+         "opacity":1,
+         "properties":[
+                {
+                 "name":"ratio",
+                 "type":"float",
+                 "value":0.25
+                }],
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "id":13,
+         "image":"..\/img\/background\/Background_1.png",
+         "name":"Parallax_1",
+         "opacity":1,
+         "properties":[
+                {
+                 "name":"ratio",
+                 "type":"float",
+                 "value":0.45
+                }],
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
         {
          "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -38,7 +71,7 @@
          "name":"Tile Layer 2",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":120,
          "x":0,
          "y":0
@@ -135,17 +168,6 @@
                 }, 
                 {
                  "height":16,
-                 "id":35,
-                 "name":"WormEnemyEntity",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":672,
-                 "y":433
-                }, 
-                {
-                 "height":16,
                  "id":36,
                  "name":"WaspEnemyEntity",
                  "rotation":0,
@@ -198,6 +220,138 @@
                  "width":16,
                  "x":1440,
                  "y":32
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":12,
+         "name":"items",
+         "objects":[
+                {
+                 "height":16,
+                 "id":67,
+                 "name":"cheese",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1248,
+                 "y":304
+                }, 
+                {
+                 "height":16,
+                 "id":68,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":912,
+                 "y":96
+                }, 
+                {
+                 "height":16,
+                 "id":69,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1296,
+                 "y":64
+                }, 
+                {
+                 "height":16,
+                 "id":70,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1152,
+                 "y":304
+                }, 
+                {
+                 "height":16,
+                 "id":71,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1392,
+                 "y":192
+                }, 
+                {
+                 "height":16,
+                 "id":72,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1296.66666666667,
+                 "y":272.666666666667
+                }, 
+                {
+                 "height":16,
+                 "id":73,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":306,
+                 "y":354
+                }, 
+                {
+                 "height":16,
+                 "id":74,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":352,
+                 "y":352
+                }, 
+                {
+                 "height":16,
+                 "id":75,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":400,
+                 "y":352
+                }, 
+                {
+                 "height":16,
+                 "id":76,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":704,
+                 "y":272
+                }, 
+                {
+                 "height":16,
+                 "id":77,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":720,
+                 "y":272
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -508,7 +662,7 @@
                  "y":248.333333333333
                 }, 
                 {
-                 "height":356.3333,
+                 "height":419.666633333333,
                  "id":56,
                  "name":"",
                  "rotation":0,
@@ -516,7 +670,7 @@
                  "visible":true,
                  "width":62.3333,
                  "x":1456,
-                 "y":128
+                 "y":64.6666666666667
                 }, 
                 {
                  "height":83.9999666666666,
@@ -574,7 +728,7 @@
                  "y":224
                 }, 
                 {
-                 "height":205.3333,
+                 "height":269.999966666667,
                  "id":62,
                  "name":"",
                  "rotation":0,
@@ -582,7 +736,7 @@
                  "visible":true,
                  "width":112.3333,
                  "x":1808,
-                 "y":128
+                 "y":63.3333333333333
                 }, 
                 {
                  "height":29.3333,
@@ -656,8 +810,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":12,
- "nextobjectid":66,
+ "nextlayerid":15,
+ "nextobjectid":78,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",

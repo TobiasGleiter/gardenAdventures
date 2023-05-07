@@ -1,7 +1,40 @@
-{ "compressionlevel":-1,
+{ "backgroundcolor":"#87ceeb",
+ "compressionlevel":-1,
  "height":40,
  "infinite":false,
  "layers":[
+        {
+         "id":10,
+         "image":"..\/img\/background\/Background_2.png",
+         "name":"Parallax_2",
+         "opacity":1,
+         "properties":[
+                {
+                 "name":"ratio",
+                 "type":"float",
+                 "value":0.35
+                }],
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "id":9,
+         "image":"..\/img\/background\/Background_1.png",
+         "name":"Parallax_1",
+         "opacity":1,
+         "properties":[
+                {
+                 "name":"ratio",
+                 "type":"float",
+                 "value":0.25
+                }],
+         "type":"imagelayer",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
         {
          "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 135, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 135, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -595,17 +628,6 @@
                 }, 
                 {
                  "height":16,
-                 "id":31,
-                 "name":"WaspEnemyEntity",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":16,
-                 "x":414,
-                 "y":366.666666666667
-                }, 
-                {
-                 "height":16,
                  "id":58,
                  "name":"SpikeEnemyEntity",
                  "rotation":0,
@@ -744,8 +766,184 @@
                  "type":"",
                  "visible":true,
                  "width":64,
-                 "x":688,
-                 "y":368
+                 "x":-3,
+                 "y":304
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":8,
+         "name":"items",
+         "objects":[
+                {
+                 "height":16,
+                 "id":81,
+                 "name":"cheese",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":944,
+                 "y":576
+                }, 
+                {
+                 "height":16,
+                 "id":82,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":864,
+                 "y":480
+                }, 
+                {
+                 "height":16,
+                 "id":83,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":800,
+                 "y":272
+                }, 
+                {
+                 "height":16,
+                 "id":84,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":912,
+                 "y":192
+                }, 
+                {
+                 "height":16,
+                 "id":85,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1136,
+                 "y":384
+                }, 
+                {
+                 "height":16,
+                 "id":86,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":12.6666666666667,
+                 "x":1104,
+                 "y":384
+                }, 
+                {
+                 "height":16,
+                 "id":87,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1104,
+                 "y":160
+                }, 
+                {
+                 "height":16,
+                 "id":88,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1148.66666666667,
+                 "y":160.666666666667
+                }, 
+                {
+                 "height":16,
+                 "id":89,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":304,
+                 "y":400
+                }, 
+                {
+                 "height":16,
+                 "id":90,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":208,
+                 "y":320
+                }, 
+                {
+                 "height":16,
+                 "id":91,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":208,
+                 "y":464
+                }, 
+                {
+                 "height":16,
+                 "id":92,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":416,
+                 "y":352
+                }, 
+                {
+                 "height":16,
+                 "id":93,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":416,
+                 "y":384
+                }, 
+                {
+                 "height":16,
+                 "id":95,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":544,
+                 "y":320
+                }, 
+                {
+                 "height":16,
+                 "id":96,
+                 "name":"coin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":592,
+                 "y":320
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -753,8 +951,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":8,
- "nextobjectid":81,
+ "nextlayerid":11,
+ "nextobjectid":97,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.1",
