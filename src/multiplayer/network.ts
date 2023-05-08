@@ -104,7 +104,6 @@ function onUpdatePlayers(data) {
   const mPlayers = me.game.world.getChildByName('mPlayer');
   //console.log(mPlayers);
   if (mPlayers.length == 0) {
-    console.log('Wenn das passiert, nicht gut!');
     let players = data.players;
     for (const playerId in players) {
       const player = players[playerId];
@@ -115,6 +114,7 @@ function onUpdatePlayers(data) {
           player.position.x,
           player.position.y
         );
+        console.log('Spieler hinzugefügt:' + player.id);
         me.game.world.addChild(newPlayer);
       }
     }
