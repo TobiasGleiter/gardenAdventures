@@ -63,7 +63,7 @@ class PlayScreen extends me.Stage {
     //Test
     /*
     const backgroundImage = new me.Sprite(0, 0, {
-      image: me.loader.getImage('Background_1'),
+      image: me.loader.getImage('Backgrou'),
     });
 
     // scale to fit with the viewport size
