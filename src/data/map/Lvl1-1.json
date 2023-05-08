@@ -3,15 +3,34 @@
  "infinite":false,
  "layers":[
         {
-         "id":7,
+         "id":14,
          "image":"..\/img\/background\/Background_2.png",
-         "name":"Background 1",
-         "offsetx":-2.16666666666657,
-         "offsety":0.5,
+         "name":"Parallax_2",
          "opacity":1,
-         "repeatx":true,
+         "properties":[
+                {
+                 "name":"ratio",
+                 "type":"float",
+                 "value":0.45
+                }],
          "type":"imagelayer",
-         "visible":false,
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "id":13,
+         "image":"..\/img\/background\/Background_1.png",
+         "name":"Parallax_1",
+         "opacity":1,
+         "properties":[
+                {
+                 "name":"ratio",
+                 "type":"float",
+                 "value":0.25
+                }],
+         "type":"imagelayer",
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -293,7 +312,7 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":13,
+ "nextlayerid":15,
  "nextobjectid":28,
  "orientation":"orthogonal",
  "renderorder":"right-down",
