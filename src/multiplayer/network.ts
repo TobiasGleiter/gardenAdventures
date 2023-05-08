@@ -9,19 +9,20 @@ class Network {
   init(serverUrl) {
     this.socket = io(serverUrl);
     this.socket.on('connect', () => {
-      console.log(this.socket.id);
+      console.log('Verbunden mit der Id: ' + this.socket.id);
       // tell server to create the player with username
       this.socket.emit('register', {
         id: this.socket.id,
         username: 'Spielername',
         position: { x: 0, y: 0 },
+        level: me.level.getCurrentLevel().name as string,
       });
 
       this.socket.on('playerJoined', onPlayerJoined);
       this.socket.on('playerPosition', onUpdatePlayers);
       this.socket.on('playerLeft', (playerId) => {
         // Entferne das Spielerobjekt aus der Szene
-        console.log('remove ' + playerId);
+        console.log('Spieler entfernt: ' + playerId);
         const temp = me.game.world.getChildByName('mPlayer');
         //console.log(data)
         temp.forEach((player) => {
@@ -79,7 +80,7 @@ class Network {
 // Funktion, die aufgerufen wird, wenn ein neuer Spieler beitritt
 function onPlayerJoined(data) {
   let players = JSON.parse(data);
-  console.log(JSON.parse(data));
+  //console.log(JSON.parse(data));
   for (const playerId in players) {
     const player = players[playerId];
     if (player.id !== network.getPlayerId()) {
@@ -102,11 +103,12 @@ function onPlayerJoined(data) {
 
 function onUpdatePlayers(data) {
   const mPlayers = me.game.world.getChildByName('mPlayer');
-  //console.log(mPlayers);
+  //console.log(data.players);
   if (mPlayers.length == 0) {
     let players = data.players;
     for (const playerId in players) {
       const player = players[playerId];
+      // && player.level === me.level.getCurrentLevel().name;
       if (player.id !== network.getPlayerId()) {
         const newPlayer = new MPlayerEntity(
           player.id,
