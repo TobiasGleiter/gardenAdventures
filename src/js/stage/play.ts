@@ -1,10 +1,18 @@
 import * as me from 'melonjs';
 import game from '../../game';
+import network from '../../multiplayer/network';
 import UIContainer from '../UI/HUD';
-import network from "../../multiplayer/network";
+//const serverUrl = 'http://localhost:3000';
 
 class PlayScreen extends me.Stage {
   private HUD: any;
+  private name: any;
+
+  constructor() {
+    super();
+    this.name = 'play';
+  }
+
   /**
    *  action to perform on state change
    */
@@ -21,9 +29,8 @@ class PlayScreen extends me.Stage {
     );
     pause.name = 'pausenname';
 
-    if (me.input.isKeyPressed("pause")) {
-
-      if(me.game.world.getChildByName('pausenname').length == 0){
+    if (me.input.isKeyPressed('pause')) {
+      if (me.game.world.getChildByName('pausenname').length == 0) {
         me.game.world.addChild(pause);
       }
 
@@ -41,6 +48,8 @@ class PlayScreen extends me.Stage {
   }
 
   onResetEvent() {
+    //if(me.state.isCurrent() === )
+    //network.init(serverUrl);
     // load a level
     me.level.load('Lvl1-1');
 
@@ -72,7 +81,7 @@ class PlayScreen extends me.Stage {
   // Run on game resources loaded.
   onDestroyEvent(): void {
     // SEND SCORE TO SERVER IF FINISHED
-    let isFinished = true;
+    let isFinished = false;
     if (isFinished) {
       const res = {
         player: network.getPlayerId() as string, //"123"

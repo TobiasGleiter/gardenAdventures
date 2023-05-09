@@ -1,5 +1,6 @@
 import * as me from 'melonjs';
 import game from '../../game';
+import network from '../../multiplayer/network';
 
 class PlayerEntity extends me.Entity {
   /**
@@ -74,7 +75,7 @@ class PlayerEntity extends me.Entity {
     this.alive = true;
     // Add the body component to the entity
     this.body = body;
-    this.name = "PlayerEntity"
+    this.name = 'PlayerEntity';
   }
 
   /**
@@ -195,6 +196,15 @@ class PlayerEntity extends me.Entity {
       }
     }
 
+    // PSEUDO MULTIPLAYER
+    if (this.body.vel.x !== 0 || this.body.vel.y !== 0) {
+      network.sendPosition({
+        id: network.getPlayerId(),
+        x: this.pos.x,
+        y: this.pos.y,
+      });
+    }
+
     return super.update(dt) || this.body.vel.x !== 0 || this.body.vel.y !== 0;
   }
 
@@ -212,7 +222,7 @@ class PlayerEntity extends me.Entity {
     }
     switch (response.b.body.collisionType) {
       case me.collision.types.ENEMY_OBJECT:
-          this.hurt();
+        this.hurt();
 
         // Set the overlapV to 0 to prevent separating the entities
         response.overlapV.set(0, 0);
@@ -242,8 +252,6 @@ class PlayerEntity extends me.Entity {
         this.isImmune = false;
       }, 750);
     }
-
-
 
     // Gameover after 3 hits
     if (game.data.health < 1) {
