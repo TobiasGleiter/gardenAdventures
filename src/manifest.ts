@@ -62,6 +62,11 @@ const DataManifest: MData[] = [
     type: 'image',
     src: 'data/img/collectables/Muenze.png',
   },
+  {
+    name: 'star',
+    type: 'image',
+    src: 'data/img/collectables/Stern.png',
+  },
   // bullet png
   {
     name: 'mainPlayerAttack',

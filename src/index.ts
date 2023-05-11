@@ -36,6 +36,7 @@ import StingAttack from './js/renderables/stingAttack';
 
 // Probleme bei pseudo mp
 import network from './multiplayer/network';
+import tutorialFinishEntity from "./js/renderables/tutorialFinish";
 const serverUrl = 'http://localhost:3000';
 
 device.onReady(() => {
@@ -90,6 +91,7 @@ device.onReady(() => {
     me.pool.register('EnemyEntity', EnemyEntity);
     me.pool.register('cheese', HealingItemEntity);
     me.pool.register('coin', CoinItemEntity);
+    me.pool.register('finishTutorial', tutorialFinishEntity)
 
     // add our player entity in the entity pool
     me.pool.register('mainPlayer', PlayerEntity);

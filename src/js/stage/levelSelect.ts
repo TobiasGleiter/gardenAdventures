@@ -53,7 +53,7 @@ export class LevelSelect extends me.Stage {
       me.game.viewport.height / 2 - 40,
       {
         font: 'PressStart2P',
-        text: 'Level 1',
+        text: 'Tutorial',
         textAlign: 'center',
         size: 0.5,
       }
@@ -67,7 +67,7 @@ export class LevelSelect extends me.Stage {
       me.game.viewport.height / 2 - 20,
       {
         font: 'PressStart2P',
-        text: 'Level 2',
+        text: 'Level 1',
         textAlign: 'center',
         size: 0.5,
       }
@@ -81,7 +81,7 @@ export class LevelSelect extends me.Stage {
       me.game.viewport.height / 2,
       {
         font: 'PressStart2P',
-        text: 'Level 3',
+        text: 'Level 2',
         textAlign: 'center',
         size: 0.5,
       }
@@ -95,7 +95,7 @@ export class LevelSelect extends me.Stage {
       me.game.viewport.height / 2 + 20,
       {
         font: 'PressStart2P',
-        text: 'Level 4',
+        text: 'Level 3',
         textAlign: 'center',
         size: 0.5,
       }
