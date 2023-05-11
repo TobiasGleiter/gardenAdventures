@@ -36,7 +36,8 @@ import StingAttack from './js/renderables/stingAttack';
 
 // Probleme bei pseudo mp
 import network from './multiplayer/network';
-const serverUrl = 'http://localhost:3000';
+//const serverUrl = 'http://167.235.53.100'; // <-- funktioniert nur ohne ssl...
+const serverUrl = 'https://gardenadventures.server-welt.com:3000'; // <-- erreichbar unter PORT 3000, leider mit Proxy nicht geschafft
 
 device.onReady(() => {
   // initialize the display canvas once the device/browser is ready
@@ -132,6 +133,8 @@ device.onReady(() => {
     me.state.change(me.state.PLAY, true);
     // SERVER
     // probleme bei psudo mp
-    network.init(serverUrl);
+    network.init(serverUrl, {
+      path: '/socket.io',
+    });
   });
 });
