@@ -2,6 +2,7 @@ import * as me from 'melonjs';
 import game from '../../game';
 import network from '../../multiplayer/network';
 import UIContainer from '../UI/HUD';
+import { getLevel } from 'js/stage/globals.ts';
 //const serverUrl = 'http://localhost:3000';
 
 class PlayScreen extends me.Stage {
@@ -48,10 +49,11 @@ class PlayScreen extends me.Stage {
   }
 
   onResetEvent() {
+    const LevelID = getLevel();
     //if(me.state.isCurrent() === )
     //network.init(serverUrl);
     // load a level
-    me.level.load('Lvl1-1');
+    me.level.load(LevelID);
 
     // reset the score
     game.data.score = 0;
@@ -63,7 +65,7 @@ class PlayScreen extends me.Stage {
     //Test
     /*
     const backgroundImage = new me.Sprite(0, 0, {
-      image: me.loader.getImage('Backgrou'),
+      image: me.loader.getImage('Background_1'),
     });
 
     // scale to fit with the viewport size

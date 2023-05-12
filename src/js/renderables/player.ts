@@ -264,7 +264,7 @@ class PlayerEntity extends me.Entity {
       }
       // timer to reset immune
       me.timer.setTimeout(() => {
-        me.state.change(me.state.MENU, false);
+        me.state.change(me.state.GAMEOVER, false);
       }, 1500);
     } else {
       // set animation damage

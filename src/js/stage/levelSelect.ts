@@ -1,151 +1,164 @@
 import * as me from 'melonjs';
+import {  setLevel } from 'js/stage/globals.ts';
+class levelSelect extends me.Stage {
+    /**
+     *  action to perform on state change
+     */
+    onResetEvent() {
+        // TODO
+        const backgroundImage = new me.Sprite(
+            me.game.viewport.width / 2,
+            me.game.viewport.height / 2,
+            {
+                image: me.loader.getImage('title_screen'),
+            }
+        );
 
-export class LevelSelect extends me.Stage {
-  onResetEvent() {
-    // TODO
-    const backgroundImage = new me.Sprite(
-      me.game.viewport.width / 2,
-      me.game.viewport.height / 2,
-      {
-        image: me.loader.getImage('title_screen'),
-      }
-    );
+        // scale to fit with the viewport size
+        backgroundImage.scale(
+            me.game.viewport.width / backgroundImage.width,
+            me.game.viewport.height / backgroundImage.height
+        );
 
-    // scale to fit with the viewport size
-    backgroundImage.scale(
-      me.game.viewport.width / backgroundImage.width,
-      me.game.viewport.height / backgroundImage.height
-    );
+        // add to the world container
+        me.game.world.addChild(backgroundImage, 1);
 
-    // add to the world container
-    me.game.world.addChild(backgroundImage, 1);
-    // Zurück-Button erstellen
-    const backButton = new me.BitmapText(
-      me.game.viewport.width - 50,
-      me.game.viewport.height - 20,
-      {
-        font: 'PressStart2P',
-        text: 'Back',
-        textAlign: 'right',
-        size: 0.5,
-      }
-    );
-    backButton.anchorPoint.set(1, 1);
-    me.game.world.addChild(backButton);
+        // create Level 1 text
+        const Level1Text = new me.BitmapText(
+            me.game.viewport.width / 2,
+            me.game.viewport.height / 1.5 - 50,
+            {
+                font: 'PressStart2P',
+                text: 'Level 1',
+                textAlign: 'center',
+                size: 0.5,
+            }
+        );
+        Level1Text.anchorPoint.set(0.5, 0.5);
+        me.game.world.addChild(Level1Text);
 
-    // Registriere Klick-Ereignis für den Zurück-Button
-    me.input.registerPointerEvent('pointerdown', me.game.viewport, (event) => {
-      const backButtonBounds = backButton.getBounds();
+        // create Level 2 text
+        const Level2Text = new me.BitmapText(
+            me.game.viewport.width / 2,
+            me.game.viewport.height / 1.5-25,
+            {
+                font: 'PressStart2P',
+                text: 'Level 2',
+                textAlign: 'center',
+                size: 0.5,
+            }
+        );
+        Level2Text.anchorPoint.set(0.5, 0.5);
+        me.game.world.addChild(Level2Text);
 
-      if (
-        event.gameWorldX >= backButtonBounds.left &&
-        event.gameWorldX <= backButtonBounds.right &&
-        event.gameWorldY >= backButtonBounds.top &&
-        event.gameWorldY <= backButtonBounds.bottom
-      ) {
-        me.state.change(me.state.MENU);
-      }
-    });
-    // Erstelle neue Texte für die Level
-    // Level 1 Text
-    const level1Text = new me.BitmapText(
-      me.game.viewport.width / 2,
-      me.game.viewport.height / 2 - 40,
-      {
-        font: 'PressStart2P',
-        text: 'Tutorial',
-        textAlign: 'center',
-        size: 0.5,
-      }
-    );
-    level1Text.anchorPoint.set(0.5, 0.5);
-    me.game.world.addChild(level1Text);
+        // create Level 3 text
+        const Level3Text = new me.BitmapText(
+            me.game.viewport.width / 2,
+            me.game.viewport.height / 1.5 ,
+            {
+                font: 'PressStart2P',
+                text: 'Level 3',
+                textAlign: 'center',
+                size: 0.5,
+            }
+        );
+        Level3Text.anchorPoint.set(0.5, 0.5);
+        me.game.world.addChild(Level3Text);
 
-    // Level 2 Text
-    const level2Text = new me.BitmapText(
-      me.game.viewport.width / 2,
-      me.game.viewport.height / 2 - 20,
-      {
-        font: 'PressStart2P',
-        text: 'Level 1',
-        textAlign: 'center',
-        size: 0.5,
-      }
-    );
-    level2Text.anchorPoint.set(0.5, 0.5);
-    me.game.world.addChild(level2Text);
+        // create Level 3 text
+        const Level4Text = new me.BitmapText(
+            me.game.viewport.width / 2,
+            me.game.viewport.height / 1.5 + 25,
+            {
+                font: 'PressStart2P',
+                text: 'Level 4',
+                textAlign: 'center',
+                size: 0.5,
+            }
+        );
+        Level3Text.anchorPoint.set(0.5, 0.5);
+        me.game.world.addChild(Level4Text);
 
-    // Level 3 Text
-    const level3Text = new me.BitmapText(
-      me.game.viewport.width / 2,
-      me.game.viewport.height / 2,
-      {
-        font: 'PressStart2P',
-        text: 'Level 2',
-        textAlign: 'center',
-        size: 0.5,
-      }
-    );
-    level3Text.anchorPoint.set(0.5, 0.5);
-    me.game.world.addChild(level3Text);
+        const backButton = new me.BitmapText(
+            me.game.viewport.width - 50,
+            me.game.viewport.height - 20,
+            {
+                font: 'PressStart2P',
+                text: 'Back',
+                textAlign: 'right',
+                size: 0.5,
+            }
+        );
+        backButton.anchorPoint.set(1, 1);
+        me.game.world.addChild(backButton);
 
-    // Level 4 Text
-    const level4Text = new me.BitmapText(
-      me.game.viewport.width / 2,
-      me.game.viewport.height / 2 + 20,
-      {
-        font: 'PressStart2P',
-        text: 'Level 3',
-        textAlign: 'center',
-        size: 0.5,
-      }
-    );
-    level4Text.anchorPoint.set(0.5, 0.5);
-    me.game.world.addChild(level4Text);
+        // register mouse click event on the canvas
+        me.input.registerPointerEvent('pointerdown', me.game.viewport, (event) => {
+            const Level1Bounds = Level1Text.getBounds();
+            const Level2Bounds = Level2Text.getBounds();
+            const Level3Bounds = Level3Text.getBounds();
+            const Level4Bounds = Level4Text.getBounds();
+            const backBounds =backButton.getBounds();
+            // check if the click position is within the bounds of the respective texts
+            if (
+                event.gameWorldY >= Level1Bounds.top &&
+                event.gameWorldY <= Level1Bounds.bottom
+            ) {
+                setLevel('Lvl1-1');
+                me.state.change(me.state.PLAY,);
+            } else if (
+                event.gameWorldY >= Level2Bounds.top &&
+                event.gameWorldY <= Level2Bounds.bottom
+            ) {
+                setLevel('Lvl1-2');
+                me.state.change(me.state.PLAY);
+            } else if (
+                event.gameWorldY >= Level3Bounds.top &&
+                event.gameWorldY <= Level3Bounds.bottom
+            ) {
+                setLevel('Lvl1-3');
+                me.state.change(me.state.PLAY);
+            } else if (
+                event.gameWorldY >= Level4Bounds.top &&
+                event.gameWorldY <= Level4Bounds.bottom
+            ) {
+                setLevel('Lvl1-4');
+                me.state.change(me.state.PLAY);
+            }
+            else if (
+                event.gameWorldY >= backBounds.top &&
+                event.gameWorldY <= backBounds.bottom
+            ) {
+                me.state.change(me.state.MENU);
+            }
+        });
+    }
 
-    // register mouse click event on the canvas
-    me.input.registerPointerEvent('pointerdown', me.game.viewport, (event) => {
-      const level1Bounds = level1Text.getBounds();
-      const level2Bounds = level2Text.getBounds();
-      const level3Bounds = level3Text.getBounds();
-      const level4Bounds = level4Text.getBounds();
+    /**
+     *  action to perform when leaving this screen (state change)
+     */
+    onDestroyEvent() {
+        // TODO
+        me.input.releasePointerEvent('pointerdown', me.game.viewport);
+    }
 
-      // check if the click position is within the bounds of the respective texts
-      if (
-        event.gameWorldX >= level1Bounds.left &&
-        event.gameWorldX <= level1Bounds.right &&
-        event.gameWorldY >= level1Bounds.top &&
-        event.gameWorldY <= level1Bounds.bottom
-      ) {
-        // Starte Level 1
-        me.level.load('Lvl1-1');
-      } else if (
-        event.gameWorldX >= level2Bounds.left &&
-        event.gameWorldX <= level2Bounds.right &&
-        event.gameWorldY >= level2Bounds.top &&
-        event.gameWorldY <= level2Bounds.bottom
-      ) {
-        // Starte Level 2
-        me.level.load('Lvl1-2');
-      } else if (
-        event.gameWorldX >= level3Bounds.left &&
-        event.gameWorldX <= level3Bounds.right &&
-        event.gameWorldY >= level3Bounds.top &&
-        event.gameWorldY <= level3Bounds.bottom
-      ) {
-        // Starte Level 3
-        me.level.load('Lvl1-3');
-      } else if (
-        event.gameWorldX >= level4Bounds.left &&
-        event.gameWorldX <= level4Bounds.right &&
-        event.gameWorldY >= level4Bounds.top &&
-        event.gameWorldY <= level4Bounds.bottom
-      ) {
-        // Starte Level 4
-        me.level.load('Lvl1-4');
-      }
-    });
-  }
+    /**
+     *  action to perform to start the game
+     */
+
+
+
+
+
+
+
+
 }
 
-export default LevelSelect;
+
+
+
+
+
+export default levelSelect;
+

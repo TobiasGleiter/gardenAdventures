@@ -1,7 +1,7 @@
 import * as me from 'melonjs';
 
-class Game_Over extends me.Stage {
-    private GameOverText: me.BitmapText;
+class YouWin extends me.Stage {
+    private youWinText: me.BitmapText;
 
     onResetEvent() {
         const backgroundImage = new me.Sprite(
@@ -20,21 +20,20 @@ class Game_Over extends me.Stage {
 
         // add to the world container
         me.game.world.addChild(backgroundImage, 1);
-
-        // Text "Game Over" erstellen
-        this.GameOverText = new me.BitmapText(
+        // Text "YOU WIN!!!" erstellen
+        this.youWinText = new me.BitmapText(
             me.game.viewport.width / 2,
             me.game.viewport.height / 2,
             {
                 font: 'PressStart2P',
-                text: 'GAME OVER',
+                text: 'YOU WIN!!!',
                 textAlign: 'center',
                 size: 1,
                 color: '#FFFFFF', // Weiß
             }
         );
-        this.GameOverText.anchorPoint.set(0.5, 0.5);
-        me.game.world.addChild(this.GameOverText);
+        this.youWinText.anchorPoint.set(0.5, 0.5);
+        me.game.world.addChild(this.youWinText);
         const backButton = new me.BitmapText(
             me.game.viewport.width - 50,
             me.game.viewport.height - 20,
@@ -65,13 +64,8 @@ class Game_Over extends me.Stage {
 
 
     onDestroyEvent() {
-
-
-
-        me.game.world.removeChild(this.GameOverText);
+        me.game.world.removeChild(this.youWinText);
     }
-
-
 }
 
-export default Game_Over;
+export default YouWin;

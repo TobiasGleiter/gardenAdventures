@@ -10,6 +10,7 @@ var game = {
     score: 0,
     health: 3,
   },
+
 };
 
 export default game;
