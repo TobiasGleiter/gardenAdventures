@@ -174,6 +174,12 @@ class MothEnemyEntity extends me.Entity {
             if (!this.alive) {
             //Death-animation and remove of object
               this.renderable.setCurrentAnimation('dead', () => {
+                try {
+
+                  me.state.change(me.state.CREDITS, true);
+                } catch(e) {
+                  console.log(e)
+                }
                 me.game.world.removeChild(this);           
               });
             }

@@ -121,16 +121,16 @@ class MoleEnemyEntity extends me.Entity {
           } else if(this.health <= 0) {
             this.alive = false;
             if (!this.alive) {
-            // death-animation and remove of object
+              // death-animation and remove of object
               this.renderable.setCurrentAnimation('dead', () => {
-                me.game.world.removeChild(this);           
+                me.game.world.removeChild(this);
               });
-              me.state.change(me.state.PLAY, "level_1", 3);
+
+              const timerId = me.timer.setTimeout(() => {
+                me.state.change(me.state.GAME_END, true);
+              },4000);
             }
-            // timer to reset immune
-            me.timer.setTimeout(() => {
-              me.state.change(me.state.PLAY, false, 'enemies' );
-            }, 1500);
+
           }
         }       
         break;

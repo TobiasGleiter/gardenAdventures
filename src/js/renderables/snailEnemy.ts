@@ -1,5 +1,5 @@
 import * as me from 'melonjs';
-import {  setLevel } from 'js/stage/globals.ts';
+
 
 class SnailEnemyEntity extends me.Entity {
   private health: number = 3;
@@ -167,15 +167,12 @@ class SnailEnemyEntity extends me.Entity {
             this.alive = false;
             if (!this.alive) {
             //Death-animation and remove of object
-              try {
-                setLevel('Lvl3-3');
-                me.state.change(me.state.PLAY, false);
-              } catch(e) {
-                console.log(e)
-              }
+
               this.renderable.setCurrentAnimation('dead', () => {
+
                 me.game.world.removeChild(this);           
               });
+
 
 
             }

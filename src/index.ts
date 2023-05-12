@@ -7,11 +7,14 @@ import 'index.css';
 import PlayerEntity from 'js/renderables/player';
 import Game_Over from 'js/stage/Game_Over.ts';
 import Highscore from 'js/stage/Highscore.ts';
-import YouWin from 'js/stage/YouWin.ts';
+import NextLevel from 'js/stage/NextLevel.ts';
 import { getLevel } from 'js/stage/globals.ts';
 import LevelSelect from 'js/stage/levelSelect.ts';
 import PlayScreen from 'js/stage/play.ts';
 import TitleScreen from 'js/stage/title.ts';
+import YouWin from 'js/stage/YouWin.ts';
+
+
 
 import DataManifest from 'manifest.ts';
 import BulletEntity from './js/renderables/bullet';
@@ -85,9 +88,9 @@ device.onReady(() => {
     me.state.set(me.state.PLAY, new PlayScreen());
     me.state.set(me.state.SETTINGS, new LevelSelect());
     me.state.set(me.state.SCORE, new Highscore());
-    me.state.set(me.state.GAME_END, new YouWin());
+    me.state.set(me.state.GAME_END, new NextLevel());
     me.state.set(me.state.GAMEOVER, new Game_Over());
-
+    me.state.set(me.state.CREDITS, new YouWin());
     // set a global fading transition for the screen
     me.state.transition('fade', '#FFFFFF', 50);
     //globale variable level

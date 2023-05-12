@@ -28,9 +28,9 @@ class tutorialFinishEntity extends me.Collectable {
     /**
      * collision handling
      */
-    onCollision(/*response*/) {
+    onCollision(){
 
-        me.state.change(me.state.MENU, false);
+        me.state.change(me.state.GAME_END, false);
 
         return false;
     }

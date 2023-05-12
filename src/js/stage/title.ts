@@ -1,11 +1,12 @@
 import * as me from 'melonjs';
+import {setLevel} from "./globals";
 
 class TitleScreen extends me.Stage {
     /**
      *  action to perform on state change
      */
     onResetEvent() {
-        // TODO
+
         const backgroundImage = new me.Sprite(
             me.game.viewport.width / 2,
             me.game.viewport.height / 2,
@@ -23,66 +24,67 @@ class TitleScreen extends me.Stage {
         // add to the world container
         me.game.world.addChild(backgroundImage, 1);
 
-        // create singleplayer text
-        const singleplayerText = new me.BitmapText(
+        // create Endlessrun text
+        const PlayText = new me.BitmapText(
             me.game.viewport.width / 2,
             me.game.viewport.height / 1.5 - 30,
             {
                 font: 'PressStart2P',
-                text: 'Singleplayer',
+                text: 'PLAY',
                 textAlign: 'center',
                 size: 0.5,
             }
         );
-        singleplayerText.anchorPoint.set(0.5, 0.5);
-        me.game.world.addChild(singleplayerText);
+        PlayText.anchorPoint.set(0.5, 0.5);
+        me.game.world.addChild(PlayText);
 
-        // create highscore text
-        const MultiplayerText = new me.BitmapText(
+        // create Levelselect text
+        const LevelSelectText = new me.BitmapText(
             me.game.viewport.width / 2,
             me.game.viewport.height / 1.5,
             {
                 font: 'PressStart2P',
-                text: 'Multiplayer',
+                text: 'LEVELSELECT',
                 textAlign: 'center',
                 size: 0.5,
             }
         );
-        MultiplayerText.anchorPoint.set(0.5, 0.5);
-        me.game.world.addChild(MultiplayerText);
+        LevelSelectText.anchorPoint.set(0.5, 0.5);
+        me.game.world.addChild(LevelSelectText);
 
-        // create options text
-        const optionsText = new me.BitmapText(
+        // create Highscore text
+        const HighscoreText = new me.BitmapText(
             me.game.viewport.width / 2,
             me.game.viewport.height / 1.5 + 30,
             {
                 font: 'PressStart2P',
-                text: 'Highscore',
+                text: 'HIGHSCORE',
                 textAlign: 'center',
                 size: 0.5,
             }
         );
-        optionsText.anchorPoint.set(0.5, 0.5);
-        me.game.world.addChild(optionsText);
+        HighscoreText.anchorPoint.set(0.5, 0.5);
+        me.game.world.addChild(HighscoreText);
 
         // register mouse click event on the canvas
         me.input.registerPointerEvent('pointerdown', me.game.viewport, (event) => {
-            const singleplayerBounds = singleplayerText.getBounds();
-            const multiplayerBounds = MultiplayerText.getBounds();
-            const highscoreBounds = optionsText.getBounds();
+            const PlayBounds = PlayText.getBounds();
+            const LevelSelect = LevelSelectText.getBounds();
+            const highscoreBounds = HighscoreText.getBounds();
 
             // check if the click position is within the bounds of the respective texts
             if (
-                event.gameWorldY >= singleplayerBounds.top &&
-                event.gameWorldY <= singleplayerBounds.bottom
+                event.gameWorldY >= PlayBounds.top &&
+                event.gameWorldY <= PlayBounds.bottom
             ) {
-                me.state.change(me.state.SETTINGS);
+                setLevel('Lvl1-1');
+                me.state.change(me.state.PLAY);
             } else if (
 
-                event.gameWorldY >= multiplayerBounds.top &&
-                event.gameWorldY <= multiplayerBounds.bottom
+                event.gameWorldY >= LevelSelect.top &&
+                event.gameWorldY <= LevelSelect.bottom
             ) {
-                me.state.change(me.state.GAMEOVER);
+                me.state.change(me.state.SETTINGS);
             } else if (
 
                 event.gameWorldY >= highscoreBounds.top &&
@@ -97,7 +99,7 @@ class TitleScreen extends me.Stage {
      *  action to perform when leaving this screen (state change)
      */
     onDestroyEvent() {
-        // TODO
+
         me.input.releasePointerEvent('pointerdown', me.game.viewport);
     }
 

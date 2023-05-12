@@ -5,7 +5,7 @@ class levelSelect extends me.Stage {
      *  action to perform on state change
      */
     onResetEvent() {
-        // TODO
+
         const backgroundImage = new me.Sprite(
             me.game.viewport.width / 2,
             me.game.viewport.height / 2,
@@ -84,7 +84,7 @@ class levelSelect extends me.Stage {
             me.game.viewport.height - 20,
             {
                 font: 'PressStart2P',
-                text: 'Back',
+                text: 'BACK',
                 textAlign: 'right',
                 size: 0.5,
             }
@@ -105,25 +105,25 @@ class levelSelect extends me.Stage {
                 event.gameWorldY <= Level1Bounds.bottom
             ) {
                 setLevel('Lvl1-1');
-                me.state.change(me.state.PLAY,);
+                me.state.change(me.state.PLAY, true);
             } else if (
                 event.gameWorldY >= Level2Bounds.top &&
                 event.gameWorldY <= Level2Bounds.bottom
             ) {
                 setLevel('Lvl1-2');
-                me.state.change(me.state.PLAY);
+                me.state.change(me.state.PLAY, true );
             } else if (
                 event.gameWorldY >= Level3Bounds.top &&
                 event.gameWorldY <= Level3Bounds.bottom
             ) {
                 setLevel('Lvl1-3');
-                me.state.change(me.state.PLAY);
+                me.state.change(me.state.PLAY, true ) ;
             } else if (
                 event.gameWorldY >= Level4Bounds.top &&
                 event.gameWorldY <= Level4Bounds.bottom
             ) {
                 setLevel('Lvl1-4');
-                me.state.change(me.state.PLAY);
+                me.state.change(me.state.PLAY, true);
             }
             else if (
                 event.gameWorldY >= backBounds.top &&
@@ -138,7 +138,7 @@ class levelSelect extends me.Stage {
      *  action to perform when leaving this screen (state change)
      */
     onDestroyEvent() {
-        // TODO
+
         me.input.releasePointerEvent('pointerdown', me.game.viewport);
     }
 

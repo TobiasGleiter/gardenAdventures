@@ -36,7 +36,7 @@ class Highscore extends me.Stage {
         doSomething().then(highscores => {
             // Highscore-Liste erstellen
                         const x = me.game.viewport.width / 2;
-                        const startY = 80;
+                        const startY = 120;
                         const spacing = 20;
 
                         for (let i = 0; i < highscores.length; i++) {

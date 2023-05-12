@@ -1,7 +1,8 @@
 import * as me from 'melonjs';
 
-class YouWin extends me.Stage {
-    private youWinText: me.BitmapText;
+
+class YouWIN extends me.Stage {
+    private YouWinText: me.BitmapText;
 
     onResetEvent() {
         const backgroundImage = new me.Sprite(
@@ -21,7 +22,7 @@ class YouWin extends me.Stage {
         // add to the world container
         me.game.world.addChild(backgroundImage, 1);
         // Text "YOU WIN!!!" erstellen
-        this.youWinText = new me.BitmapText(
+        this.YouWinText = new me.BitmapText(
             me.game.viewport.width / 2,
             me.game.viewport.height / 2,
             {
@@ -32,31 +33,23 @@ class YouWin extends me.Stage {
                 color: '#FFFFFF', // Weiß
             }
         );
-        this.youWinText.anchorPoint.set(0.5, 0.5);
-        me.game.world.addChild(this.youWinText);
-        const backButton = new me.BitmapText(
-            me.game.viewport.width - 50,
-            me.game.viewport.height - 20,
-            {
-                font: 'PressStart2P',
-                text: 'Back',
-                textAlign: 'right',
-                size: 0.5,
-            }
-        );
+        this.YouWinText.anchorPoint.set(0.5, 0.5);
+        me.game.world.addChild(this.YouWinText);
 
-        backButton.anchorPoint.set(1, 1);
-        me.game.world.addChild(backButton);
+
 
 
 
         me.input.registerPointerEvent('pointerdown', me.game.viewport, (event) => {
-            const backBounds =backButton.getBounds();
+
+            const youWinTextBounds = this.YouWinText.getBounds();
+
+
             if (
-                event.gameWorldY >= backBounds.top &&
-                event.gameWorldY <= backBounds.bottom
+                event.gameWorldY >= youWinTextBounds.top &&
+                event.gameWorldY <= youWinTextBounds.bottom
             ) {
-                me.state.change(me.state.MENU);
+                me.state.change(me.state.MENU, true);
             }
         });
     }
@@ -64,8 +57,8 @@ class YouWin extends me.Stage {
 
 
     onDestroyEvent() {
-        me.game.world.removeChild(this.youWinText);
+        me.game.world.removeChild(this.YouWinText);
     }
 }
 
-export default YouWin;
+export default YouWIN;
