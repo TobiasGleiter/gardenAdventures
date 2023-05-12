@@ -126,9 +126,9 @@ class MoleEnemyEntity extends me.Entity {
                 me.game.world.removeChild(this);
               });
 
-              const timerId = me.timer.setTimeout(() => {
+
                 me.state.change(me.state.GAME_END, true);
-              },4000);
+
             }
 
           }
