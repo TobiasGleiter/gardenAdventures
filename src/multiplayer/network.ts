@@ -9,7 +9,7 @@ class Network {
   init(serverUrl) {
     this.socket = io(serverUrl);
     this.socket.on('connect', () => {
-      console.log('Verbunden mit der Id: ' + this.socket.id);
+      //console.log('Verbunden mit der Id: ' + this.socket.id);
       // tell server to create the player with username
       this.socket.emit('register', {
         id: this.socket.id,
@@ -22,7 +22,7 @@ class Network {
       this.socket.on('playerPosition', onUpdatePlayers);
       this.socket.on('playerLeft', (playerId) => {
         // Entferne das Spielerobjekt aus der Szene
-        console.log('Spieler entfernt: ' + playerId);
+        //console.log('Spieler entfernt: ' + playerId);
         const temp = me.game.world.getChildByName('mPlayer');
         //console.log(data)
         temp.forEach((player) => {
@@ -34,7 +34,7 @@ class Network {
       /* this.socket.on("scoreboard", (data) => {
                 //console.log(data);
                 this.scoreboard = data;
-                console.log(this.scoreboard[0]);
+                //console.log(this.scoreboard[0]);
             });*/
     });
   }
@@ -123,7 +123,7 @@ function onUpdatePlayers(data) {
           player.position.x,
           player.position.y
         );
-        console.log('Spieler hinzugefügt:' + player.id);
+        //console.log('Spieler hinzugefügt:' + player.id);
         me.game.world.addChild(newPlayer);
       }
     }
