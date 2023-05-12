@@ -1,8 +1,8 @@
 import * as me from 'melonjs';
 
 class CaterpillarEnemyEntity extends me.Entity {
-  private health: number = 2;
-  private shootCooldown: number = 1000; // Time in ms between shots
+  private health: number = 3;
+  private shootCooldown: number = 2000; // Time in ms between shots
   private lastShotTime: number = 0; // Timestamp of last shot
 
   constructor(x: number, y: number, settings: any) {
@@ -22,7 +22,6 @@ class CaterpillarEnemyEntity extends me.Entity {
     super(x, y, settings);
 
     // define a walking animation
-    //this.renderable.addAnimation('walk', [0, 1, 2, 3, 4, 5, 6]);
     this.renderable.addAnimation('walk', [66, 67, 68, 69, 70, 71, 72]);
     // define a dieing animation
     this.renderable.addAnimation('dead', [76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87]);
@@ -64,10 +63,20 @@ class CaterpillarEnemyEntity extends me.Entity {
   update(dt: any) {
     if (this.alive) {
       // Get Distance from Player
-      var player = me.game.world.getChildByName("PlayerEntity")[0];
-      var dx = player.pos.x - this.pos.x;
-      var dy = player.pos.y - this.pos.y;
-      var distance = Math.sqrt(dx * dx + dy * dy);
+      var player;
+      var dx;
+      var dy;
+      var distance;
+      // try-catch in case player leaves the stage
+      try {
+        player = me.game.world.getChildByName("PlayerEntity")[0];
+        dx = player.pos.x - this.pos.x;
+        dy = player.pos.y - this.pos.y;
+      } catch(e) {
+        dx = 1000;
+        dy = 1000;
+      }
+      distance = Math.sqrt(dx * dx + dy * dy);
       var pitch = 0;
       
       // Manage the enemy movement
@@ -117,10 +126,7 @@ class CaterpillarEnemyEntity extends me.Entity {
 
       // Shoot-Controll
       if (distance < 150 && me.timer.getTime() - this.lastShotTime >= this.shootCooldown){
-        //console.log("pitch:"+ pitch);
-        console.log("player-pos:" + pitch);
-        console.log("enemy-pos:" + this.pos.y);0
-
+        // If facingLeft == false, then change startposition of bullet-spawn
         let x_val = 8;
         if(!this.facingLeft) {
           x_val = -28;
@@ -155,7 +161,7 @@ class CaterpillarEnemyEntity extends me.Entity {
   onCollision(response: any): any {
     switch (response.b.body.collisionType) {
       case me.collision.types.PROJECTILE_OBJECT:
-        //console.log(response.b.name)
+        // Respond only to PlayerAttacks, to avoid friendly fire  
         if (response.b.name == "playerAttack") {
           if (this.health > 0) {
             this.health = this.health - 1;
@@ -172,17 +178,17 @@ class CaterpillarEnemyEntity extends me.Entity {
       
         break;
       case me.collision.types.PLAYER_OBJECT:
-          // Set the overlapV to 0 to prevent separating the entities
-          response.overlapV.set(0, 0);
-          // Set the overlapN to a random value to prevent separating the entities
-          response.overlapN.set(0, 0);
-          break;
+        // Set the overlapV to 0 to prevent separating the entities
+        response.overlapV.set(0, 0);
+        // Set the overlapN to a random value to prevent separating the entities
+        response.overlapN.set(0, 0);
+        break;
       case me.collision.types.ENEMY_OBJECT:
-            // Set the overlapV to 0 to prevent separating the entities
-            response.overlapV.set(0, 0);
-            // Set the overlapN to a random value to prevent separating the entities
-            response.overlapN.set(0, 0);
-            break;
+        // Set the overlapV to 0 to prevent separating the entities
+        response.overlapV.set(0, 0);
+        // Set the overlapN to a random value to prevent separating the entities
+        response.overlapN.set(0, 0);
+        break;
     }
   }
 }
