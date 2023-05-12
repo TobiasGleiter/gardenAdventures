@@ -91,8 +91,7 @@ class Highscore extends me.Stage {
             const backButtonBounds = backButton.getBounds();
 
             if (
-                event.gameWorldX >= backButtonBounds.left &&
-                event.gameWorldX <= backButtonBounds.right &&
+
                 event.gameWorldY >= backButtonBounds.top &&
                 event.gameWorldY <= backButtonBounds.bottom
             ) {
