@@ -3,8 +3,9 @@ import * as me from 'melonjs';
 class MPlayerEntity extends me.Sprite {
   public socketId: any;
   public username: string;
+  public level: string;
 
-  constructor(id: any, username: string, x: number, y: number) {
+  constructor(id: any, username: string, level: string, x: number, y: number) {
     super(x, y, {
       frameheight: 16,
       framewidth: 16,
@@ -14,6 +15,7 @@ class MPlayerEntity extends me.Sprite {
     this.socketId = id;
     this.name = 'mPlayer';
     this.username = username;
+    this.level = level;
     this.pos.x = x;
     this.pos.y = y;
 

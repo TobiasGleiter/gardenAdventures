@@ -39,6 +39,10 @@ class Network {
     });
   }
 
+  changeLevel(data) {
+    this.socket.emit('changeLevel', data);
+  }
+
   sendPosition(data) {
     this.socket.emit('movePlayer', data);
   }
@@ -81,16 +85,13 @@ function onPlayerJoined(data) {
   //console.log(JSON.parse(data));
   for (const playerId in players) {
     const player = players[playerId];
-    if (
-      player.id !== network.getPlayerId() &&
-      player.level === me.level.getCurrentLevel().name
-    ) {
+    if (player.id !== network.getPlayerId()) {
       const newPlayer = new MPlayerEntity(
         player.id,
         player.name,
+        player.level,
         player.position.x,
-        player.position.y,
-        player.level
+        player.position.y
       );
       me.game.world.addChild(newPlayer);
     }
@@ -118,6 +119,7 @@ function onUpdatePlayers(data) {
         const newPlayer = new MPlayerEntity(
           player.id,
           player.name,
+          player.level,
           player.position.x,
           player.position.y
         );
@@ -129,7 +131,10 @@ function onUpdatePlayers(data) {
 
   // NEW POS
   mPlayers.forEach((player) => {
-    if (player.socketId === data.id) {
+    if (
+      player.socketId === data.id &&
+      player.level === me.level.getCurrentLevel().name
+    ) {
       player.pos.x = data.x + 8;
       player.pos.y = data.y + 8;
     }

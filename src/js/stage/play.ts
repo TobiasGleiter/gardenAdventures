@@ -1,8 +1,8 @@
+import { getLevel } from 'js/stage/globals.ts';
 import * as me from 'melonjs';
 import game from '../../game';
 import network from '../../multiplayer/network';
 import UIContainer from '../UI/HUD';
-import { getLevel } from 'js/stage/globals.ts';
 //const serverUrl = 'http://localhost:3000';
 
 class PlayScreen extends me.Stage {
@@ -50,6 +50,10 @@ class PlayScreen extends me.Stage {
 
   onResetEvent() {
     const LevelID = getLevel();
+    network.changeLevel({
+      id: network.getPlayerId(),
+      level: LevelID,
+    });
     //if(me.state.isCurrent() === )
     //network.init(serverUrl);
     // load a level

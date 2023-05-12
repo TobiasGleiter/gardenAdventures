@@ -1,18 +1,17 @@
 //@ts-nocheck
 import * as me from 'melonjs';
-import {audio, device, loader, plugin, utils} from 'melonjs';
+import { audio, device, loader, plugin, utils } from 'melonjs';
 
 import 'index.css';
 
 import PlayerEntity from 'js/renderables/player';
+import Game_Over from 'js/stage/Game_Over.ts';
 import Highscore from 'js/stage/Highscore.ts';
+import YouWin from 'js/stage/YouWin.ts';
+import { getLevel } from 'js/stage/globals.ts';
 import LevelSelect from 'js/stage/levelSelect.ts';
 import PlayScreen from 'js/stage/play.ts';
 import TitleScreen from 'js/stage/title.ts';
-import YouWin from 'js/stage/YouWin.ts';
-import Game_Over from 'js/stage/Game_Over.ts';
-import {getLevel} from 'js/stage/globals.ts';
-
 
 import DataManifest from 'manifest.ts';
 import BulletEntity from './js/renderables/bullet';
@@ -84,14 +83,13 @@ device.onReady(() => {
     me.state.set(me.state.PLAY, new PlayScreen());
     me.state.set(me.state.SETTINGS, new LevelSelect());
     me.state.set(me.state.SCORE, new Highscore());
-    me.state.set(me.state.GAME_END, new YouWin())
+    me.state.set(me.state.GAME_END, new YouWin());
     me.state.set(me.state.GAMEOVER, new Game_Over());
-
 
     // set a global fading transition for the screen
     me.state.transition('fade', '#FFFFFF', 50);
     //globale variable level
-    me.pool.register('getlevel',getLevel());
+    me.pool.register('getlevel', getLevel());
 
     // add our player entity in the entity pool
     me.pool.register('mainPlayer', PlayerEntity);
