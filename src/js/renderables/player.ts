@@ -202,6 +202,7 @@ class PlayerEntity extends me.Entity {
         id: network.getPlayerId(),
         x: this.pos.x,
         y: this.pos.y,
+        level: me.level.getCurrentLevel().name as string,
       });
     }
 

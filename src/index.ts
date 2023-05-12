@@ -38,7 +38,7 @@ import StingAttack from './js/renderables/stingAttack';
 import tutorialFinishEntity from './js/renderables/tutorialFinish';
 import network from './multiplayer/network';
 
-//const serverUrl = 'localhost:3000' // <-- for Development
+//const serverUrl = 'localhost:3000'; // <-- for Development
 //const serverUrl = 'http://167.235.53.100'; // <-- funktioniert nur ohne ssl...
 const serverUrl = 'https://gardenadventures.server-welt.com:3000'; // <-- erreichbar unter PORT 3000, leider mit Proxy nicht geschafft
 

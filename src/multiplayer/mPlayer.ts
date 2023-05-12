@@ -18,7 +18,6 @@ class MPlayerEntity extends me.Sprite {
     this.pos.y = y;
 
     const rgb = randomColor();
-    console.log(rgb);
 
     this.tint.setColor(rgb.r, rgb.g, rgb.b);
     this.alpha = 0.5;
