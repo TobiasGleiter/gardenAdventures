@@ -30,10 +30,12 @@ import SpikeEnemyEntity from './js/renderables/spikeEnemy';
 import WaspEnemyEntity from './js/renderables/waspEnemy';
 import WormEnemyEntity from './js/renderables/wormEnemy';
 
-import AcidAttack from './js/renderables/acidAttack';
 import MothAttack from './js/renderables/mothAttack';
-import SlimeAttack from './js/renderables/slimeAttack';
+import BirdAttack from './js/renderables/birdAttack';
+import MoleAttack from './js/renderables/moleAttack';
 import StingAttack from './js/renderables/stingAttack';
+import SlimeAttack from './js/renderables/slimeAttack';
+import AcidAttack from './js/renderables/acidAttack';
 
 // Probleme bei pseudo mp
 import tutorialFinishEntity from './js/renderables/tutorialFinish';
@@ -116,9 +118,11 @@ device.onReady(() => {
     me.pool.register('SpikeEnemyEntity', SpikeEnemyEntity);
 
     me.pool.register('MothAttack', MothAttack);
+    me.pool.register('BirdAttack', BirdAttack);
+    me.pool.register('MoleAttack', MoleAttack);
     me.pool.register('StingAttack', StingAttack);
     me.pool.register('SlimeAttack', SlimeAttack);
-    me.pool.register('AcidAttack', AcidAttack);
+    me.pool.register('AcidAttack', AcidAttack);  
 
     // enable the keyboard
     me.input.bindKey(me.input.KEY.ESC, 'pause');

@@ -73,13 +73,9 @@ class BirdEnemyEntity extends me.Entity {
 
       // Shoot-Controll
       if (distance < 300 && me.timer.getTime() - this.lastShotTime >= this.shootCooldown){
-        console.log("pitch:"+ this.facingLeft);
-        console.log("player-pos:" + pitch);
-        console.log("enemy-pos:" + this.pos.x);
-
         // Reset lastShotTime
         this.lastShotTime = me.timer.getTime();
-
+//
         // Spawn a new bullet entity and set animation for attack
         this.renderable.setCurrentAnimation('attack', () => {const bullet1 = me.pool.pull(
           'BirdAttack',
