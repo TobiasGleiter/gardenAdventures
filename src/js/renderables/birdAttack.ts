@@ -1,18 +1,18 @@
 import * as me from 'melonjs';
 import { MSettingsBullet } from '../../types/dataModel';
 
-class MothAttack extends me.Entity {
+class BirdAttack extends me.Entity {
   private facingLeft: boolean;
   private bulletVel: number;
   private bulletDistance: number;
   
   constructor(x: number, y: number, settings: MSettingsBullet, pitch: number) {
     super(x, y, {
-      frameheight: 48,
-      framewidth: 48,
+      frameheight: 12,
+      framewidth: 24,
+      height: 12,
       width: 24,
-      height: 24,
-      image: 'attacks',
+      image: 'attacks1',
       anchorPoint: new me.Vector2d(1, 1),
     });
 
@@ -29,8 +29,8 @@ class MothAttack extends me.Entity {
     this.bulletVel = settings.bulletVel;
     this.bulletDistance = settings.bulletDistance;
 
-    this.renderable.addAnimation('moth_Attack', [0, 1, 2]);
-    this.renderable.setCurrentAnimation('moth_Attack');
+    this.renderable.addAnimation('bird_Attack', [3, 4, 5, 4]);
+    this.renderable.setCurrentAnimation('bird_Attack');
     this.renderable.scale(0.6,0.6);
 
     this.alive = true;
@@ -99,4 +99,4 @@ class MothAttack extends me.Entity {
   }
 }
 
-export default MothAttack;
+export default BirdAttack;

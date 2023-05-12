@@ -2,7 +2,7 @@ import * as me from 'melonjs';
 
 class WaspEnemyEntity extends me.Entity {
   private health: number = 2;
-  private shootCooldown: number = 1000; // Time in ms between shots
+  private shootCooldown: number = 1750; // Time in ms between shots
   private lastShotTime: number = 0; // Timestamp of last shot
 
   constructor(x: number, y: number, settings: any) {
@@ -22,7 +22,6 @@ class WaspEnemyEntity extends me.Entity {
     super(x, y, settings);
 
     // define a flying animation
-    //this.renderable.addAnimation('fly', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,]);
     this.renderable.addAnimation('fly', [44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59,]);
     // define a dieing animation
     this.renderable.addAnimation('dead', [65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75]);
@@ -65,10 +64,20 @@ class WaspEnemyEntity extends me.Entity {
   update(dt: any) {
     if (this.alive) {
       // Get Distance from Player
-      var player = me.game.world.getChildByName("PlayerEntity")[0];
-      var dx = player.pos.x - this.pos.x;
-      var dy = player.pos.y - this.pos.y;
-      var distance = Math.sqrt(dx * dx + dy * dy);
+      var player;
+      var dx;
+      var dy;
+      var distance;
+      // try-catch in case player leaves the stage
+      try {
+        player = me.game.world.getChildByName("PlayerEntity")[0];
+        dx = player.pos.x - this.pos.x;
+        dy = player.pos.y - this.pos.y;
+      } catch(e) {
+        dx = 1000;
+        dy = 1000;
+      }
+      distance = Math.sqrt(dx * dx + dy * dy);
       var pitch = Math.floor(dy/14)*10;
       
       // Manage the enemy movement
@@ -156,14 +165,14 @@ class WaspEnemyEntity extends me.Entity {
   onCollision(response: any): any {
     switch (response.b.body.collisionType) {
       case me.collision.types.PROJECTILE_OBJECT:
-        //console.log(response.b.name)
-        if (response.b.name == "playerAttack") {
+      // Respond only to PlayerAttacks, to avoid friendly fire
+      if (response.b.name == "playerAttack") {
           if (this.health > 0) {
             this.health = this.health - 1;
           } else if(this.health <= 0) {
             this.alive = false;
             if (!this.alive) {
-            //Death-animation and remove of object
+            // Death-animation and remove of object
               this.renderable.setCurrentAnimation('dead', () => {
                 me.game.world.removeChild(this);           
               });
@@ -173,17 +182,17 @@ class WaspEnemyEntity extends me.Entity {
       
         break;
       case me.collision.types.PLAYER_OBJECT:
-          // Set the overlapV to 0 to prevent separating the entities
-          response.overlapV.set(0, 0);
-          // Set the overlapN to a random value to prevent separating the entities
-          response.overlapN.set(0, 0);
-          break;
+        // Set the overlapV to 0 to prevent separating the entities
+        response.overlapV.set(0, 0);
+        // Set the overlapN to a random value to prevent separating the entities
+        response.overlapN.set(0, 0);
+        break;
       case me.collision.types.ENEMY_OBJECT:
-            // Set the overlapV to 0 to prevent separating the entities
-            response.overlapV.set(0, 0);
-            // Set the overlapN to a random value to prevent separating the entities
-            response.overlapN.set(0, 0);
-            break;
+        // Set the overlapV to 0 to prevent separating the entities
+         response.overlapV.set(0, 0);
+        // Set the overlapN to a random value to prevent separating the entities
+        response.overlapN.set(0, 0);
+        break;
     }
   }
 }

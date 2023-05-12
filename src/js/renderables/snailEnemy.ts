@@ -1,8 +1,9 @@
 import * as me from 'melonjs';
+import {  setLevel } from 'js/stage/globals.ts';
 
 class SnailEnemyEntity extends me.Entity {
   private health: number = 3;
-  private shootCooldown: number = 1000; // Time in ms between shots
+  private shootCooldown: number = 2000; // Time in ms between shots
   private lastShotTime: number = 0; // Timestamp of last shot
 
   constructor(x: number, y: number, settings: any) {
@@ -63,10 +64,20 @@ class SnailEnemyEntity extends me.Entity {
   update(dt: any) {
     if (this.alive) {
       // Get Distance from Player
-      var player = me.game.world.getChildByName("PlayerEntity")[0];
-      var dx = player.pos.x - this.pos.x;
-      var dy = player.pos.y - this.pos.y;
-      var distance = Math.sqrt(dx * dx + dy * dy);
+      var player;
+      var dx;
+      var dy;
+      var distance;
+      // try-catch in case player leaves the stage
+      try {
+        player = me.game.world.getChildByName("PlayerEntity")[0];
+        dx = player.pos.x - this.pos.x;
+        dy = player.pos.y - this.pos.y;
+      } catch(e) {
+        dx = 1000;
+        dy = 1000;
+      }
+      distance = Math.sqrt(dx * dx + dy * dy);
       var pitch = 0;
       
       // Manage the enemy movement
@@ -115,9 +126,6 @@ class SnailEnemyEntity extends me.Entity {
       }
       // Shoot-Controll
       if (distance < 150 && me.timer.getTime() - this.lastShotTime >= this.shootCooldown){
-        //console.log("pitch:"+ pitch);
-        console.log("player-pos:" + pitch);
-        console.log("enemy-pos:" + this.pos.y);0
 
         let x_val = 10;
         if(!this.facingLeft) {
@@ -151,6 +159,7 @@ class SnailEnemyEntity extends me.Entity {
   onCollision(response: any): any {
     switch (response.b.body.collisionType) {
       case me.collision.types.PROJECTILE_OBJECT:
+        // Respond only to PlayerAttacks, to avoid friendly fire
         if (response.b.name == "playerAttack") {
           if (this.health > 0) {
             this.health = this.health - 1;
@@ -158,26 +167,33 @@ class SnailEnemyEntity extends me.Entity {
             this.alive = false;
             if (!this.alive) {
             //Death-animation and remove of object
+              try {
+                setLevel('Lvl3-3');
+                me.state.change(me.state.PLAY, false);
+              } catch(e) {
+                console.log(e)
+              }
               this.renderable.setCurrentAnimation('dead', () => {
                 me.game.world.removeChild(this);           
               });
+
+
             }
           }
         } 
-      
         break;
       case me.collision.types.PLAYER_OBJECT:
-          // Set the overlapV to 0 to prevent separating the entities
-          response.overlapV.set(0, 0);
-          // Set the overlapN to a random value to prevent separating the entities
-          response.overlapN.set(0, 0);
-          break;
+        // Set the overlapV to 0 to prevent separating the entities
+        response.overlapV.set(0, 0);
+        // Set the overlapN to a random value to prevent separating the entities
+        response.overlapN.set(0, 0);
+        break;
       case me.collision.types.ENEMY_OBJECT:
-            // Set the overlapV to 0 to prevent separating the entities
-            response.overlapV.set(0, 0);
-            // Set the overlapN to a random value to prevent separating the entities
-            response.overlapN.set(0, 0);
-            break;
+        // Set the overlapV to 0 to prevent separating the entities
+        response.overlapV.set(0, 0);
+        // Set the overlapN to a random value to prevent separating the entities
+        response.overlapN.set(0, 0);
+        break;
     }
   }
 }
