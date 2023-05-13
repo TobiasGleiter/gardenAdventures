@@ -2,12 +2,9 @@ import * as me from 'melonjs';
 
 class BugEnemyEntity extends me.Entity {
   private health: number = 4;
-  //private shootCooldown: number = 1000; // Time in ms between shots
-  //private lastShotTime: number = 0; // Timestamp of last shot
 
   constructor(x: number, y: number, settings: any) {
     // define this here instead of tiled
-    // settings.image = 'bugEnemy';
     settings.image = 'enemies2';
 
     let width = settings.width;
@@ -78,8 +75,6 @@ class BugEnemyEntity extends me.Entity {
         dy = 1000;
       }
       distance = Math.sqrt(dx * dx + dy * dy);
-
-      //var pitch = Math.floor(dy/45)*10;
       
       // Manage the enemy movement
       // Holds position
@@ -125,8 +120,7 @@ class BugEnemyEntity extends me.Entity {
         }
         this.body.update(dt);
       }
-      // TODO: Shoot-Controll -> Personalized Attack
-    }
+     }
 
     // return true if we moved or if the renderable was updated
     return (super.update(dt) || this.body.vel.x !== 0 || this.body.vel.y !== 0);

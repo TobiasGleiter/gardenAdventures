@@ -123,7 +123,6 @@ class BirdEnemyEntity extends me.Entity {
             //Death-animation and remove of object
               this.renderable.setCurrentAnimation('dead', () => {
                 try {
-
                   me.state.change(me.state.GAME_END, true);
                 } catch(e) {
                   console.log(e)

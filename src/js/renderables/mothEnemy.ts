@@ -127,10 +127,7 @@ class MothEnemyEntity extends me.Entity {
   
       // Shoot-Controll
       if (distance < 250 && me.timer.getTime() - this.lastShotTime >= this.shootCooldown){
-        //console.log("pitch:"+ pitch);
-        console.log("player-pos:" + pitch);
-        console.log("enemy-pos:" + this.pos.y);0
-
+        // set spawn on x-axis according to enemy-walking-direction
         let x_val = 30;
         if(!this.facingLeft) {
           x_val = -50;
@@ -174,8 +171,8 @@ class MothEnemyEntity extends me.Entity {
             if (!this.alive) {
             //Death-animation and remove of object
               this.renderable.setCurrentAnimation('dead', () => {
+                // End the Level - victory!
                 try {
-
                   me.state.change(me.state.CREDITS, true);
                 } catch(e) {
                   console.log(e)

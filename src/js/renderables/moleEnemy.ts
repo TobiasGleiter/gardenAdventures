@@ -23,10 +23,12 @@ class MoleEnemyEntity extends me.Entity {
     this.renderable.addAnimation('idle', [80]);
     this.renderable.addAnimation('hidden', [81]);
     this.renderable.addAnimation('attack', [{name:100, delay:1000}, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110]);
+    this.renderable.addAnimation('dead', [139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156]);
+    // not implemented yet
     this.renderable.addAnimation('disappear', [120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135]);
     this.renderable.addAnimation('appear', [135, 134, 133, 132, 131, 130, 129, 128, 127, 126, 125, 124, 123, 122, 121, 120]);
     this.renderable.addAnimation('appearAndAttack', [{name:135, delay:1000}, 134, 133, 132, 131, 130, 129, 128, 127, 126, 125, 124, 123, 122, 121, 120, {name:100, delay:1000}, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 135, 134, 133, 132, 131, 130, 129, 128, 127, 126, 125, 124, 123, 122, 121, 120 ]);
-    this.renderable.addAnimation('dead', [139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156]);
+    // set current animation
     this.renderable.setCurrentAnimation('hidden');
 
 
@@ -125,10 +127,8 @@ class MoleEnemyEntity extends me.Entity {
               this.renderable.setCurrentAnimation('dead', () => {
                 me.game.world.removeChild(this);
               });
-
-
-                me.state.change(me.state.GAME_END, true);
-
+              // Ends the Game - You win!!
+              me.state.change(me.state.GAME_END, true);
             }
 
           }

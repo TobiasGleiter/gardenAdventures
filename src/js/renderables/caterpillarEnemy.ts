@@ -144,7 +144,6 @@ class CaterpillarEnemyEntity extends me.Entity {
             pitch
           ) as me.Renderable;
           me.game.world.addChild(bullet, 10);
-        // TODO: 
       }
 
     }

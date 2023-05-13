@@ -2,8 +2,6 @@ import * as me from 'melonjs';
 
 class WormEnemyEntity extends me.Entity {
   private health: number = 2;
-  //private shootCooldown: number = 1000; // Time in ms between shots
-  //private lastShotTime: number = 0; // Timestamp of last shot
 
   constructor(x: number, y: number, settings: any) {
     // define this here instead of tiled
@@ -123,7 +121,7 @@ class WormEnemyEntity extends me.Entity {
         }
         this.body.update(dt);
       }
-      // Shoot-Controll
+      // TODO: Shoot-Controll
     }
 
     // return true if we moved or if the renderable was updated

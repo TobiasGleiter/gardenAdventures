@@ -127,10 +127,7 @@ class WaspEnemyEntity extends me.Entity {
 
       // Shoot-Controll
       if (distance < 150 && me.timer.getTime() - this.lastShotTime >= this.shootCooldown){
-        //console.log("pitch:"+ pitch);
-        console.log("player-pos:" + pitch);
-        console.log("enemy-pos:" + dy);
-
+        // set spawn on x-axis according to enemy-walking-direction
         let x_val = 10;
         if(!this.facingLeft) {
           x_val = -15;
