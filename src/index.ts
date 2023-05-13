@@ -8,13 +8,11 @@ import PlayerEntity from 'js/renderables/player';
 import Game_Over from 'js/stage/Game_Over.ts';
 import Highscore from 'js/stage/Highscore.ts';
 import NextLevel from 'js/stage/NextLevel.ts';
+import YouWin from 'js/stage/YouWin.ts';
 import { getLevel } from 'js/stage/globals.ts';
 import LevelSelect from 'js/stage/levelSelect.ts';
 import PlayScreen from 'js/stage/play.ts';
 import TitleScreen from 'js/stage/title.ts';
-import YouWin from 'js/stage/YouWin.ts';
-
-
 
 import DataManifest from 'manifest.ts';
 import BulletEntity from './js/renderables/bullet';
@@ -33,12 +31,12 @@ import SpikeEnemyEntity from './js/renderables/spikeEnemy';
 import WaspEnemyEntity from './js/renderables/waspEnemy';
 import WormEnemyEntity from './js/renderables/wormEnemy';
 
-import MothAttack from './js/renderables/mothAttack';
+import AcidAttack from './js/renderables/acidAttack';
 import BirdAttack from './js/renderables/birdAttack';
 import MoleAttack from './js/renderables/moleAttack';
-import StingAttack from './js/renderables/stingAttack';
+import MothAttack from './js/renderables/mothAttack';
 import SlimeAttack from './js/renderables/slimeAttack';
-import AcidAttack from './js/renderables/acidAttack';
+import StingAttack from './js/renderables/stingAttack';
 
 // Probleme bei pseudo mp
 import tutorialFinishEntity from './js/renderables/tutorialFinish';
@@ -125,21 +123,23 @@ device.onReady(() => {
     me.pool.register('MoleAttack', MoleAttack);
     me.pool.register('StingAttack', StingAttack);
     me.pool.register('SlimeAttack', SlimeAttack);
-    me.pool.register('AcidAttack', AcidAttack);  
+    me.pool.register('AcidAttack', AcidAttack);
 
     // enable the keyboard
     me.input.bindKey(me.input.KEY.ESC, 'pause');
     me.input.bindKey(me.input.KEY.ENTER, 'resume');
     me.input.bindKey(me.input.KEY.LEFT, 'left');
+    me.input.bindKey(me.input.KEY.A, 'left');
     me.input.bindKey(me.input.KEY.RIGHT, 'right');
+    me.input.bindKey(me.input.KEY.D, 'right');
     // map X, Up Arrow and Space for jump
     me.input.bindKey(me.input.KEY.X, 'jump', true);
     me.input.bindKey(me.input.KEY.UP, 'jump', true);
-    //me.input.bindKey(me.input.KEY.SPACE, 'jump', true);
+    me.input.bindKey(me.input.KEY.SPACE, 'jump', true);
     // map S to shoot
-    //me.input.bindKey(me.input.KEY.S, 'shoot');
+    me.input.bindKey(me.input.KEY.S, 'shoot');
     me.input.bindKey(me.input.KEY.DOWN, 'shoot');
-    me.input.bindKey(me.input.KEY.SPACE, 'shoot');
+    //me.input.bindKey(me.input.KEY.SPACE, 'shoot');
     // map shift to sneak
     me.input.bindKey(me.input.KEY.SHIFT, 'sneak');
 
