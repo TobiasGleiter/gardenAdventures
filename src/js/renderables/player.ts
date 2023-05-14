@@ -231,6 +231,7 @@ class PlayerEntity extends me.Entity {
         response.overlapN.set(0, 0);
         break;
       case me.collision.types.PROJECTILE_OBJECT:
+        this.hurt();
         // Set the overlapV to 0 to prevent separating the entities
         response.overlapV.set(0, 0);
         // Set the overlapN to a random value to prevent separating the entities
