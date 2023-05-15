@@ -87,7 +87,7 @@ class PlayScreen extends me.Stage {
   // Run on game resources loaded.
   onDestroyEvent(): void {
     // SEND SCORE TO SERVER IF FINISHED
-    let isFinished = false;
+    let isFinished = true;
     if (isFinished) {
       const res = {
         player: network.getPlayerId() as string, //"123"

@@ -170,7 +170,7 @@ class PlayerEntity extends me.Entity {
         // Spawn a new bullet entity
         const bullet = me.pool.pull(
           'mainPlayerAttack',
-          this.pos.x + 10,
+          this.pos.x + 20,
           this.pos.y + 2,
           // Settings for bullet entity
           { facingLeft: this.facingLeft, bulletVel: 3, bulletDistance: 100 }
