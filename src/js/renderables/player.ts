@@ -167,10 +167,16 @@ class PlayerEntity extends me.Entity {
       ) {
         // Reset lastShotTime
         this.lastShotTime = me.timer.getTime();
+        let bulletPosX = 20;
+        if (this.facingLeft === true) {
+          bulletPosX = -5;
+        } else {
+          bulletPosX = 20;
+        }
         // Spawn a new bullet entity
         const bullet = me.pool.pull(
           'mainPlayerAttack',
-          this.pos.x + 20,
+          this.pos.x + bulletPosX,
           this.pos.y + 2,
           // Settings for bullet entity
           { facingLeft: this.facingLeft, bulletVel: 3, bulletDistance: 100 }
